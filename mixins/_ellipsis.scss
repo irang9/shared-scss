@@ -1,0 +1,32 @@
+@charset "utf-8";
+@use '../variables' as *;
+
+@mixin ellipsis($line: 1) {
+    @if $line == 1 {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    } @else {
+        display: -webkit-box;
+        -webkit-line-clamp: $line;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+// eg.
+// 한 줄 말줄임
+// .single-line {
+//     @include ellipsis;  // 또는 @include ellipsis(1);
+// }
+
+// // 두 줄 말줄임
+// .two-lines {
+//     @include ellipsis(2);
+// }
+
+// // 세 줄 말줄임
+// .three-lines {
+//     @include ellipsis(3);
+// }
+

@@ -1,0 +1,59 @@
+@charset "utf-8";
+@use '../variables' as *;
+
+// border-radius
+@mixin border-radius($top-left:10px, $top-right:null, $bottom-right:null, $bottom-left:null){
+    -webkit-border-radius: $top-left $top-right $bottom-right $bottom-left;
+    -moz-border-radius: $top-left $top-right $bottom-right $bottom-left;
+    -ms-border-radius: $top-left $top-right $bottom-right $bottom-left;
+    border-radius: $top-left $top-right $bottom-right $bottom-left;
+    -o-border-radius: $top-left $top-right $bottom-right $bottom-left;
+}
+
+
+// border-radius mixin
+@mixin border-radius-base($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+    -o-border-radius: $radius;
+}
+
+@mixin border-radius-none {
+    @include border-radius-base($border-radius-none);
+}
+
+@mixin border-radius-sm {
+    @include border-radius-base($border-radius-sm);
+}
+
+@mixin border-radius-default {
+    @include border-radius-base($border-radius-default);
+}
+
+@mixin border-radius-md {
+    @include border-radius-base($border-radius-md);
+}
+
+@mixin border-radius-lg {
+    @include border-radius-base($border-radius-lg);
+}
+
+@mixin border-radius-xl {
+    @include border-radius-base($border-radius-xl);
+}
+
+@mixin border-radius-2xl {
+    @include border-radius-base($border-radius-2xl);
+}
+
+@mixin border-radius-3xl {
+    @include border-radius-base($border-radius-3xl);
+}
+
+@mixin border-radius-full {
+    @include border-radius-base($border-radius-full);
+}
+
+

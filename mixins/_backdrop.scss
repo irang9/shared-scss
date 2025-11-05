@@ -1,0 +1,29 @@
+@charset "utf-8";
+@use '../variables' as *;
+
+// backdrop 
+@mixin backdrop($backdrops) {
+    backdrop-filter: $backdrops;
+    -webkit-backdrop-filter: $backdrops;
+}
+// backdrop - blur
+@mixin blur ($unit) { 
+	@include backdrop(blur(#{$unit}));
+}
+
+// filter : @include filter(brightness,80%);
+@mixin filter($filter-type,$filter-amount) { 
+    -webkit-filter: $filter-type+unquote('(#{$filter-amount})');
+    -moz-filter: $filter-type+unquote('(#{$filter-amount})');
+    -ms-filter: $filter-type+unquote('(#{$filter-amount})');
+    -o-filter: $filter-type+unquote('(#{$filter-amount})');
+    filter: $filter-type+unquote('(#{$filter-amount})');
+}
+
+@mixin drop-shadow($params) {
+    filter: drop-shadow($params);
+    -webkit-filter: drop-shadow($params); // Safari, iOS 등 WebKit 브라우저 지원
+}
+// uses
+// @include drop-shadow(4px 5px 7px rgba(0, 0, 0, .6)); 
+

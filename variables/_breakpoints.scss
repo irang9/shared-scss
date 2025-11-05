@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+// ------- Breakpoints
+$mobile-xxs: 320px; //@mixin mobile-supermini
+
+// $mobile-xs: 375px; // @mixin mobile-mini
+$mobile-xs: 360px; // @mixin mobile-mini // :(
+$mobile-sm: 480px; // @mixin mobile
+$mobile: 576px; // @mixin mobile
+$desktop-xs: 768px; // @mixin mobile-max. lg
+$desktop-sm: 992px; // @mixin tablet
+$desktop: 1024px; // stockwatchsize
+$desktop-lg: 1200px;
+$desktop-xl: 1400px;
+
