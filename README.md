@@ -1,14 +1,16 @@
-# Shared SCSS
+# Shared SCSS 프로젝트
 
 여러 프로젝트에서 공통으로 사용하는 SCSS 변수, mixins, 유틸리티 클래스 라이브러리입니다.
 
-## 📚 문서
+## 📚 온라인 문서
 
 **👉 [온라인 문서 보기](https://irang9.github.io/shared-scss/)** (GitHub Pages)
 
 문서에서 모든 변수, mixins, 유틸리티 클래스를 확인할 수 있습니다.
 
 ## 📁 프로젝트 구조
+
+이 저장소는 다음과 같은 구조로 구성되어 있습니다:
 
 ```
 shared-scss/
@@ -20,37 +22,48 @@ shared-scss/
 │   ├── fonts/        # 폰트 파일들
 │   ├── base/         # 기본 스타일 (reset)
 │   ├── utilities/    # 유틸리티 클래스
-│   └── _index.scss   # 메인 진입점
+│   ├── _index.scss   # 메인 진입점
+│   └── README.md     # 상세 문서
 ├── docs/             # 문서 (HTML)
 │   ├── index.html
 │   ├── colors.html
 │   ├── typography.html
-│   └── ...
+│   ├── breakpoints.html
+│   ├── spacing.html
+│   ├── borders.html
+│   ├── stacks.html
+│   ├── vertical-rule.html
+│   ├── mixins.html
+│   └── generate-docs.py  # 문서 자동 생성 스크립트
 ├── sample-project/   # 사용 예제
 │   ├── scss/
+│   │   ├── _config.scss  # 프로젝트별 설정 (변수 오버라이드)
+│   │   ├── main.scss     # 메인 스타일 파일
+│   │   └── components/   # 컴포넌트 스타일
 │   ├── css/
-│   └── index.html
+│   ├── index.html
+│   └── README.md
 └── README.md         # 이 파일
 ```
 
-## 🚀 빠른 시작
+## 📂 디렉토리 설명
 
-### 1. 설치
+### `shared-scss/` - SCSS 라이브러리
 
-```bash
-# Git 서브모듈로 추가 (권장)
-git submodule add https://github.com/irang9/shared-scss.git shared-scss
+실제 SCSS 라이브러리 코드가 들어있는 디렉토리입니다. 다른 프로젝트에서 이 디렉토리를 참조하여 사용합니다.
 
-# 또는 직접 클론
-git clone https://github.com/irang9/shared-scss.git
-cd shared-scss
-```
+**주요 내용:**
+- **variables/**: 색상, 타이포그래피, spacing 등 변수 정의
+- **breakpoints/**: 반응형 디자인을 위한 breakpoint 변수와 mixins
+- **theme/**: 의미 색상 (primary, secondary, success 등)
+- **mixins/**: 재사용 가능한 SCSS mixins
+- **fonts/**: 폰트 파일 및 폰트 변수
+- **base/**: 기본 스타일 (reset 등)
+- **utilities/**: 유틸리티 클래스 (Bootstrap 스타일)
 
-### 2. 사용
-
+**사용 방법:**
 ```scss
 // 프로젝트의 SCSS 파일에서
-// shared-scss 디렉토리를 프로젝트에 복사하거나 서브모듈로 추가한 경우
 @use '../shared-scss/shared-scss' as *;
 
 // 또는 필요한 것만 선택적으로
@@ -60,117 +73,112 @@ cd shared-scss
 @use '../shared-scss/shared-scss/mixins' as *;
 ```
 
-### 3. 커스터마이징
+자세한 사용 방법은 [`shared-scss/README.md`](./shared-scss/README.md)를 참고하세요.
 
-프로젝트별 설정 파일(`_config.scss`)을 만들어 색상 등을 오버라이드할 수 있습니다:
+### `docs/` - 문서
+
+HTML 형식의 문서가 들어있는 디렉토리입니다. GitHub Pages를 통해 온라인으로 제공됩니다.
+
+**주요 내용:**
+- **index.html**: 문서 홈페이지
+- **colors.html**: 색상 변수 문서
+- **typography.html**: 타이포그래피 문서
+- **breakpoints.html**: Breakpoint 문서
+- **spacing.html**: Spacing 문서
+- **borders.html**: Border 유틸리티 문서
+- **stacks.html**: Stacks 유틸리티 문서
+- **vertical-rule.html**: Vertical Rule 유틸리티 문서
+- **mixins.html**: Mixins 문서
+- **generate-docs.py**: 문서 자동 생성 스크립트
+
+**문서 업데이트:**
+`shared-scss/` 디렉토리의 SCSS 파일을 수정한 후, 다음 명령어로 문서를 자동 생성할 수 있습니다:
+
+```bash
+cd docs
+python3 generate-docs.py
+```
+
+문서는 `shared-scss/` 디렉토리의 SCSS 파일을 파싱하여 자동으로 생성되므로, SCSS 코드를 수정하면 문서도 함께 업데이트됩니다.
+
+### `sample-project/` - 사용 예제
+
+Shared SCSS를 실제 프로젝트에서 어떻게 사용하는지 보여주는 예제 프로젝트입니다.
+
+**주요 내용:**
+- **scss/_config.scss**: 프로젝트별 설정 파일 (변수 오버라이드 예시)
+- **scss/main.scss**: 메인 스타일 파일 (import 구조 예시)
+- **scss/components/**: 컴포넌트별 스타일 파일
+- **css/**: 컴파일된 CSS 파일
+- **index.html**: 예제 HTML 파일
+
+**예제 확인:**
+```bash
+cd sample-project
+sass scss/main.scss css/main.css
+open index.html
+```
+
+자세한 사용 방법은 [`sample-project/README.md`](./sample-project/README.md)를 참고하세요.
+
+## 🚀 빠른 시작
+
+### 1. 저장소 클론
+
+```bash
+git clone https://github.com/irang9/shared-scss.git
+cd shared-scss
+```
+
+### 2. 다른 프로젝트에서 사용
+
+#### 방법 A: Git 서브모듈로 추가 (권장)
+
+```bash
+# 프로젝트 디렉토리에서
+git submodule add https://github.com/irang9/shared-scss.git shared-scss
+```
+
+#### 방법 B: 직접 복사
+
+```bash
+# shared-scss/shared-scss 디렉토리를 프로젝트에 복사
+cp -r shared-scss/shared-scss /path/to/your/project/
+```
+
+### 3. SCSS 파일에서 사용
 
 ```scss
-// _config.scss
+// 프로젝트의 SCSS 파일에서
+@use '../shared-scss/shared-scss' as *;
+
+// 또는 필요한 것만 선택적으로
 @use '../shared-scss/shared-scss/variables' as *;
 @use '../shared-scss/shared-scss/breakpoints' as *;
-
-// Primary 색상 오버라이드
-$primary: #ff6b6b;
-$secondary: #4ecdc4;
-
-// Theme import (위에서 정의한 변수가 기본값을 덮어씁니다)
 @use '../shared-scss/shared-scss/theme' as *;
+@use '../shared-scss/shared-scss/mixins' as *;
 ```
 
-자세한 사용 방법은 [sample-project](./sample-project/)를 참고하세요.
+### 4. 프로젝트별 커스터마이징
 
-## ✨ 주요 기능
+프로젝트별 설정 파일(`_config.scss`)을 만들어 색상 등을 오버라이드할 수 있습니다. 자세한 방법은 [`sample-project/README.md`](./sample-project/README.md)를 참고하세요.
 
-### Variables (변수)
-- **Colors**: Tailwind 기반 색상 팔레트
-- **Typography**: Font-size, font-weight, rem 함수
-- **Spacing**: Margin, padding, gap 변수
+## 📖 더 알아보기
 
-### Breakpoints
-- Bootstrap 5 표준과 일치하는 breakpoint
-- Mobile First / Desktop First mixins
-- `@include up("md")`, `@include down("md")`, `@include between("xs", "lg")`
+- **[온라인 문서](https://irang9.github.io/shared-scss/)** - 모든 변수와 설정값 확인
+- **[Shared SCSS 상세 문서](./shared-scss/README.md)** - 라이브러리 상세 설명
+- **[Sample Project](./sample-project/)** - 사용 예제
 
-### Theme (의미 색상)
-- Semantic color variables (`$primary`, `$secondary`, `$success` 등)
-- Background, text, border 색상
-- 프로젝트별 오버라이드 가능
+## 🔧 문서 업데이트
 
-### Mixins
-- `rounded`: Border-radius mixins (Bootstrap 스타일)
-- `transition`: Transition 효과
-- `transform`: Transform 효과
-- `ellipsis`: 텍스트 말줄임
-- 기타 유용한 mixins
+`shared-scss/` 디렉토리의 SCSS 파일을 수정한 후, 문서를 업데이트하려면:
 
-### Utilities (유틸리티 클래스)
-- **Borders**: Border 추가/제거, width, color, radius, opacity
-- **Colors**: 색상 유틸리티
-- **Display**: Display 유틸리티
-- **Flex**: Flexbox 유틸리티
-- **Spacing**: Margin, padding, gap
-- **Stacks**: `.vstack`, `.hstack` (Bootstrap 스타일)
-- **Vertical Rule**: `.vr` (수직 구분선)
-- **Text**: Typography 유틸리티
-
-## 📖 문서
-
-- [온라인 문서](https://irang9.github.io/shared-scss/) - 모든 변수와 설정값 확인
-- [Sample Project](./sample-project/) - 사용 예제
-- [Shared SCSS README](./shared-scss/README.md) - 상세 문서
-
-## 🎯 사용 예시
-
-### 색상 사용
-```scss
-.button {
-    background-color: $primary;
-    color: white;
-    border: 1px solid $border-default;
-}
+```bash
+cd docs
+python3 generate-docs.py
 ```
 
-### Breakpoint 사용
-```scss
-.container {
-    padding: 16px;
-    
-    @include up("md") {
-        padding: 24px;  // 768px 이상
-    }
-    
-    @include down("sm") {
-        padding: 12px;  // 575.98px 이하
-    }
-}
-```
-
-### Mixin 사용
-```scss
-.card {
-    @include rounded-lg;
-    @include transition(transform 0.2s);
-    
-    &:hover {
-        transform: translateY(-4px);
-    }
-}
-```
-
-### Utility Classes 사용
-```html
-<div class="border border-primary rounded-lg p-4">
-    <div class="hstack gap-3">
-        <span>Item 1</span>
-        <div class="vr"></div>
-        <span>Item 2</span>
-    </div>
-</div>
-```
-
-## 🔧 커스터마이징
-
-프로젝트별로 색상, spacing 등을 커스터마이징할 수 있습니다. 자세한 방법은 [sample-project](./sample-project/README.md)를 참고하세요.
+문서는 자동으로 `shared-scss/` 디렉토리의 SCSS 파일을 파싱하여 생성되므로, SCSS 코드를 수정하면 문서도 함께 업데이트됩니다.
 
 ## 📝 라이선스
 
