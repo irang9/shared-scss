@@ -10,27 +10,31 @@
 
 ## 📁 프로젝트 구조
 
+이 README는 `rexbox/` 라이브러리 디렉토리 내에 있습니다. 전체 프로젝트 구조:
+
 ```
-rexbox/
-├── rexbox/           # SCSS 라이브러리 (메인)
-│   ├── variables/    # 변수 (colors, typo, spacing)
-│   ├── breakpoints/  # Breakpoint 변수와 mixins
-│   ├── theme/        # 의미 색상 (semantic colors)
-│   ├── mixins/       # Mixins
-│   ├── fonts/        # 기본 폰트 파일 (Spoqa, Material Icons)
-│   ├── base/         # 기본 스타일 (reset)
-│   ├── utilities/    # 유틸리티 클래스
-│   └── _index.scss   # 메인 진입점
-├── docs/             # 문서 (HTML)
+rexbox/                    # 프로젝트 루트
+├── rexbox/                # SCSS 라이브러리 (메인) - 이 디렉토리
+│   ├── variables/         # 변수 (colors, typo, spacing)
+│   ├── breakpoints/       # Breakpoint 변수와 mixins
+│   ├── theme/             # 의미 색상 (semantic colors)
+│   ├── mixins/            # Mixins
+│   ├── fonts/             # 기본 폰트 파일 (Spoqa, Material Icons)
+│   ├── base/              # 기본 스타일 (reset)
+│   ├── utilities/         # 유틸리티 클래스
+│   ├── _index.scss        # 메인 진입점
+│   └── README.md          # 이 파일
+├── docs/                  # 문서 (HTML)
+│   ├── scripts/           # 문서 생성 스크립트
+│   ├── assets/            # 정적 파일 (favicon 등)
 │   ├── index.html
 │   ├── colors.html
-│   ├── typography.html
 │   └── ...
-├── sample-project/   # 사용 예제
+├── sample-project/        # 사용 예제
 │   ├── scss/
 │   ├── css/
 │   └── index.html
-└── README.md         # 이 파일
+└── README.md              # 프로젝트 루트 README
 ```
 
 ## 🚀 빠른 시작

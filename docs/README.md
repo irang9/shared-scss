@@ -176,5 +176,5 @@ docs/
 ## 📖 더 알아보기
 
 - [RexBox README](../README.md) - 프로젝트 전체 개요
-- [RexBox 상세 문서](../shared-scss/README.md) - 라이브러리 상세 설명
+- [RexBox 상세 문서](../rexbox/README.md) - 라이브러리 상세 설명
 - [Sample Project](../sample-project/README.md) - 사용 예제

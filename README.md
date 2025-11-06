@@ -34,7 +34,8 @@ rexbox/
 │   ├── stacks.html
 │   ├── vertical-rule.html
 │   ├── mixins.html
-│   └── generate-docs.py  # 문서 자동 생성 스크립트
+│   ├── scripts/          # 문서 생성 스크립트
+│   └── assets/           # 정적 파일 (favicon 등)
 ├── sample-project/   # 사용 예제
 │   ├── scss/
 │   │   ├── _config.scss  # 프로젝트별 설정 (변수 오버라이드)
@@ -96,7 +97,7 @@ HTML 형식의 문서가 들어있는 디렉토리입니다. GitHub Pages를 통
 
 ```bash
 cd docs
-python3 generate-docs.py
+python3 scripts/generate-docs.py
 ```
 
 문서는 `rexbox/` 디렉토리의 SCSS 파일을 파싱하여 자동으로 생성되므로, SCSS 코드를 수정하면 문서도 함께 업데이트됩니다.
@@ -195,7 +196,7 @@ $font-gmarket: "GmarketSans", "Spoqa Han Sans Neo", ...;
 
 ```bash
 cd docs
-python3 generate-docs.py
+python3 scripts/generate-docs.py
 ```
 
 문서는 자동으로 `rexbox/` 디렉토리의 SCSS 파일을 파싱하여 생성되므로, SCSS 코드를 수정하면 문서도 함께 업데이트됩니다.
