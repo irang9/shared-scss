@@ -6,13 +6,15 @@
     <title>Breakpoints - Shared SCSS</title>
     
     <style>
+        @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+            font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
             background: #f5f5f5;
             line-height: 1.6;
         }
@@ -263,6 +265,7 @@
                     <li><a href="typography.html">Typography</a></li>
                     <li><a href="spacing.html">Spacing</a></li>
                     <li><a href="fonts.html">Fonts</a></li>
+                    <li><a href="mixins.html">Mixins</a></li>
 
                 </ul>
             </div>
@@ -352,6 +355,60 @@
         
                 </tbody>
             </table>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Core Mixins</h2>
+            <p>Map 기반 breakpoint mixin 사용법:</p>
+            <table style="margin-top: 16px;">
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>설명</th>
+                        <th>사용 예시</th>
+                        <th>적용 범위 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="code">@include up("xs")</code></td>
+                        <td>위로 (min-width) - Mobile First</td>
+                        <td><code class="code">@include up("xs") { ... }</code></td>
+                        <td>360px 이상 (소형 모바일 이상)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include down("md")</code></td>
+                        <td>아래로 (max-width) - Desktop First</td>
+                        <td><code class="code">@include down("md") { ... }</code></td>
+                        <td>575.98px 이하 (대형 모바일 이하)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include between("xs", "lg")</code></td>
+                        <td>범위 (between) - 특정 범위 지정</td>
+                        <td><code class="code">@include between("xs", "lg") { ... }</code></td>
+                        <td>360px ~ 767.98px (소형 모바일 ~ 태블릿)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 6px; border: 1px solid #e2e8f0;">
+                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #1e293b;">사용 예시</h3>
+                <pre style="background: #1e293b; color: #f8fafc; padding: 16px; border-radius: 4px; overflow-x: auto; font-size: 13px; line-height: 1.6;"><code>.container {
+    padding: 16px;
+    
+    @include up("md") {
+        padding: 24px;  // 576px 이상에서 적용
+    }
+    
+    @include down("sm") {
+        padding: 12px;  // 479.98px 이하에서 적용
+    }
+    
+    @include between("md", "xl") {
+        max-width: 1200px;  // 576px ~ 991.98px 범위에서 적용
+    }
+}</code></pre>
+            </div>
         </div>
         
         <div class="section">

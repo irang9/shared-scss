@@ -26,6 +26,7 @@ NAV_ITEMS = [
     {"title": "Typography", "url": "typography.html"},
     {"title": "Spacing", "url": "spacing.html"},
     {"title": "Fonts", "url": "fonts.html"},
+    {"title": "Mixins", "url": "mixins.html"},
 ]
 
 
@@ -33,13 +34,15 @@ def get_common_styles() -> str:
     """공통 CSS 스타일"""
     return """
     <style>
+        @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+            font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
             background: #f5f5f5;
             line-height: 1.6;
         }
@@ -818,6 +821,60 @@ def generate_breakpoints_page() -> str:
         </div>
         
         <div class="section">
+            <h2 class="section-title">Core Mixins</h2>
+            <p>Map 기반 breakpoint mixin 사용법:</p>
+            <table style="margin-top: 16px;">
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>설명</th>
+                        <th>사용 예시</th>
+                        <th>적용 범위 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="code">@include up("xs")</code></td>
+                        <td>위로 (min-width) - Mobile First</td>
+                        <td><code class="code">@include up("xs") { ... }</code></td>
+                        <td>360px 이상 (소형 모바일 이상)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include down("md")</code></td>
+                        <td>아래로 (max-width) - Desktop First</td>
+                        <td><code class="code">@include down("md") { ... }</code></td>
+                        <td>575.98px 이하 (대형 모바일 이하)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include between("xs", "lg")</code></td>
+                        <td>범위 (between) - 특정 범위 지정</td>
+                        <td><code class="code">@include between("xs", "lg") { ... }</code></td>
+                        <td>360px ~ 767.98px (소형 모바일 ~ 태블릿)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 6px; border: 1px solid #e2e8f0;">
+                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #1e293b;">사용 예시</h3>
+                <pre style="background: #1e293b; color: #f8fafc; padding: 16px; border-radius: 4px; overflow-x: auto; font-size: 13px; line-height: 1.6;"><code>.container {
+    padding: 16px;
+    
+    @include up("md") {
+        padding: 24px;  // 576px 이상에서 적용
+    }
+    
+    @include down("sm") {
+        padding: 12px;  // 479.98px 이하에서 적용
+    }
+    
+    @include between("md", "xl") {
+        max-width: 1200px;  // 576px ~ 991.98px 범위에서 적용
+    }
+}</code></pre>
+            </div>
+        </div>
+        
+        <div class="section">
             <h2 class="section-title">기존 변수 (하위 호환성)</h2>
             <p>다음 변수들은 Map 기반 breakpoint에서 자동으로 생성됩니다:</p>
             <ul style="margin-top: 16px; padding-left: 24px;">
@@ -976,7 +1033,7 @@ def generate_spacing_page() -> str:
     
     content = """
         <h1>Spacing</h1>
-        <p class="subtitle">간격 관련 변수</p>
+        <p class="subtitle">간격 관련 변수 및 Utility Classes</p>
         
         <div class="section">
             <h2 class="section-title">Spacing Variables</h2>
@@ -1004,6 +1061,89 @@ def generate_spacing_page() -> str:
     content += """
                 </tbody>
             </table>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Spacing Utility Classes</h2>
+            <p>다음 utility classes를 사용하여 간격을 빠르게 적용할 수 있습니다:</p>
+            
+            <h3 style="font-size: 16px; font-weight: 600; margin-top: 24px; margin-bottom: 12px; color: #1e293b;">Margin Utilities</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>클래스</th>
+                        <th>설명</th>
+                        <th>값</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><code class="code">m-0</code></td><td>margin: 0</td><td>0</td></tr>
+                    <tr><td><code class="code">m-1</code></td><td>margin: 0.25rem</td><td>4px</td></tr>
+                    <tr><td><code class="code">m-2</code></td><td>margin: 0.5rem</td><td>8px</td></tr>
+                    <tr><td><code class="code">m-3</code></td><td>margin: 1rem</td><td>16px</td></tr>
+                    <tr><td><code class="code">m-4</code></td><td>margin: 1.5rem</td><td>24px</td></tr>
+                    <tr><td><code class="code">m-5</code></td><td>margin: 3rem</td><td>48px</td></tr>
+                    <tr><td><code class="code">mt-2</code></td><td>margin-top: 0.5rem</td><td>8px</td></tr>
+                    <tr><td><code class="code">mb-2</code></td><td>margin-bottom: 0.5rem</td><td>8px</td></tr>
+                    <tr><td><code class="code">ms-2</code></td><td>margin-left: 0.5rem</td><td>8px</td></tr>
+                    <tr><td><code class="code">me-2</code></td><td>margin-right: 0.5rem</td><td>8px</td></tr>
+                    <tr><td><code class="code">m-auto</code></td><td>margin: auto</td><td>auto</td></tr>
+                </tbody>
+            </table>
+            
+            <h3 style="font-size: 16px; font-weight: 600; margin-top: 24px; margin-bottom: 12px; color: #1e293b;">Padding Utilities</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>클래스</th>
+                        <th>설명</th>
+                        <th>값</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><code class="code">p-0</code></td><td>padding: 0</td><td>0</td></tr>
+                    <tr><td><code class="code">p-1</code></td><td>padding: 0.25rem</td><td>4px</td></tr>
+                    <tr><td><code class="code">p-2</code></td><td>padding: 0.5rem</td><td>8px</td></tr>
+                    <tr><td><code class="code">p-3</code></td><td>padding: 1rem</td><td>16px</td></tr>
+                    <tr><td><code class="code">p-4</code></td><td>padding: 1.5rem</td><td>24px</td></tr>
+                    <tr><td><code class="code">p-5</code></td><td>padding: 3rem</td><td>48px</td></tr>
+                    <tr><td><code class="code">pt-2</code></td><td>padding-top: 0.5rem</td><td>8px</td></tr>
+                    <tr><td><code class="code">pb-2</code></td><td>padding-bottom: 0.5rem</td><td>8px</td></tr>
+                    <tr><td><code class="code">ps-2</code></td><td>padding-left: 0.5rem</td><td>8px</td></tr>
+                    <tr><td><code class="code">pe-2</code></td><td>padding-right: 0.5rem</td><td>8px</td></tr>
+                    <tr><td><code class="code">px-2</code></td><td>padding-left + padding-right: 0.5rem</td><td>8px</td></tr>
+                    <tr><td><code class="code">py-2</code></td><td>padding-top + padding-bottom: 0.5rem</td><td>8px</td></tr>
+                </tbody>
+            </table>
+            
+            <h3 style="font-size: 16px; font-weight: 600; margin-top: 24px; margin-bottom: 12px; color: #1e293b;">Gap Utilities</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>클래스</th>
+                        <th>설명</th>
+                        <th>값</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><code class="code">gap-1</code></td><td>gap: 0.25rem</td><td>4px</td></tr>
+                    <tr><td><code class="code">gap-2</code></td><td>gap: 0.5rem</td><td>8px</td></tr>
+                    <tr><td><code class="code">gap-3</code></td><td>gap: 1rem</td><td>16px</td></tr>
+                    <tr><td><code class="code">gap-4</code></td><td>gap: 1.5rem</td><td>24px</td></tr>
+                    <tr><td><code class="code">gap-5</code></td><td>gap: 3rem</td><td>48px</td></tr>
+                </tbody>
+            </table>
+            
+            <div style="margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 6px; border: 1px solid #e2e8f0;">
+                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #1e293b;">사용 방법</h3>
+                <p style="margin-bottom: 12px; color: #64748b;">SCSS 파일에서 <code class="code">@include spacing-utils;</code>를 사용하여 utility classes를 생성합니다:</p>
+                <pre style="background: #1e293b; color: #f8fafc; padding: 16px; border-radius: 4px; overflow-x: auto; font-size: 13px; line-height: 1.6;"><code>// 모든 utility classes 생성
+@include spacing-utils;
+
+// prefix를 사용한 경우 (예: "u")
+@include spacing-utils("u");
+// → .u-m-2, .u-p-2 등으로 생성됨</code></pre>
+            </div>
         </div>
     """
     
@@ -1079,6 +1219,341 @@ def generate_fonts_page() -> str:
             </table>
         </div>
     """
+    
+    return content
+
+
+# ============================================
+# Mixins 페이지
+# ============================================
+
+def extract_mixins() -> Dict[str, Dict[str, str]]:
+    """Mixins 파일들에서 mixin 정보를 추출합니다."""
+    mixins = {}
+    mixins_dir = ROOT_DIR / "mixins"
+    
+    mixin_files = {
+        "border-radius": mixins_dir / "_border-radius.scss",
+        "backdrop": mixins_dir / "_backdrop.scss",
+        "button-hover": mixins_dir / "_button-hover.scss",
+        "clearfix": mixins_dir / "_clearfix.scss",
+        "ellipsis": mixins_dir / "_ellipsis.scss",
+        "transform": mixins_dir / "_transform.scss",
+        "transition": mixins_dir / "_transition.scss",
+    }
+    
+    for name, file_path in mixin_files.items():
+        if file_path.exists():
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # Mixin 정의 찾기
+            pattern = r'@mixin\s+([a-z0-9-]+)\s*(?:\(([^)]*)\))?\s*{'
+            matches = re.finditer(pattern, content)
+            
+            mixin_list = []
+            for match in matches:
+                mixin_name = match.group(1)
+                params = match.group(2) if match.group(2) else ""
+                mixin_list.append({"name": mixin_name, "params": params})
+            
+            if mixin_list:
+                mixins[name] = mixin_list
+    
+    return mixins
+
+
+def generate_mixins_page() -> str:
+    """Mixins 페이지 생성"""
+    mixins = extract_mixins()
+    
+    content = """
+        <h1>Mixins</h1>
+        <p class="subtitle">사용 가능한 SCSS mixins</p>
+    """
+    
+    # Border Radius Mixins
+    if "border-radius" in mixins:
+        content += """
+        <div class="section">
+            <h2 class="section-title">Border Radius Mixins</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>설명</th>
+                        <th>사용 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="code">@include border-radius</code></td>
+                        <td>Generic border-radius (4개 코너 각각 지정 가능)</td>
+                        <td><code class="code">@include border-radius(8px);</code><br><code class="code">@include border-radius(8px, 4px, 8px, 4px);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-none</code></td>
+                        <td>border-radius: 0</td>
+                        <td><code class="code">@include border-radius-none;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-xs</code></td>
+                        <td>border-radius: 2px</td>
+                        <td><code class="code">@include border-radius-xs;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-sm</code></td>
+                        <td>border-radius: 4px</td>
+                        <td><code class="code">@include border-radius-sm;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-md</code></td>
+                        <td>border-radius: 6px</td>
+                        <td><code class="code">@include border-radius-md;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-lg</code></td>
+                        <td>border-radius: 8px</td>
+                        <td><code class="code">@include border-radius-lg;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-xl</code></td>
+                        <td>border-radius: 12px</td>
+                        <td><code class="code">@include border-radius-xl;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-2xl</code></td>
+                        <td>border-radius: 16px</td>
+                        <td><code class="code">@include border-radius-2xl;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-3xl</code></td>
+                        <td>border-radius: 24px</td>
+                        <td><code class="code">@include border-radius-3xl;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-full</code></td>
+                        <td>border-radius: 999px</td>
+                        <td><code class="code">@include border-radius-full;</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        """
+    
+    # Backdrop Mixins
+    if "backdrop" in mixins:
+        content += """
+        <div class="section">
+            <h2 class="section-title">Backdrop Mixins</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>설명</th>
+                        <th>사용 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="code">@include backdrop</code></td>
+                        <td>backdrop-filter 적용</td>
+                        <td><code class="code">@include backdrop(blur(10px));</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include blur</code></td>
+                        <td>backdrop blur 효과</td>
+                        <td><code class="code">@include blur(10px);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include filter</code></td>
+                        <td>CSS filter 적용</td>
+                        <td><code class="code">@include filter(brightness, 80%);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include drop-shadow</code></td>
+                        <td>drop-shadow 효과</td>
+                        <td><code class="code">@include drop-shadow(4px 5px 7px rgba(0, 0, 0, .6));</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        """
+    
+    # Button Hover Mixin
+    if "button-hover" in mixins:
+        content += """
+        <div class="section">
+            <h2 class="section-title">Button Hover Mixin</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>설명</th>
+                        <th>사용 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="code">@include button-hover</code></td>
+                        <td>버튼 hover 시 brightness 조절</td>
+                        <td><code class="code">@include button-hover(120%);</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        """
+    
+    # Clearfix Mixin
+    if "clearfix" in mixins:
+        content += """
+        <div class="section">
+            <h2 class="section-title">Clearfix Mixin</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>설명</th>
+                        <th>사용 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="code">@include clearfix</code></td>
+                        <td>float 요소 정리</td>
+                        <td><code class="code">@include clearfix;</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        """
+    
+    # Ellipsis Mixin
+    if "ellipsis" in mixins:
+        content += """
+        <div class="section">
+            <h2 class="section-title">Ellipsis Mixin</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>설명</th>
+                        <th>사용 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="code">@include ellipsis</code></td>
+                        <td>한 줄 말줄임</td>
+                        <td><code class="code">@include ellipsis;</code> 또는 <code class="code">@include ellipsis(1);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include ellipsis(2)</code></td>
+                        <td>두 줄 말줄임</td>
+                        <td><code class="code">@include ellipsis(2);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include ellipsis(3)</code></td>
+                        <td>세 줄 말줄임</td>
+                        <td><code class="code">@include ellipsis(3);</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        """
+    
+    # Transform Mixins
+    if "transform" in mixins:
+        content += """
+        <div class="section">
+            <h2 class="section-title">Transform Mixins</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>설명</th>
+                        <th>사용 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="code">@include transform</code></td>
+                        <td>CSS transform 적용</td>
+                        <td><code class="code">@include transform(rotate(45deg));</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include rotate</code></td>
+                        <td>회전</td>
+                        <td><code class="code">@include rotate(45);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include scale</code></td>
+                        <td>크기 조절</td>
+                        <td><code class="code">@include scale(1.2);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include translate</code></td>
+                        <td>이동</td>
+                        <td><code class="code">@include translate(10px, 20px);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include skew</code></td>
+                        <td>기울임</td>
+                        <td><code class="code">@include skew(10, 20);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include transform-origin</code></td>
+                        <td>transform 기준점 설정</td>
+                        <td><code class="code">@include transform-origin(center);</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        """
+    
+    # Transition Mixins
+    if "transition" in mixins:
+        content += """
+        <div class="section">
+            <h2 class="section-title">Transition Mixins</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>설명</th>
+                        <th>사용 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="code">@include transition</code></td>
+                        <td>CSS transition 적용</td>
+                        <td><code class="code">@include transition(background-color 1s 2s, color 2s);</code><br><code class="code">@include transition(0.3s);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include transition-property</code></td>
+                        <td>transition 속성 지정</td>
+                        <td><code class="code">@include transition-property(background-color, color);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include transition-duration</code></td>
+                        <td>transition 지속 시간</td>
+                        <td><code class="code">@include transition-duration(0.3s);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include transition-timing-function</code></td>
+                        <td>transition 타이밍 함수</td>
+                        <td><code class="code">@include transition-timing-function(ease-in-out);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include transition-delay</code></td>
+                        <td>transition 지연 시간</td>
+                        <td><code class="code">@include transition-delay(0.2s);</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        """
     
     return content
 
@@ -1163,6 +1638,12 @@ def main():
     colors_content = generate_colors_page()
     with open(DOCS_DIR / "colors.html", 'w', encoding='utf-8') as f:
         f.write(generate_html_page("Colors", colors_content, "colors.html"))
+    
+    # Mixins 페이지
+    print("  - mixins.html 생성 중...")
+    mixins_content = generate_mixins_page()
+    with open(DOCS_DIR / "mixins.html", 'w', encoding='utf-8') as f:
+        f.write(generate_html_page("Mixins", mixins_content, "mixins.html"))
     
     print(f"✓ 모든 문서가 {DOCS_DIR} 디렉토리에 생성되었습니다!")
 

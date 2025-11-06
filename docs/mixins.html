@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixins - Shared SCSS</title>
+    
+    <style>
+        @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+        .nav {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .nav-content {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .nav-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e293b;
+            text-decoration: none;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+        .nav-menu a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #2563eb;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 32px 20px;
+        }
+        h1 {
+            color: #212121;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        .subtitle {
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .grid {
+            display: grid;
+            gap: 16px;
+        }
+        .card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .card-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .card-value {
+            color: #64748b;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 13px;
+        }
+        .code {
+            font-family: 'Monaco', 'Menlo', monospace;
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        .semantic-colors {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        .semantic-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .semantic-item.bg-example {
+            padding: 16px;
+        }
+        .semantic-item.text-example {
+            padding: 16px;
+        }
+        .semantic-item.border-example {
+            padding: 16px;
+        }
+        .semantic-swatch {
+            width: 48px;
+            height: 48px;
+            border-radius: 4px;
+            flex-shrink: 0;
+            border: 1px solid #e2e8f0;
+        }
+        .semantic-info {
+            flex: 1;
+        }
+        .semantic-name {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+        .semantic-value {
+            color: #64748b;
+            font-size: 11px;
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+        .category-group {
+            margin-bottom: 32px;
+        }
+        .category-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 16px;
+            margin-top: 32px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .category-title:first-child {
+            margin-top: 0;
+        }
+        .example-text {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .palette-group {
+            margin-bottom: 32px;
+        }
+        .palette-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 12px;
+            margin-top: 24px;
+        }
+        .palette-title:first-child {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+        table th,
+        table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        table th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 13px;
+        }
+        table td {
+            color: #334155;
+            font-size: 14px;
+        }
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 12px;
+        }
+        .color-item {
+            display: flex;
+            flex-direction: column;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            background: white;
+        }
+        .color-swatch {
+            width: 100%;
+            height: 80px;
+        }
+        .color-info {
+            padding: 8px;
+            font-size: 11px;
+        }
+        .color-name {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+        .color-value {
+            color: #64748b;
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-content">
+                <a href="index.html" class="nav-title">Shared SCSS</a>
+                <ul class="nav-menu">
+                        <li><a href="index.html">홈</a></li>
+                    <li><a href="colors.html">Colors</a></li>
+                    <li><a href="breakpoints.html">Breakpoints</a></li>
+                    <li><a href="typography.html">Typography</a></li>
+                    <li><a href="spacing.html">Spacing</a></li>
+                    <li><a href="fonts.html">Fonts</a></li>
+                    <li><a href="mixins.html" class="active">Mixins</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        
+        <h1>Mixins</h1>
+        <p class="subtitle">사용 가능한 SCSS mixins</p>
+    
+        <div class="section">
+            <h2 class="section-title">Border Radius Mixins</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>설명</th>
+                        <th>사용 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="code">@include border-radius</code></td>
+                        <td>Generic border-radius (4개 코너 각각 지정 가능)</td>
+                        <td><code class="code">@include border-radius(8px);</code><br><code class="code">@include border-radius(8px, 4px, 8px, 4px);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-none</code></td>
+                        <td>border-radius: 0</td>
+                        <td><code class="code">@include border-radius-none;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-xs</code></td>
+                        <td>border-radius: 2px</td>
+                        <td><code class="code">@include border-radius-xs;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-sm</code></td>
+                        <td>border-radius: 4px</td>
+                        <td><code class="code">@include border-radius-sm;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-md</code></td>
+                        <td>border-radius: 6px</td>
+                        <td><code class="code">@include border-radius-md;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-lg</code></td>
+                        <td>border-radius: 8px</td>
+                        <td><code class="code">@include border-radius-lg;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-xl</code></td>
+                        <td>border-radius: 12px</td>
+                        <td><code class="code">@include border-radius-xl;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-2xl</code></td>
+                        <td>border-radius: 16px</td>
+                        <td><code class="code">@include border-radius-2xl;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-3xl</code></td>
+                        <td>border-radius: 24px</td>
+                        <td><code class="code">@include border-radius-3xl;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include border-radius-full</code></td>
+                        <td>border-radius: 999px</td>
+                        <td><code class="code">@include border-radius-full;</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Backdrop Mixins</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>설명</th>
+                        <th>사용 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="code">@include backdrop</code></td>
+                        <td>backdrop-filter 적용</td>
+                        <td><code class="code">@include backdrop(blur(10px));</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include blur</code></td>
+                        <td>backdrop blur 효과</td>
+                        <td><code class="code">@include blur(10px);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include filter</code></td>
+                        <td>CSS filter 적용</td>
+                        <td><code class="code">@include filter(brightness, 80%);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include drop-shadow</code></td>
+                        <td>drop-shadow 효과</td>
+                        <td><code class="code">@include drop-shadow(4px 5px 7px rgba(0, 0, 0, .6));</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Button Hover Mixin</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>설명</th>
+                        <th>사용 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="code">@include button-hover</code></td>
+                        <td>버튼 hover 시 brightness 조절</td>
+                        <td><code class="code">@include button-hover(120%);</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Clearfix Mixin</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>설명</th>
+                        <th>사용 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="code">@include clearfix</code></td>
+                        <td>float 요소 정리</td>
+                        <td><code class="code">@include clearfix;</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Ellipsis Mixin</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>설명</th>
+                        <th>사용 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="code">@include ellipsis</code></td>
+                        <td>한 줄 말줄임</td>
+                        <td><code class="code">@include ellipsis;</code> 또는 <code class="code">@include ellipsis(1);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include ellipsis(2)</code></td>
+                        <td>두 줄 말줄임</td>
+                        <td><code class="code">@include ellipsis(2);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include ellipsis(3)</code></td>
+                        <td>세 줄 말줄임</td>
+                        <td><code class="code">@include ellipsis(3);</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Transform Mixins</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>설명</th>
+                        <th>사용 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="code">@include transform</code></td>
+                        <td>CSS transform 적용</td>
+                        <td><code class="code">@include transform(rotate(45deg));</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include rotate</code></td>
+                        <td>회전</td>
+                        <td><code class="code">@include rotate(45);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include scale</code></td>
+                        <td>크기 조절</td>
+                        <td><code class="code">@include scale(1.2);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include translate</code></td>
+                        <td>이동</td>
+                        <td><code class="code">@include translate(10px, 20px);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include skew</code></td>
+                        <td>기울임</td>
+                        <td><code class="code">@include skew(10, 20);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include transform-origin</code></td>
+                        <td>transform 기준점 설정</td>
+                        <td><code class="code">@include transform-origin(center);</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Transition Mixins</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mixin</th>
+                        <th>설명</th>
+                        <th>사용 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="code">@include transition</code></td>
+                        <td>CSS transition 적용</td>
+                        <td><code class="code">@include transition(background-color 1s 2s, color 2s);</code><br><code class="code">@include transition(0.3s);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include transition-property</code></td>
+                        <td>transition 속성 지정</td>
+                        <td><code class="code">@include transition-property(background-color, color);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include transition-duration</code></td>
+                        <td>transition 지속 시간</td>
+                        <td><code class="code">@include transition-duration(0.3s);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include transition-timing-function</code></td>
+                        <td>transition 타이밍 함수</td>
+                        <td><code class="code">@include transition-timing-function(ease-in-out);</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="code">@include transition-delay</code></td>
+                        <td>transition 지연 시간</td>
+                        <td><code class="code">@include transition-delay(0.2s);</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</body>
+</html>
