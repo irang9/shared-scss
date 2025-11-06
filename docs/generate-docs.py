@@ -25,7 +25,7 @@ NAV_ITEMS = [
     {"title": "Breakpoints", "url": "breakpoints.html"},
     {"title": "Typography", "url": "typography.html"},
     {"title": "Spacing", "url": "spacing.html"},
-    {"title": "Fonts", "url": "fonts.html"},
+    {"title": "Google Icons", "url": "fonts.html"},
     {"title": "Mixins", "url": "mixins.html"},
 ]
 
@@ -1180,8 +1180,8 @@ def generate_fonts_page() -> str:
     fonts = extract_fonts()
     
     content = """
-        <h1>Fonts</h1>
-        <p class="subtitle">폰트 패밀리 변수</p>
+        <h1>Google Icons</h1>
+        <p class="subtitle">폰트 패밀리 변수 및 Google Material Icons</p>
         
         <div class="section">
             <h2 class="section-title">Font Family Variables</h2>
@@ -1627,11 +1627,11 @@ def main():
     with open(DOCS_DIR / "spacing.html", 'w', encoding='utf-8') as f:
         f.write(generate_html_page("Spacing", spacing_content, "spacing.html"))
     
-    # Fonts 페이지
+    # Fonts 페이지 (Google Icons)
     print("  - fonts.html 생성 중...")
     fonts_content = generate_fonts_page()
     with open(DOCS_DIR / "fonts.html", 'w', encoding='utf-8') as f:
-        f.write(generate_html_page("Fonts", fonts_content, "fonts.html"))
+        f.write(generate_html_page("Google Icons", fonts_content, "fonts.html"))
     
     # Colors 페이지 (기존 코드 활용 필요)
     print("  - colors.html 생성 중...")

@@ -61,12 +61,12 @@ shared-scss/
 - `breakpoints`: breakpoint 변수와 mixin
 - `theme`: 의미 색상
 - `mixins`: 모든 mixin
-- `fonts`: 필수 폰트만 (spoqa, google) - 폰트 변수 포함
+- `fonts`: 필수 폰트만 (spoqa, Google Icons) - 폰트 변수 포함
 - `base/reset`: CSS Reset 스타일
 - `utilities`: 모든 유틸리티 클래스
 
 **참고:**
-- fonts는 필수 폰트(spoqa, google)만 자동으로 포함됩니다
+- fonts는 필수 폰트(spoqa, Google Icons)만 자동으로 포함됩니다
 - 선택적 폰트(gmarket, scoredream)는 프로젝트에서 직접 import하세요:
   ```scss
   @use '../../shared-scss' as *;
@@ -214,7 +214,7 @@ shared-scss/
 
 ### Fonts (폰트 파일들)
 
-- `_index.scss`: 필수 폰트(spoqa, google)와 폰트 변수를 포함
+- `_index.scss`: 필수 폰트(spoqa, Google Icons)와 폰트 변수를 포함
 - `_variables.scss`: 폰트 패밀리 변수 (`$font-basic`, `$font-title` 등) - **프로젝트별 오버라이드 가능**
 - `_spoqa.scss`: Spoqa Han Sans Neo 폰트 import (필수)
 - `_google.scss`: Google Fonts (Material Icons, Outfit) import (필수)
@@ -292,7 +292,7 @@ shared-scss/
 ## 사용 시나리오별 권장 방법
 
 - **대부분의 경우**: 통합 파일 사용 (`@use '../../shared-scss' as *`)
-  - 필수 폰트(spoqa, google)만 포함되어 최적화됨
+  - 필수 폰트(spoqa, Google Icons)만 포함되어 최적화됨
   - base, utilities도 자동 포함
 
 - **CSS 파일 크기 최적화가 중요한 경우**: 개별 파일 사용
