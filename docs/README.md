@@ -29,14 +29,14 @@
 
 ### 자동 생성
 
-문서는 `generate-docs.py` 스크립트를 실행하여 자동 생성됩니다:
+문서는 `scripts/generate-docs.py` 스크립트를 실행하여 자동 생성됩니다:
 
 ```bash
 cd docs
-python3 generate-docs.py
+python3 scripts/generate-docs.py
 ```
 
-이 스크립트는 `shared-scss/` 디렉토리의 SCSS 파일을 파싱하여 모든 HTML 문서를 생성합니다.
+이 스크립트는 `rexbox/` 디렉토리의 SCSS 파일을 파싱하여 모든 HTML 문서를 생성합니다.
 
 ### GitHub Pages 설정
 
@@ -57,18 +57,18 @@ python3 generate-docs.py
 
 ## 📝 문서 업데이트
 
-`shared-scss/` 디렉토리의 SCSS 파일을 수정한 후, 문서를 업데이트하려면:
+`rexbox/` 디렉토리의 SCSS 파일을 수정한 후, 문서를 업데이트하려면:
 
 ```bash
 cd docs
-python3 generate-docs.py
+python3 scripts/generate-docs.py
 ```
 
 문서는 자동으로 `rexbox/` 디렉토리의 SCSS 파일을 파싱하여 생성되므로, SCSS 코드를 수정하면 문서도 함께 업데이트됩니다.
 
 ## 🎨 색상 가이드 자동화 (선택사항)
 
-색상 팔레트 문서(`index.html`)를 자동으로 생성하려면 `generate-theme-colors.py` 스크립트를 사용할 수 있습니다.
+색상 팔레트 문서(`index.html`)를 자동으로 생성하려면 `scripts/generate-theme-colors.py` 스크립트를 사용할 수 있습니다.
 
 ### 자동화 방법
 
@@ -85,7 +85,7 @@ pip3 install watchdog
 2. **서비스 설치** (한 번만):
 
 ```bash
-./docs/install-service.sh
+./docs/scripts/install-service.sh
 ```
 
 이제 색상 파일을 저장하면 자동으로 `index.html`이 생성되며, 컴퓨터를 재부팅해도 계속 작동합니다.
@@ -102,7 +102,7 @@ tail -f /tmp/shared-scss-color-guide.log
 launchctl unload ~/Library/LaunchAgents/com.irang.shared-scss.color-guide.plist
 
 # 서비스 제거
-./docs/uninstall-service.sh
+./docs/scripts/uninstall-service.sh
 ```
 
 #### 방법 2: 파일 감시 (수동 실행)
@@ -118,13 +118,13 @@ pip3 install watchdog
 2. **감시 시작**:
 
 ```bash
-./docs/start-watcher.sh
+./docs/scripts/start-watcher.sh
 ```
 
 또는 직접:
 
 ```bash
-python3 docs/watch-theme-colors.py
+python3 docs/scripts/watch-theme-colors.py
 ```
 
 색상 파일(`variables/_colors.scss`, `theme/_index.scss`)을 저장하면 자동으로 `index.html`이 생성됩니다.
@@ -134,7 +134,7 @@ python3 docs/watch-theme-colors.py
 필요한 경우 수동으로 실행:
 
 ```bash
-python3 docs/generate-theme-colors.py
+python3 docs/scripts/generate-theme-colors.py
 ```
 
 ## 📁 파일 구조
@@ -143,13 +143,18 @@ python3 docs/generate-theme-colors.py
 docs/
 ├── README.md                    # 이 파일
 ├── GITHUB_VIEW.md               # GitHub에서 보는 방법 가이드
-├── generate-docs.py             # 전체 문서 생성 스크립트 (메인)
-├── generate-theme-colors.py     # 색상 가이드 HTML 생성 스크립트
-├── watch-theme-colors.py        # 색상 파일 감시 스크립트
-├── start-watcher.sh             # 감시 시작 스크립트 (수동 실행용)
-├── install-service.sh           # macOS 서비스 설치 스크립트
-├── uninstall-service.sh         # macOS 서비스 제거 스크립트
-├── com.irang.shared-scss.color-guide.plist  # macOS launchd 설정 파일
+├── scripts/                     # 스크립트 파일들
+│   ├── generate-docs.py         # 전체 문서 생성 스크립트 (메인)
+│   ├── generate-theme-colors.py # 색상 가이드 HTML 생성 스크립트
+│   ├── watch-theme-colors.py    # 색상 파일 감시 스크립트
+│   ├── create-favicon.py        # Favicon 생성 스크립트
+│   ├── start-watcher.sh         # 감시 시작 스크립트 (수동 실행용)
+│   ├── install-service.sh       # macOS 서비스 설치 스크립트
+│   ├── uninstall-service.sh     # macOS 서비스 제거 스크립트
+│   └── com.irang.shared-scss.color-guide.plist  # macOS launchd 설정 파일
+├── assets/                      # 정적 파일들
+│   ├── favicon.ico              # Favicon (ICO)
+│   └── favicon.png              # Favicon (PNG)
 ├── index.html                   # 문서 홈페이지 (자동 생성)
 ├── colors.html                  # 색상 변수 문서 (자동 생성)
 ├── typography.html              # 타이포그래피 문서 (자동 생성)
@@ -165,7 +170,7 @@ docs/
 ## ⚠️ 주의사항
 
 - HTML 문서 파일들은 자동 생성되므로 직접 수정하지 마세요.
-- `rexbox/` 디렉토리의 SCSS 파일을 수정한 후에는 `generate-docs.py` 스크립트를 실행하여 문서를 업데이트하세요.
+- `rexbox/` 디렉토리의 SCSS 파일을 수정한 후에는 `scripts/generate-docs.py` 스크립트를 실행하여 문서를 업데이트하세요.
 - Python 3.6 이상이 필요합니다.
 
 ## 📖 더 알아보기

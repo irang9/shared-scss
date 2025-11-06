@@ -5,7 +5,7 @@ LAUNCH_AGENTS_DIR="$HOME/Library/LaunchAgents"
 PLIST_NAME="com.irang.shared-scss.color-guide.plist"
 PLIST_PATH="$LAUNCH_AGENTS_DIR/$PLIST_NAME"
 
-echo "🛑 Shared SCSS Color Guide 자동화 서비스 제거"
+echo "🛑 RexBox Color Guide 자동화 서비스 제거"
 echo ""
 
 if [ ! -f "$PLIST_PATH" ]; then

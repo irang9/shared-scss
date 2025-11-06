@@ -9,9 +9,9 @@ from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 
 # 프로젝트 루트 디렉토리
-# docs 디렉토리에서 rexbox 디렉토리로의 경로
-ROOT_DIR = Path(__file__).parent.parent / "shared-scss"
-DOCS_DIR = Path(__file__).parent
+# scripts 디렉토리에서 rexbox 디렉토리로의 경로
+ROOT_DIR = Path(__file__).parent.parent.parent / "rexbox"
+DOCS_DIR = Path(__file__).parent.parent
 VARIABLES_COLORS_FILE = ROOT_DIR / "variables" / "_colors.scss"
 THEME_FILE = ROOT_DIR / "theme" / "_index.scss"
 BREAKPOINTS_FILE = ROOT_DIR / "breakpoints" / "_index.scss"
@@ -368,7 +368,7 @@ def generate_html_page(title: str, content: str, current_page: str = "") -> str:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title} - RexBox</title>
     <link rel="icon" type="image/svg+xml" href="{favicon_svg}">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     {get_common_styles()}
 </head>
 <body>

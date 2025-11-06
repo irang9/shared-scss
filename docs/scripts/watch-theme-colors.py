@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Shared SCSS Documentation File Watcher
+RexBox Documentation File Watcher
 SCSS 파일이 변경될 때마다 자동으로 모든 문서 페이지를 생성합니다.
 """
 
@@ -49,16 +49,22 @@ class DocsHandler(FileSystemEventHandler):
             return
         self.last_modified = current_time
         
-        print(f"\n📝 변경 감지: {Path(event.src_path).relative_to(self.script_path.parent.parent)}")
+        # 상대 경로 계산 (프로젝트 루트 기준)
+        try:
+            project_root = self.script_path.parent.parent.parent
+            rel_path = Path(event.src_path).relative_to(project_root)
+        except ValueError:
+            rel_path = Path(event.src_path)
+        print(f"\n📝 변경 감지: {rel_path}")
         print("   문서 페이지 생성 중...")
         
         try:
-            # 스크립트 실행
+            # 스크립트 실행 (docs/ 디렉토리에서 실행)
             result = subprocess.run(
                 [sys.executable, str(self.script_path)],
                 capture_output=True,
                 text=True,
-                cwd=str(self.script_path.parent.parent)
+                cwd=str(self.script_path.parent.parent)  # docs/ 디렉토리
             )
             
             if result.returncode == 0:
@@ -71,8 +77,8 @@ class DocsHandler(FileSystemEventHandler):
 
 def main():
     """메인 함수"""
-    root_dir = Path(__file__).parent.parent
-    script_path = root_dir / "docs" / "generate-docs.py"
+    root_dir = Path(__file__).parent.parent.parent / "rexbox"
+    script_path = Path(__file__).parent / "generate-docs.py"
     
     # 감시할 디렉토리 (SCSS 파일이 있는 모든 디렉토리)
     watch_dirs = [

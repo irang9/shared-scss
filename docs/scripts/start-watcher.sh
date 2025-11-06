@@ -2,7 +2,7 @@
 # 색상 파일 변경 감시 시작 스크립트
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR/.."
+cd "$SCRIPT_DIR/../.."
 
 # Python 가상환경 확인 (선택사항)
 if [ -d "venv" ]; then

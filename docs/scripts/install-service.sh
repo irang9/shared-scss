@@ -6,7 +6,7 @@ PLIST_FILE="$SCRIPT_DIR/com.irang.shared-scss.color-guide.plist"
 LAUNCH_AGENTS_DIR="$HOME/Library/LaunchAgents"
 PLIST_NAME="com.irang.shared-scss.color-guide.plist"
 
-echo "🚀 Shared SCSS Color Guide 자동화 서비스 설치"
+echo "🚀 RexBox Color Guide 자동화 서비스 설치"
 echo ""
 
 # launchd 디렉토리 확인 및 생성
@@ -37,7 +37,7 @@ sed "s|/usr/bin/python3|$PYTHON_PATH|g" "$PLIST_FILE" > "$LAUNCH_AGENTS_DIR/$PLI
 # 스크립트 경로 업데이트
 SCRIPT_PATH="$SCRIPT_DIR/watch-theme-colors.py"
 sed -i '' "s|REPLACE_WITH_SCRIPT_PATH|$SCRIPT_PATH|g" "$LAUNCH_AGENTS_DIR/$PLIST_NAME"
-sed -i '' "s|REPLACE_WITH_WORKING_DIR|$SCRIPT_DIR/..|g" "$LAUNCH_AGENTS_DIR/$PLIST_NAME"
+sed -i '' "s|REPLACE_WITH_WORKING_DIR|$SCRIPT_DIR/../..|g" "$LAUNCH_AGENTS_DIR/$PLIST_NAME"
 
 # 서비스 시작
 echo "🔄 서비스 시작 중..."
@@ -57,7 +57,7 @@ if [ $? -eq 0 ]; then
     echo "   launchctl unload $LAUNCH_AGENTS_DIR/$PLIST_NAME"
     echo ""
     echo "🗑️  서비스 제거:"
-    echo "   ./docs/uninstall-service.sh"
+    echo "   ./docs/scripts/uninstall-service.sh"
     echo ""
     echo "이제 컴퓨터를 재부팅해도 자동으로 실행됩니다! 🎉"
 else

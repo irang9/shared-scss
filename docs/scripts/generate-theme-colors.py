@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Shared SCSS Theme Colors HTML Generator
+RexBox Theme Colors HTML Generator
 SCSS 파일에서 색상 변수를 추출하여 index.html 파일을 자동 생성합니다.
 """
 
@@ -10,8 +10,9 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 
 # 프로젝트 루트 디렉토리
-ROOT_DIR = Path(__file__).parent.parent
-DOCS_DIR = ROOT_DIR / "docs"
+# scripts 디렉토리에서 rexbox 디렉토리로의 경로
+ROOT_DIR = Path(__file__).parent.parent.parent / "rexbox"
+DOCS_DIR = Path(__file__).parent.parent
 VARIABLES_COLORS_FILE = ROOT_DIR / "variables" / "_colors.scss"
 THEME_FILE = ROOT_DIR / "theme" / "_index.scss"
 OUTPUT_FILE = DOCS_DIR / "index.html"
@@ -212,7 +213,7 @@ def generate_html(color_vars: Dict[str, str], theme_mappings: Dict[str, Tuple[st
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shared SCSS Theme Colors</title>
+    <title>RexBox Theme Colors</title>
     <style>
         * {{
             margin: 0;
@@ -366,8 +367,8 @@ def generate_html(color_vars: Dict[str, str], theme_mappings: Dict[str, Tuple[st
 </head>
 <body>
     <div class="container">
-        <h1>Shared SCSS Theme Colors</h1>
-        <p class="subtitle">shared-scss의 theme과 variables 색상 팔레트</p>
+        <h1>RexBox Theme Colors</h1>
+        <p class="subtitle">RexBox의 theme과 variables 색상 팔레트</p>
 """
 
     # Semantic Colors 섹션
@@ -650,7 +651,7 @@ def generate_html(color_vars: Dict[str, str], theme_mappings: Dict[str, Tuple[st
 
 def main():
     """메인 함수"""
-    print("Shared SCSS Theme Colors HTML 생성 중...")
+    print("RexBox Theme Colors HTML 생성 중...")
     
     # 색상 변수 추출
     print(f"  - {VARIABLES_COLORS_FILE} 파일 읽는 중...")
