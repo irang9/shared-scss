@@ -21,26 +21,26 @@
 // ============================================
 // Background Colors
 // ============================================
-$bg-light: $yellow-200;           // 밝은 배경
-$bg-subtle: $slate-100;            // 미묘한 배경
-$bg-default: $white;              // 기본 배경
-$bg-dark: $gray-900;              // 어두운 배경
+$bg-light: $slate-50; // 밝은 배경
+$bg-subtle: $slate-100; // 미묘한 배경
+$bg-default: $white; // 기본 배경
+$bg-dark: $gray-900; // 어두운 배경
 
 // ============================================
 // Text Colors
 // ============================================
-$text-primary: $black;         // 주요 텍스트
-$text-secondary: $slate-600;       // 보조 텍스트
-$text-tertiary: $slate-400;        // 3차 텍스트
-$text-disabled: $slate-300;        // 비활성 텍스트
-$text-inverse: $white;            // 반전 텍스트 (어두운 배경용)
+$text-primary: $black; // 주요 텍스트
+$text-secondary: $slate-600; // 보조 텍스트
+$text-tertiary: $slate-400; // 3차 텍스트
+$text-disabled: $slate-300; // 비활성 텍스트
+$text-inverse: $white; // 반전 텍스트 (어두운 배경용)
 
 // ============================================
 // Border Colors
 // ============================================
-$border-light: $slate-200;         // 밝은 테두리
-$border-default: $slate-300;       // 기본 테두리
-$border-dark: $slate-500;          // 어두운 테두리
+$border-light: $slate-200; // 밝은 테두리
+$border-default: $slate-300; // 기본 테두리
+$border-dark: $slate-500; // 어두운 테두리
 
 // ============================================
 // Brand Colors (Semantic)
@@ -62,8 +62,8 @@ $primary-700: $blue-700;
 $primary-800: $blue-800;
 $primary-900: $blue-900;
 
-$secondary: $cyan-500;     // 기본값: #29c0ff (프로젝트별 오버라이드 가능)
-$point: $green-500;        // 포인트/강조 색상 (기본값: #00b25f)
+$secondary: $cyan-500; // 기본값: #29c0ff (프로젝트별 오버라이드 가능)
+$point: $green-500; // 포인트/강조 색상 (기본값: #00b25f)
 
 // ============================================
 // State Colors
@@ -79,9 +79,9 @@ $invalid: $red-500;
 
 // Stock/Finance State Colors (도메인 특화)
 // 주의: 프로젝트별로 다른 색상을 사용할 수 있으므로 오버라이드 가능
-$positive: $red-500;       // 상승/긍정 (기본값: #ff4848)
-$negative: $blue-600;      // 하락/부정 (기본값: #3c4e9b)
-$neutral: $gray-500;       // 중립 (기본값: #6C7285)
+$positive: $red-500; // 상승/긍정 (기본값: #ff4848)
+$negative: $blue-600; // 하락/부정 (기본값: #3c4e9b)
+$neutral: $gray-500; // 중립 (기본값: #6C7285)
 
 // Stock aliases
 $stock-up: $positive;
@@ -98,14 +98,12 @@ $gapdown: $negative;
 // Link Colors
 // ============================================
 // 주의: 프로젝트별로 다른 색상을 사용할 수 있으므로 오버라이드 가능
-$link: $blue-600;          // 기본값: #263fb0
+$link: $blue-600; // 기본값: #263fb0
 $link-hover: $blue-700;
 $link-visited: $purple-600;
-$link-point: $blue-500;    // 링크 포인트 색상 (기본값: #4262f7)
+$link-point: $blue-500; // 링크 포인트 색상 (기본값: #4262f7)
 
 // UI Element Colors
-$pager-active: $blue-600;  // 페이지네이션 활성 색상 (기본값: #6f83ce)
-$button-dark: $gray-800;   // 기본값: #3d4451
+$pager-active: $blue-600; // 페이지네이션 활성 색상 (기본값: #6f83ce)
+$button-dark: $gray-800; // 기본값: #3d4451
 $button-dark-hover: $gray-900; // 기본값: #292e38
-
-

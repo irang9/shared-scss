@@ -3,101 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>홈 - Shared SCSS</title>
-    
+    <title>Shared SCSS Theme Colors</title>
     <style>
-        @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
-        @import url(//fonts.googleapis.com/icon?family=Material+Icons);
-        @import url(//fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp);
-        @import url(//fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            font-family: "Spoqa Han Sans Neo", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
             background: #f5f5f5;
+            padding: 20px;
             line-height: 1.6;
-        }
-        .nav {
-            background: white;
-            border-bottom: 1px solid #e2e8f0;
-            padding: 16px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .nav-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 32px;
-        }
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
-        .nav-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1e293b;
-            text-decoration: none;
-        }
-        .nav-menu {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-        }
-        .nav-menu a {
-            color: #64748b;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            color: #2563eb;
-        }
-        .nav-right {
-            display: flex;
-            align-items: center;
-        }
-        .github-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 16px;
-            background: #1e293b;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 500;
-            transition: background 0.2s, transform 0.2s;
-        }
-        .github-btn:hover {
-            background: #334155;
-            transform: translateY(-1px);
-        }
-        .github-btn svg {
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
         }
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 32px 20px;
         }
         h1 {
             color: #212121;
@@ -124,38 +45,37 @@
             padding-bottom: 8px;
             border-bottom: 2px solid #e2e8f0;
         }
-        .grid {
+        .color-grid {
             display: grid;
-            gap: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
         }
-        .card {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+        .color-item {
+            display: flex;
+            flex-direction: column;
             border-radius: 6px;
-            padding: 16px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            background: white;
         }
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .color-swatch {
+            width: 100%;
+            height: 80px;
+            position: relative;
         }
-        .card-title {
+        .color-info {
+            padding: 8px;
+            font-size: 11px;
+        }
+        .color-name {
             font-weight: 600;
             color: #1e293b;
-            margin-bottom: 8px;
-            font-size: 14px;
+            margin-bottom: 4px;
         }
-        .card-value {
+        .color-value {
             color: #64748b;
             font-family: 'Monaco', 'Menlo', monospace;
-            font-size: 13px;
-        }
-        .code {
-            font-family: 'Monaco', 'Menlo', monospace;
-            background: #f1f5f9;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 13px;
         }
         .semantic-colors {
             display: grid;
@@ -233,156 +153,2521 @@
         .palette-title:first-child {
             margin-top: 0;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 16px;
-        }
-        table th,
-        table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        table th {
-            background: #f8fafc;
-            font-weight: 600;
-            color: #1e293b;
-            font-size: 13px;
-        }
-        table td {
-            color: #334155;
-            font-size: 14px;
-        }
-        .color-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-            gap: 12px;
-        }
-        .color-item {
-            display: flex;
-            flex-direction: column;
-            border-radius: 6px;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-            background: white;
-        }
-        .color-swatch {
-            width: 100%;
-            height: 80px;
-        }
-        .color-info {
-            padding: 8px;
-            font-size: 11px;
-        }
-        .color-name {
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 4px;
-        }
-        .color-value {
-            color: #64748b;
-            font-family: 'Monaco', 'Menlo', monospace;
-        }
     </style>
-    
 </head>
 <body>
-    
-    <nav class="nav">
-        <div class="nav-container">
-            <div class="nav-content">
-                <div class="nav-left">
-                    <a href="index.html" class="nav-title">Shared SCSS</a>
-                    <ul class="nav-menu">
-                            <li><a href="index.html" class="active">홈</a></li>
-                        <li><a href="colors.html">Colors</a></li>
-                        <li><a href="breakpoints.html">Breakpoints</a></li>
-                        <li><a href="typography.html">Typography</a></li>
-                        <li><a href="spacing.html">Spacing</a></li>
-                        <li><a href="fonts.html">Fonts</a></li>
-                        <li><a href="mixins.html">Mixins</a></li>
-
-                    </ul>
-                </div>
-                <div class="nav-right">
-                    <a href="https://github.com/irang9/shared-scss" target="_blank" rel="noopener noreferrer" class="github-btn">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
-                        </svg>
-                        GitHub
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-    
     <div class="container">
-        
-        <h1>Shared SCSS Documentation</h1>
-        <p class="subtitle">shared-scss의 모든 변수와 설정값을 확인할 수 있는 사양서</p>
-        
+        <h1>Shared SCSS Theme Colors</h1>
+        <p class="subtitle">shared-scss의 theme과 variables 색상 팔레트</p>
+
+        <!-- Semantic Colors (Theme) -->
         <div class="section">
-            <h2 class="section-title">카테고리</h2>
-            <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;">
-    
-                <a href="colors.html" style="text-decoration: none; color: inherit;">
-                    <div class="card" style="cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-                        <div class="card-title" style="font-size: 18px; margin-bottom: 8px;">Colors</div>
-                        <div class="card-value" style="color: #64748b; font-size: 14px;">
-                            Colors 관련 변수와 설정값을 확인할 수 있습니다.
+            <h2 class="section-title">Semantic Colors (Theme)</h2>
+
+            <!-- Background Colors -->
+            <div class="category-group">
+                <div class="category-title">Background Colors</div>
+                <div class="semantic-colors">
+
+                    <div class="semantic-item bg-example" style="background: #F8FAFC; ">
+                        <div class="semantic-info">
+                            <div class="semantic-name">$bg-light</div>
+                            <div class="semantic-value">#F8FAFC</div>
+                            <div class="example-text" style="margin-top: 8px; color: #1e293b;">background-color: $bg-light;</div>
                         </div>
                     </div>
-                </a>
-        
-                <a href="breakpoints.html" style="text-decoration: none; color: inherit;">
-                    <div class="card" style="cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-                        <div class="card-title" style="font-size: 18px; margin-bottom: 8px;">Breakpoints</div>
-                        <div class="card-value" style="color: #64748b; font-size: 14px;">
-                            Breakpoints 관련 변수와 설정값을 확인할 수 있습니다.
+
+                    <div class="semantic-item bg-example" style="background: #F1F5F9; ">
+                        <div class="semantic-info">
+                            <div class="semantic-name">$bg-subtle</div>
+                            <div class="semantic-value">#F1F5F9</div>
+                            <div class="example-text" style="margin-top: 8px; color: #1e293b;">background-color: $bg-subtle;</div>
                         </div>
                     </div>
-                </a>
-        
-                <a href="typography.html" style="text-decoration: none; color: inherit;">
-                    <div class="card" style="cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-                        <div class="card-title" style="font-size: 18px; margin-bottom: 8px;">Typography</div>
-                        <div class="card-value" style="color: #64748b; font-size: 14px;">
-                            Typography 관련 변수와 설정값을 확인할 수 있습니다.
+
+                    <div class="semantic-item bg-example" style="background: #FCFCFC; border: 1px solid #e2e8f0;">
+                        <div class="semantic-info">
+                            <div class="semantic-name">$bg-default</div>
+                            <div class="semantic-value">#FCFCFC</div>
+                            <div class="example-text" style="margin-top: 8px; color: #1e293b;">background-color: $bg-default;</div>
                         </div>
                     </div>
-                </a>
-        
-                <a href="spacing.html" style="text-decoration: none; color: inherit;">
-                    <div class="card" style="cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-                        <div class="card-title" style="font-size: 18px; margin-bottom: 8px;">Spacing</div>
-                        <div class="card-value" style="color: #64748b; font-size: 14px;">
-                            Spacing 관련 변수와 설정값을 확인할 수 있습니다.
+
+                    <div class="semantic-item bg-example" style="background: #111827; ">
+                        <div class="semantic-info">
+                            <div class="semantic-name">$bg-dark</div>
+                            <div class="semantic-value">#111827</div>
+                            <div class="example-text" style="margin-top: 8px; color: #ffffff;">background-color: $bg-dark;</div>
                         </div>
                     </div>
-                </a>
-        
-                <a href="fonts.html" style="text-decoration: none; color: inherit;">
-                    <div class="card" style="cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-                        <div class="card-title" style="font-size: 18px; margin-bottom: 8px;">Fonts</div>
-                        <div class="card-value" style="color: #64748b; font-size: 14px;">
-                            Fonts 관련 변수와 설정값을 확인할 수 있습니다.
+
+                </div>
+            </div>
+
+            <!-- Text Colors -->
+            <div class="category-group">
+                <div class="category-title">Text Colors</div>
+                <div class="semantic-colors">
+
+                    <div class="semantic-item text-example" style="background: #ffffff; border: 1px solid #e2e8f0;">
+                        <div class="semantic-info">
+                            <div class="semantic-name">$text-primary</div>
+                            <div class="semantic-value">#212121</div>
+                            <div class="example-text" style="margin-top: 8px; color: #212121;">color: $text-primary;</div>
                         </div>
                     </div>
-                </a>
-        
-                <a href="mixins.html" style="text-decoration: none; color: inherit;">
-                    <div class="card" style="cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-                        <div class="card-title" style="font-size: 18px; margin-bottom: 8px;">Mixins</div>
-                        <div class="card-value" style="color: #64748b; font-size: 14px;">
-                            Mixins 관련 변수와 설정값을 확인할 수 있습니다.
+
+                    <div class="semantic-item text-example" style="background: #ffffff; border: 1px solid #e2e8f0;">
+                        <div class="semantic-info">
+                            <div class="semantic-name">$text-secondary</div>
+                            <div class="semantic-value">#475569</div>
+                            <div class="example-text" style="margin-top: 8px; color: #475569;">color: $text-secondary;</div>
                         </div>
                     </div>
-                </a>
-        
+
+                    <div class="semantic-item text-example" style="background: #ffffff; border: 1px solid #e2e8f0;">
+                        <div class="semantic-info">
+                            <div class="semantic-name">$text-tertiary</div>
+                            <div class="semantic-value">#94A3B8</div>
+                            <div class="example-text" style="margin-top: 8px; color: #94A3B8;">color: $text-tertiary;</div>
+                        </div>
+                    </div>
+
+                    <div class="semantic-item text-example" style="background: #ffffff; border: 1px solid #e2e8f0;">
+                        <div class="semantic-info">
+                            <div class="semantic-name">$text-disabled</div>
+                            <div class="semantic-value">#CBD5E1</div>
+                            <div class="example-text" style="margin-top: 8px; color: #CBD5E1;">color: $text-disabled;</div>
+                        </div>
+                    </div>
+
+                    <div class="semantic-item text-example" style="background: #111827; ">
+                        <div class="semantic-info">
+                            <div class="semantic-name">$text-inverse</div>
+                            <div class="semantic-value">#FCFCFC</div>
+                            <div class="example-text" style="margin-top: 8px; color: #FCFCFC;">color: $text-inverse;</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Border Colors -->
+            <div class="category-group">
+                <div class="category-title">Border Colors</div>
+                <div class="semantic-colors">
+
+                    <div class="semantic-item border-example" style="background: #ffffff; border: 2px solid #E2E8F0;">
+                        <div class="semantic-info">
+                            <div class="semantic-name">$border-light</div>
+                            <div class="semantic-value">#E2E8F0</div>
+                            <div class="example-text" style="margin-top: 8px; color: #1e293b;">border: 1px solid $border-light;</div>
+                        </div>
+                    </div>
+
+                    <div class="semantic-item border-example" style="background: #ffffff; border: 2px solid #CBD5E1;">
+                        <div class="semantic-info">
+                            <div class="semantic-name">$border-default</div>
+                            <div class="semantic-value">#CBD5E1</div>
+                            <div class="example-text" style="margin-top: 8px; color: #1e293b;">border: 1px solid $border-default;</div>
+                        </div>
+                    </div>
+
+                    <div class="semantic-item border-example" style="background: #ffffff; border: 2px solid #64748B;">
+                        <div class="semantic-info">
+                            <div class="semantic-name">$border-dark</div>
+                            <div class="semantic-value">#64748B</div>
+                            <div class="example-text" style="margin-top: 8px; color: #1e293b;">border: 1px solid $border-dark;</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Brand Colors -->
+            <div class="category-group">
+                <div class="category-title">Brand Colors</div>
+                <div class="semantic-colors">
+
+                    <div class="semantic-item">
+                        <div class="semantic-swatch" style="background: #2563EB;"></div>
+                        <div class="semantic-info">
+                            <div class="semantic-name">$primary</div>
+                            <div class="semantic-value">#2563EB</div>
+                        </div>
+                    </div>
+
+                    <div class="semantic-item">
+                        <div class="semantic-swatch" style="background: #22C55E;"></div>
+                        <div class="semantic-info">
+                            <div class="semantic-name">$point</div>
+                            <div class="semantic-value">#22C55E</div>
+                        </div>
+                    </div>
+
+                    <div class="semantic-item">
+                        <div class="semantic-swatch" style="background: #06B6D4;"></div>
+                        <div class="semantic-info">
+                            <div class="semantic-name">$secondary</div>
+                            <div class="semantic-value">#06B6D4</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- State Colors -->
+            <div class="category-group">
+                <div class="category-title">State Colors</div>
+                <div class="semantic-colors">
+
+                    <div class="semantic-item">
+                        <div class="semantic-swatch" style="background: #22C55E;"></div>
+                        <div class="semantic-info">
+                            <div class="semantic-name">$success</div>
+                            <div class="semantic-value">#22C55E</div>
+                        </div>
+                    </div>
+
+                    <div class="semantic-item">
+                        <div class="semantic-swatch" style="background: #EAB308;"></div>
+                        <div class="semantic-info">
+                            <div class="semantic-name">$warning</div>
+                            <div class="semantic-value">#EAB308</div>
+                        </div>
+                    </div>
+
+                    <div class="semantic-item">
+                        <div class="semantic-swatch" style="background: #EF4444;"></div>
+                        <div class="semantic-info">
+                            <div class="semantic-name">$error</div>
+                            <div class="semantic-value">#EF4444</div>
+                        </div>
+                    </div>
+
+                    <div class="semantic-item">
+                        <div class="semantic-swatch" style="background: #3B82F6;"></div>
+                        <div class="semantic-info">
+                            <div class="semantic-name">$info</div>
+                            <div class="semantic-value">#3B82F6</div>
+                        </div>
+                    </div>
+
+                    <div class="semantic-item">
+                        <div class="semantic-swatch" style="background: #22C55E;"></div>
+                        <div class="semantic-info">
+                            <div class="semantic-name">$valid</div>
+                            <div class="semantic-value">#22C55E</div>
+                        </div>
+                    </div>
+
+                    <div class="semantic-item">
+                        <div class="semantic-swatch" style="background: #EF4444;"></div>
+                        <div class="semantic-info">
+                            <div class="semantic-name">$invalid</div>
+                            <div class="semantic-value">#EF4444</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Stock Colors -->
+            <div class="category-group">
+                <div class="category-title">Stock/Finance State Colors</div>
+                <div class="semantic-colors">
+
+                    <div class="semantic-item">
+                        <div class="semantic-swatch" style="background: #EF4444;"></div>
+                        <div class="semantic-info">
+                            <div class="semantic-name">$positive</div>
+                            <div class="semantic-value">#EF4444</div>
+                        </div>
+                    </div>
+
+                    <div class="semantic-item">
+                        <div class="semantic-swatch" style="background: #2563EB;"></div>
+                        <div class="semantic-info">
+                            <div class="semantic-name">$negative</div>
+                            <div class="semantic-value">#2563EB</div>
+                        </div>
+                    </div>
+
+                    <div class="semantic-item">
+                        <div class="semantic-swatch" style="background: #6B7280;"></div>
+                        <div class="semantic-info">
+                            <div class="semantic-name">$neutral</div>
+                            <div class="semantic-value">#6B7280</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Link Colors -->
+            <div class="category-group">
+                <div class="category-title">Link Colors</div>
+                <div class="semantic-colors">
+
+                    <div class="semantic-item text-example" style="background: #ffffff; border: 1px solid #e2e8f0;">
+                        <div class="semantic-info">
+                            <div class="semantic-name">$link</div>
+                            <div class="semantic-value">#2563EB</div>
+                            <div class="example-text" style="margin-top: 8px; color: #2563EB; text-decoration: underline;">color: $link;</div>
+                        </div>
+                    </div>
+
+                    <div class="semantic-item text-example" style="background: #ffffff; border: 1px solid #e2e8f0;">
+                        <div class="semantic-info">
+                            <div class="semantic-name">$link-hover</div>
+                            <div class="semantic-value">#1D4ED8</div>
+                            <div class="example-text" style="margin-top: 8px; color: #1D4ED8; text-decoration: underline;">color: $link-hover;</div>
+                        </div>
+                    </div>
+
+                    <div class="semantic-item text-example" style="background: #ffffff; border: 1px solid #e2e8f0;">
+                        <div class="semantic-info">
+                            <div class="semantic-name">$link-visited</div>
+                            <div class="semantic-value">#9333EA</div>
+                            <div class="example-text" style="margin-top: 8px; color: #9333EA; text-decoration: underline;">color: $link-visited;</div>
+                        </div>
+                    </div>
+
+                    <div class="semantic-item text-example" style="background: #ffffff; border: 1px solid #e2e8f0;">
+                        <div class="semantic-info">
+                            <div class="semantic-name">$link-point</div>
+                            <div class="semantic-value">#3B82F6</div>
+                            <div class="example-text" style="margin-top: 8px; color: #3B82F6; text-decoration: underline;">color: $link-point;</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Primary Color Scale -->
+        <div class="section">
+            <h2 class="section-title">Primary Color Scale</h2>
+            <div class="color-grid">
+
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #2563EB;"></div>
+                    <div class="color-info">
+                        <div class="color-name">$primary</div>
+                        <div class="color-value">#2563EB</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #DBEAFE;"></div>
+                    <div class="color-info">
+                        <div class="color-name">$primary-100</div>
+                        <div class="color-value">#DBEAFE</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #BFDBFE;"></div>
+                    <div class="color-info">
+                        <div class="color-name">$primary-200</div>
+                        <div class="color-value">#BFDBFE</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #93C5FD;"></div>
+                    <div class="color-info">
+                        <div class="color-name">$primary-300</div>
+                        <div class="color-value">#93C5FD</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #60A5FA;"></div>
+                    <div class="color-info">
+                        <div class="color-name">$primary-400</div>
+                        <div class="color-value">#60A5FA</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #3B82F6;"></div>
+                    <div class="color-info">
+                        <div class="color-name">$primary-500</div>
+                        <div class="color-value">#3B82F6</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #2563EB;"></div>
+                    <div class="color-info">
+                        <div class="color-name">$primary-600</div>
+                        <div class="color-value">#2563EB</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #1D4ED8;"></div>
+                    <div class="color-info">
+                        <div class="color-name">$primary-700</div>
+                        <div class="color-value">#1D4ED8</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #1E40AF;"></div>
+                    <div class="color-info">
+                        <div class="color-name">$primary-800</div>
+                        <div class="color-value">#1E40AF</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #1E3A8A;"></div>
+                    <div class="color-info">
+                        <div class="color-name">$primary-900</div>
+                        <div class="color-value">#1E3A8A</div>
+                    </div>
+                </div>
+
             </div>
         </div>
-    
+
+        <!-- Color Palettes -->
+        <div class="section">
+            <h2 class="section-title">Color Palettes</h2>
+
+            <div class="palette-group">
+                <div class="palette-title">Global</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #212121; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$black</div>
+                            <div class="color-value">#212121</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #000000; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$black-real</div>
+                            <div class="color-value">#000000</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FCFCFC; border: 1px solid #e2e8f0;"></div>
+                        <div class="color-info">
+                            <div class="color-name">$white</div>
+                            <div class="color-value">#FCFCFC</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FFFFFF; border: 1px solid #e2e8f0;"></div>
+                        <div class="color-info">
+                            <div class="color-name">$white-real</div>
+                            <div class="color-value">#FFFFFF</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Slate</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F8FAFC; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$slate-50</div>
+                            <div class="color-value">#F8FAFC</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F1F5F9; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$slate-100</div>
+                            <div class="color-value">#F1F5F9</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #E2E8F0; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$slate-200</div>
+                            <div class="color-value">#E2E8F0</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #CBD5E1; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$slate-300</div>
+                            <div class="color-value">#CBD5E1</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #94A3B8; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$slate-400</div>
+                            <div class="color-value">#94A3B8</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #64748B; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$slate-500</div>
+                            <div class="color-value">#64748B</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #475569; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$slate-600</div>
+                            <div class="color-value">#475569</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #334155; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$slate-700</div>
+                            <div class="color-value">#334155</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #1E293B; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$slate-800</div>
+                            <div class="color-value">#1E293B</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #0F172A; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$slate-900</div>
+                            <div class="color-value">#0F172A</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #020617; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$slate-950</div>
+                            <div class="color-value">#020617</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Gray</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F9FAFB; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$gray-50</div>
+                            <div class="color-value">#F9FAFB</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F3F4F6; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$gray-100</div>
+                            <div class="color-value">#F3F4F6</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #E5E7EB; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$gray-200</div>
+                            <div class="color-value">#E5E7EB</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #D1D5DB; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$gray-300</div>
+                            <div class="color-value">#D1D5DB</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #9CA3AF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$gray-400</div>
+                            <div class="color-value">#9CA3AF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #6B7280; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$gray-500</div>
+                            <div class="color-value">#6B7280</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #4B5563; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$gray-600</div>
+                            <div class="color-value">#4B5563</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #374151; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$gray-700</div>
+                            <div class="color-value">#374151</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #1F2937; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$gray-800</div>
+                            <div class="color-value">#1F2937</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #111827; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$gray-900</div>
+                            <div class="color-value">#111827</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #030712; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$gray-950</div>
+                            <div class="color-value">#030712</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Zinc</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FAFAFA; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$zinc-50</div>
+                            <div class="color-value">#FAFAFA</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F4F4F5; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$zinc-100</div>
+                            <div class="color-value">#F4F4F5</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #E4E4E7; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$zinc-200</div>
+                            <div class="color-value">#E4E4E7</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #D4D4D8; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$zinc-300</div>
+                            <div class="color-value">#D4D4D8</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #A1A1AA; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$zinc-400</div>
+                            <div class="color-value">#A1A1AA</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #71717A; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$zinc-500</div>
+                            <div class="color-value">#71717A</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #52525B; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$zinc-600</div>
+                            <div class="color-value">#52525B</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #3F3F46; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$zinc-700</div>
+                            <div class="color-value">#3F3F46</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #27272A; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$zinc-800</div>
+                            <div class="color-value">#27272A</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #18181B; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$zinc-900</div>
+                            <div class="color-value">#18181B</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #09090B; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$zinc-950</div>
+                            <div class="color-value">#09090B</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Neutral</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FAFAFA; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$neutral-50</div>
+                            <div class="color-value">#FAFAFA</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F5F5F5; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$neutral-100</div>
+                            <div class="color-value">#F5F5F5</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #E5E5E5; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$neutral-200</div>
+                            <div class="color-value">#E5E5E5</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #D4D4D4; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$neutral-300</div>
+                            <div class="color-value">#D4D4D4</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #A3A3A3; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$neutral-400</div>
+                            <div class="color-value">#A3A3A3</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #737373; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$neutral-500</div>
+                            <div class="color-value">#737373</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #525252; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$neutral-600</div>
+                            <div class="color-value">#525252</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #404040; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$neutral-700</div>
+                            <div class="color-value">#404040</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #262626; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$neutral-800</div>
+                            <div class="color-value">#262626</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #171717; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$neutral-900</div>
+                            <div class="color-value">#171717</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #0A0A0A; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$neutral-950</div>
+                            <div class="color-value">#0A0A0A</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Stone</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FAFAF9; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$stone-50</div>
+                            <div class="color-value">#FAFAF9</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F5F5F4; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$stone-100</div>
+                            <div class="color-value">#F5F5F4</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #E7E5E4; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$stone-200</div>
+                            <div class="color-value">#E7E5E4</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #D6D3D1; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$stone-300</div>
+                            <div class="color-value">#D6D3D1</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #A8A29E; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$stone-400</div>
+                            <div class="color-value">#A8A29E</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #78716C; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$stone-500</div>
+                            <div class="color-value">#78716C</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #57534E; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$stone-600</div>
+                            <div class="color-value">#57534E</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #44403C; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$stone-700</div>
+                            <div class="color-value">#44403C</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #292524; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$stone-800</div>
+                            <div class="color-value">#292524</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #1C1917; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$stone-900</div>
+                            <div class="color-value">#1C1917</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #0C0A09; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$stone-950</div>
+                            <div class="color-value">#0C0A09</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Lime</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F7FEE7; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$lime-50</div>
+                            <div class="color-value">#F7FEE7</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #ECFCCB; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$lime-100</div>
+                            <div class="color-value">#ECFCCB</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #D9F99D; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$lime-200</div>
+                            <div class="color-value">#D9F99D</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #BEF264; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$lime-300</div>
+                            <div class="color-value">#BEF264</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #A3E635; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$lime-400</div>
+                            <div class="color-value">#A3E635</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #84CC16; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$lime-500</div>
+                            <div class="color-value">#84CC16</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #65A30D; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$lime-600</div>
+                            <div class="color-value">#65A30D</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #4D7C0F; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$lime-700</div>
+                            <div class="color-value">#4D7C0F</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #3F6212; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$lime-800</div>
+                            <div class="color-value">#3F6212</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #365314; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$lime-900</div>
+                            <div class="color-value">#365314</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #1A2E05; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$lime-950</div>
+                            <div class="color-value">#1A2E05</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Green</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F0FDF4; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$green-50</div>
+                            <div class="color-value">#F0FDF4</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #DCFCE7; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$green-100</div>
+                            <div class="color-value">#DCFCE7</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #BBF7D0; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$green-200</div>
+                            <div class="color-value">#BBF7D0</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #86EFAC; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$green-300</div>
+                            <div class="color-value">#86EFAC</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #4ADE80; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$green-400</div>
+                            <div class="color-value">#4ADE80</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #22C55E; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$green-500</div>
+                            <div class="color-value">#22C55E</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #16A34A; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$green-600</div>
+                            <div class="color-value">#16A34A</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #15803D; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$green-700</div>
+                            <div class="color-value">#15803D</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #166534; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$green-800</div>
+                            <div class="color-value">#166534</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #14532D; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$green-900</div>
+                            <div class="color-value">#14532D</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #052E16; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$green-950</div>
+                            <div class="color-value">#052E16</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Emerald</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #ECFDF5; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$emerald-50</div>
+                            <div class="color-value">#ECFDF5</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #D1FAE5; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$emerald-100</div>
+                            <div class="color-value">#D1FAE5</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #A7F3D0; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$emerald-200</div>
+                            <div class="color-value">#A7F3D0</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #6EE7B7; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$emerald-300</div>
+                            <div class="color-value">#6EE7B7</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #34D399; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$emerald-400</div>
+                            <div class="color-value">#34D399</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #10B981; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$emerald-500</div>
+                            <div class="color-value">#10B981</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #059669; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$emerald-600</div>
+                            <div class="color-value">#059669</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #047857; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$emerald-700</div>
+                            <div class="color-value">#047857</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #065F46; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$emerald-800</div>
+                            <div class="color-value">#065F46</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #064E3B; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$emerald-900</div>
+                            <div class="color-value">#064E3B</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #022C22; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$emerald-950</div>
+                            <div class="color-value">#022C22</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Teal</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F0FDFA; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$teal-50</div>
+                            <div class="color-value">#F0FDFA</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #CCFBF1; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$teal-100</div>
+                            <div class="color-value">#CCFBF1</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #99F6E4; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$teal-200</div>
+                            <div class="color-value">#99F6E4</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #5EEAD4; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$teal-300</div>
+                            <div class="color-value">#5EEAD4</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #2DD4BF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$teal-400</div>
+                            <div class="color-value">#2DD4BF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #14B8A6; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$teal-500</div>
+                            <div class="color-value">#14B8A6</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #0D9488; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$teal-600</div>
+                            <div class="color-value">#0D9488</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #0F766E; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$teal-700</div>
+                            <div class="color-value">#0F766E</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #115E59; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$teal-800</div>
+                            <div class="color-value">#115E59</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #134E4A; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$teal-900</div>
+                            <div class="color-value">#134E4A</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #042F2E; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$teal-950</div>
+                            <div class="color-value">#042F2E</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Cyan</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #ECFEFF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$cyan-50</div>
+                            <div class="color-value">#ECFEFF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #CFFAFE; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$cyan-100</div>
+                            <div class="color-value">#CFFAFE</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #A5F3FC; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$cyan-200</div>
+                            <div class="color-value">#A5F3FC</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #67E8F9; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$cyan-300</div>
+                            <div class="color-value">#67E8F9</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #22D3EE; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$cyan-400</div>
+                            <div class="color-value">#22D3EE</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #06B6D4; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$cyan-500</div>
+                            <div class="color-value">#06B6D4</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #0891B2; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$cyan-600</div>
+                            <div class="color-value">#0891B2</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #0E7490; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$cyan-700</div>
+                            <div class="color-value">#0E7490</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #155E75; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$cyan-800</div>
+                            <div class="color-value">#155E75</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #164E63; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$cyan-900</div>
+                            <div class="color-value">#164E63</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #083344; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$cyan-950</div>
+                            <div class="color-value">#083344</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Sky</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F0F9FF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$sky-50</div>
+                            <div class="color-value">#F0F9FF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #E0F2FE; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$sky-100</div>
+                            <div class="color-value">#E0F2FE</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #BAE6FD; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$sky-200</div>
+                            <div class="color-value">#BAE6FD</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #7DD3FC; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$sky-300</div>
+                            <div class="color-value">#7DD3FC</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #38BDF8; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$sky-400</div>
+                            <div class="color-value">#38BDF8</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #0EA5E9; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$sky-500</div>
+                            <div class="color-value">#0EA5E9</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #0284C7; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$sky-600</div>
+                            <div class="color-value">#0284C7</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #0369A1; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$sky-700</div>
+                            <div class="color-value">#0369A1</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #075985; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$sky-800</div>
+                            <div class="color-value">#075985</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #0C4A6E; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$sky-900</div>
+                            <div class="color-value">#0C4A6E</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #082F49; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$sky-950</div>
+                            <div class="color-value">#082F49</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Blue</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #EFF6FF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$blue-50</div>
+                            <div class="color-value">#EFF6FF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #DBEAFE; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$blue-100</div>
+                            <div class="color-value">#DBEAFE</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #BFDBFE; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$blue-200</div>
+                            <div class="color-value">#BFDBFE</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #93C5FD; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$blue-300</div>
+                            <div class="color-value">#93C5FD</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #60A5FA; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$blue-400</div>
+                            <div class="color-value">#60A5FA</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #3B82F6; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$blue-500</div>
+                            <div class="color-value">#3B82F6</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #2563EB; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$blue-600</div>
+                            <div class="color-value">#2563EB</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #1D4ED8; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$blue-700</div>
+                            <div class="color-value">#1D4ED8</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #1E40AF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$blue-800</div>
+                            <div class="color-value">#1E40AF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #1E3A8A; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$blue-900</div>
+                            <div class="color-value">#1E3A8A</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #172554; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$blue-950</div>
+                            <div class="color-value">#172554</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Indigo</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #EEF2FF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$indigo-50</div>
+                            <div class="color-value">#EEF2FF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #E0E7FF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$indigo-100</div>
+                            <div class="color-value">#E0E7FF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #C7D2FE; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$indigo-200</div>
+                            <div class="color-value">#C7D2FE</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #A5B4FC; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$indigo-300</div>
+                            <div class="color-value">#A5B4FC</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #818CF8; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$indigo-400</div>
+                            <div class="color-value">#818CF8</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #6366F1; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$indigo-500</div>
+                            <div class="color-value">#6366F1</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #4F46E5; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$indigo-600</div>
+                            <div class="color-value">#4F46E5</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #4338CA; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$indigo-700</div>
+                            <div class="color-value">#4338CA</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #3730A3; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$indigo-800</div>
+                            <div class="color-value">#3730A3</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #312E81; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$indigo-900</div>
+                            <div class="color-value">#312E81</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #1E1B4B; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$indigo-950</div>
+                            <div class="color-value">#1E1B4B</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Violet</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F5F3FF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$violet-50</div>
+                            <div class="color-value">#F5F3FF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #EDE9FE; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$violet-100</div>
+                            <div class="color-value">#EDE9FE</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #DDD6FE; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$violet-200</div>
+                            <div class="color-value">#DDD6FE</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #C4B5FD; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$violet-300</div>
+                            <div class="color-value">#C4B5FD</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #A78BFA; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$violet-400</div>
+                            <div class="color-value">#A78BFA</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #8B5CF6; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$violet-500</div>
+                            <div class="color-value">#8B5CF6</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #7C3AED; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$violet-600</div>
+                            <div class="color-value">#7C3AED</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #6D28D9; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$violet-700</div>
+                            <div class="color-value">#6D28D9</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #5B21B6; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$violet-800</div>
+                            <div class="color-value">#5B21B6</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #4C1D95; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$violet-900</div>
+                            <div class="color-value">#4C1D95</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #2E1065; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$violet-950</div>
+                            <div class="color-value">#2E1065</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Purple</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FAF5FF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$purple-50</div>
+                            <div class="color-value">#FAF5FF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F3E8FF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$purple-100</div>
+                            <div class="color-value">#F3E8FF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #E9D5FF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$purple-200</div>
+                            <div class="color-value">#E9D5FF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #D8B4FE; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$purple-300</div>
+                            <div class="color-value">#D8B4FE</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #C084FC; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$purple-400</div>
+                            <div class="color-value">#C084FC</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #A855F7; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$purple-500</div>
+                            <div class="color-value">#A855F7</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #9333EA; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$purple-600</div>
+                            <div class="color-value">#9333EA</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #7E22CE; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$purple-700</div>
+                            <div class="color-value">#7E22CE</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #6B21A8; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$purple-800</div>
+                            <div class="color-value">#6B21A8</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #581C87; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$purple-900</div>
+                            <div class="color-value">#581C87</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #3B0764; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$purple-950</div>
+                            <div class="color-value">#3B0764</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Fuchsia</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FDF4FF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$fuchsia-50</div>
+                            <div class="color-value">#FDF4FF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FAE8FF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$fuchsia-100</div>
+                            <div class="color-value">#FAE8FF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F5D0FE; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$fuchsia-200</div>
+                            <div class="color-value">#F5D0FE</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F0ABFC; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$fuchsia-300</div>
+                            <div class="color-value">#F0ABFC</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #E879F9; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$fuchsia-400</div>
+                            <div class="color-value">#E879F9</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #D946EF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$fuchsia-500</div>
+                            <div class="color-value">#D946EF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #C026D3; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$fuchsia-600</div>
+                            <div class="color-value">#C026D3</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #A21CAF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$fuchsia-700</div>
+                            <div class="color-value">#A21CAF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #86198F; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$fuchsia-800</div>
+                            <div class="color-value">#86198F</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #701A75; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$fuchsia-900</div>
+                            <div class="color-value">#701A75</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #4A044E; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$fuchsia-950</div>
+                            <div class="color-value">#4A044E</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Pink</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FDF2F8; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$pink-50</div>
+                            <div class="color-value">#FDF2F8</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FCE7F3; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$pink-100</div>
+                            <div class="color-value">#FCE7F3</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FBCFE8; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$pink-200</div>
+                            <div class="color-value">#FBCFE8</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F9A8D4; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$pink-300</div>
+                            <div class="color-value">#F9A8D4</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F472B6; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$pink-400</div>
+                            <div class="color-value">#F472B6</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #EC4899; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$pink-500</div>
+                            <div class="color-value">#EC4899</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #DB2777; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$pink-600</div>
+                            <div class="color-value">#DB2777</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #BE185D; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$pink-700</div>
+                            <div class="color-value">#BE185D</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #9D174D; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$pink-800</div>
+                            <div class="color-value">#9D174D</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #831843; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$pink-900</div>
+                            <div class="color-value">#831843</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #500724; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$pink-950</div>
+                            <div class="color-value">#500724</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Rose</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FFF1F2; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$rose-50</div>
+                            <div class="color-value">#FFF1F2</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FFE4E6; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$rose-100</div>
+                            <div class="color-value">#FFE4E6</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FECDD3; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$rose-200</div>
+                            <div class="color-value">#FECDD3</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FDA4AF; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$rose-300</div>
+                            <div class="color-value">#FDA4AF</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FB7185; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$rose-400</div>
+                            <div class="color-value">#FB7185</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F43F5E; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$rose-500</div>
+                            <div class="color-value">#F43F5E</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #E11D48; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$rose-600</div>
+                            <div class="color-value">#E11D48</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #BE123C; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$rose-700</div>
+                            <div class="color-value">#BE123C</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #9F1239; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$rose-800</div>
+                            <div class="color-value">#9F1239</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #881337; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$rose-900</div>
+                            <div class="color-value">#881337</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #4C0519; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$rose-950</div>
+                            <div class="color-value">#4C0519</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Red</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FEF2F2; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$red-50</div>
+                            <div class="color-value">#FEF2F2</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FEE2E2; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$red-100</div>
+                            <div class="color-value">#FEE2E2</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FECACA; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$red-200</div>
+                            <div class="color-value">#FECACA</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FCA5A5; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$red-300</div>
+                            <div class="color-value">#FCA5A5</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F87171; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$red-400</div>
+                            <div class="color-value">#F87171</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #EF4444; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$red-500</div>
+                            <div class="color-value">#EF4444</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #DC2626; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$red-600</div>
+                            <div class="color-value">#DC2626</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #B91C1C; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$red-700</div>
+                            <div class="color-value">#B91C1C</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #991B1B; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$red-800</div>
+                            <div class="color-value">#991B1B</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #7F1D1D; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$red-900</div>
+                            <div class="color-value">#7F1D1D</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #450A0A; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$red-950</div>
+                            <div class="color-value">#450A0A</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Orange</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FFF7ED; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$orange-50</div>
+                            <div class="color-value">#FFF7ED</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FFEDD5; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$orange-100</div>
+                            <div class="color-value">#FFEDD5</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FED7AA; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$orange-200</div>
+                            <div class="color-value">#FED7AA</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FDBA74; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$orange-300</div>
+                            <div class="color-value">#FDBA74</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FB923C; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$orange-400</div>
+                            <div class="color-value">#FB923C</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F97316; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$orange-500</div>
+                            <div class="color-value">#F97316</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #EA580C; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$orange-600</div>
+                            <div class="color-value">#EA580C</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #C2410C; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$orange-700</div>
+                            <div class="color-value">#C2410C</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #9A3412; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$orange-800</div>
+                            <div class="color-value">#9A3412</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #7C2D12; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$orange-900</div>
+                            <div class="color-value">#7C2D12</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #431407; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$orange-950</div>
+                            <div class="color-value">#431407</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Amber</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FFFBEB; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$amber-50</div>
+                            <div class="color-value">#FFFBEB</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FEF3C7; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$amber-100</div>
+                            <div class="color-value">#FEF3C7</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FDE68A; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$amber-200</div>
+                            <div class="color-value">#FDE68A</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FCD34D; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$amber-300</div>
+                            <div class="color-value">#FCD34D</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FBBF24; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$amber-400</div>
+                            <div class="color-value">#FBBF24</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #F59E0B; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$amber-500</div>
+                            <div class="color-value">#F59E0B</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #D97706; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$amber-600</div>
+                            <div class="color-value">#D97706</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #B45309; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$amber-700</div>
+                            <div class="color-value">#B45309</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #92400E; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$amber-800</div>
+                            <div class="color-value">#92400E</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #78350F; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$amber-900</div>
+                            <div class="color-value">#78350F</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #451A03; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$amber-950</div>
+                            <div class="color-value">#451A03</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="palette-group">
+                <div class="palette-title">Yellow</div>
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FEFCE8; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$yellow-50</div>
+                            <div class="color-value">#FEFCE8</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FEF9C3; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$yellow-100</div>
+                            <div class="color-value">#FEF9C3</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FEF08A; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$yellow-200</div>
+                            <div class="color-value">#FEF08A</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FDE047; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$yellow-300</div>
+                            <div class="color-value">#FDE047</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #FACC15; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$yellow-400</div>
+                            <div class="color-value">#FACC15</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #EAB308; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$yellow-500</div>
+                            <div class="color-value">#EAB308</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #CA8A04; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$yellow-600</div>
+                            <div class="color-value">#CA8A04</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #A16207; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$yellow-700</div>
+                            <div class="color-value">#A16207</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #854D0E; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$yellow-800</div>
+                            <div class="color-value">#854D0E</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #713F12; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$yellow-900</div>
+                            <div class="color-value">#713F12</div>
+                        </div>
+                    </div>
+
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #422006; "></div>
+                        <div class="color-info">
+                            <div class="color-name">$yellow-950</div>
+                            <div class="color-value">#422006</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
     </div>
 </body>
 </html>
