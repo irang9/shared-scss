@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography - Shared SCSS</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+        .nav {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .nav-content {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .nav-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e293b;
+            text-decoration: none;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+        .nav-menu a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #2563eb;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 32px 20px;
+        }
+        h1 {
+            color: #212121;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        .subtitle {
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .grid {
+            display: grid;
+            gap: 16px;
+        }
+        .card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .card-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .card-value {
+            color: #64748b;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 13px;
+        }
+        .code {
+            font-family: 'Monaco', 'Menlo', monospace;
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        .semantic-colors {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        .semantic-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .semantic-item.bg-example {
+            padding: 16px;
+        }
+        .semantic-item.text-example {
+            padding: 16px;
+        }
+        .semantic-item.border-example {
+            padding: 16px;
+        }
+        .semantic-swatch {
+            width: 48px;
+            height: 48px;
+            border-radius: 4px;
+            flex-shrink: 0;
+            border: 1px solid #e2e8f0;
+        }
+        .semantic-info {
+            flex: 1;
+        }
+        .semantic-name {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+        .semantic-value {
+            color: #64748b;
+            font-size: 11px;
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+        .category-group {
+            margin-bottom: 32px;
+        }
+        .category-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 16px;
+            margin-top: 32px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .category-title:first-child {
+            margin-top: 0;
+        }
+        .example-text {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .palette-group {
+            margin-bottom: 32px;
+        }
+        .palette-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 12px;
+            margin-top: 24px;
+        }
+        .palette-title:first-child {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+        table th,
+        table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        table th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 13px;
+        }
+        table td {
+            color: #334155;
+            font-size: 14px;
+        }
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 12px;
+        }
+        .color-item {
+            display: flex;
+            flex-direction: column;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            background: white;
+        }
+        .color-swatch {
+            width: 100%;
+            height: 80px;
+        }
+        .color-info {
+            padding: 8px;
+            font-size: 11px;
+        }
+        .color-name {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+        .color-value {
+            color: #64748b;
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-content">
+                <a href="index.html" class="nav-title">Shared SCSS</a>
+                <ul class="nav-menu">
+                        <li><a href="index.html">홈</a></li>
+                    <li><a href="colors.html">Colors</a></li>
+                    <li><a href="breakpoints.html">Breakpoints</a></li>
+                    <li><a href="typography.html" class="active">Typography</a></li>
+                    <li><a href="spacing.html">Spacing</a></li>
+                    <li><a href="fonts.html">Fonts</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        
+        <h1>Typography</h1>
+        <p class="subtitle">폰트 크기 및 굵기 설정값</p>
+        
+        <div class="section">
+            <h2 class="section-title">Font Sizes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>변수명</th>
+                        <th>rem 값</th>
+                        <th>px 값</th>
+                        <th>사용 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+    
+                    <tr>
+                        <td><code class="code">$font-size-3xs</code></td>
+                        <td><code class="code">0.625rem</code></td>
+                        <td><code class="code">10px</code></td>
+                        <td style="font-size: 0.625rem;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-size-2xs</code></td>
+                        <td><code class="code">0.6875rem</code></td>
+                        <td><code class="code">11px</code></td>
+                        <td style="font-size: 0.6875rem;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-size-xs</code></td>
+                        <td><code class="code">0.75rem</code></td>
+                        <td><code class="code">12px</code></td>
+                        <td style="font-size: 0.75rem;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-size-sm</code></td>
+                        <td><code class="code">0.875rem</code></td>
+                        <td><code class="code">14px</code></td>
+                        <td style="font-size: 0.875rem;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-size-base</code></td>
+                        <td><code class="code">1.0rem</code></td>
+                        <td><code class="code">16px</code></td>
+                        <td style="font-size: 1.0rem;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-size-lg</code></td>
+                        <td><code class="code">1.125rem</code></td>
+                        <td><code class="code">18px</code></td>
+                        <td style="font-size: 1.125rem;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-size-xl</code></td>
+                        <td><code class="code">1.25rem</code></td>
+                        <td><code class="code">20px</code></td>
+                        <td style="font-size: 1.25rem;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-size-2xl</code></td>
+                        <td><code class="code">1.5rem</code></td>
+                        <td><code class="code">24px</code></td>
+                        <td style="font-size: 1.5rem;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-size-3xl</code></td>
+                        <td><code class="code">1.875rem</code></td>
+                        <td><code class="code">30px</code></td>
+                        <td style="font-size: 1.875rem;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-size-4xl</code></td>
+                        <td><code class="code">2.25rem</code></td>
+                        <td><code class="code">36px</code></td>
+                        <td style="font-size: 2.25rem;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-size-5xl</code></td>
+                        <td><code class="code">3.0rem</code></td>
+                        <td><code class="code">48px</code></td>
+                        <td style="font-size: 3.0rem;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-size-6xl</code></td>
+                        <td><code class="code">3.75rem</code></td>
+                        <td><code class="code">60px</code></td>
+                        <td style="font-size: 3.75rem;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-size-7xl</code></td>
+                        <td><code class="code">4.5rem</code></td>
+                        <td><code class="code">72px</code></td>
+                        <td style="font-size: 4.5rem;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-size-8xl</code></td>
+                        <td><code class="code">6.0rem</code></td>
+                        <td><code class="code">96px</code></td>
+                        <td style="font-size: 6.0rem;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-size-9xl</code></td>
+                        <td><code class="code">8.0rem</code></td>
+                        <td><code class="code">128px</code></td>
+                        <td style="font-size: 8.0rem;">예시 텍스트</td>
+                    </tr>
+            
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Font Weights</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>변수명</th>
+                        <th>값</th>
+                        <th>사용 예시</th>
+                    </tr>
+                </thead>
+                <tbody>
+    
+                    <tr>
+                        <td><code class="code">$font-weight-light</code></td>
+                        <td><code class="code">300</code></td>
+                        <td style="font-weight: 300;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-weight-normal</code></td>
+                        <td><code class="code">400</code></td>
+                        <td style="font-weight: 400;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-weight-medium</code></td>
+                        <td><code class="code">500</code></td>
+                        <td style="font-weight: 500;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-weight-semibold</code></td>
+                        <td><code class="code">600</code></td>
+                        <td style="font-weight: 600;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-weight-bold</code></td>
+                        <td><code class="code">700</code></td>
+                        <td style="font-weight: 700;">예시 텍스트</td>
+                    </tr>
+            
+                    <tr>
+                        <td><code class="code">$font-weight-black</code></td>
+                        <td><code class="code">900</code></td>
+                        <td style="font-weight: 900;">예시 텍스트</td>
+                    </tr>
+            
+                </tbody>
+            </table>
+        </div>
+    
+    </div>
+</body>
+</html>
