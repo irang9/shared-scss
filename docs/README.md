@@ -93,13 +93,13 @@ pip3 install watchdog
 **서비스 관리:**
 ```bash
 # 서비스 상태 확인
-launchctl list | grep com.irang.shared-scss
+launchctl list | grep com.rexbox.docs-watcher
 
 # 로그 확인
-tail -f /tmp/shared-scss-color-guide.log
+tail -f /tmp/rexbox-docs-watcher.log
 
 # 서비스 중지
-launchctl unload ~/Library/LaunchAgents/com.irang.shared-scss.color-guide.plist
+launchctl unload ~/Library/LaunchAgents/com.rexbox.docs-watcher.plist
 
 # 서비스 제거
 ./docs/scripts/uninstall-service.sh
@@ -151,7 +151,7 @@ docs/
 │   ├── start-watcher.sh         # 감시 시작 스크립트 (수동 실행용)
 │   ├── install-service.sh       # macOS 서비스 설치 스크립트
 │   ├── uninstall-service.sh     # macOS 서비스 제거 스크립트
-│   └── com.irang.shared-scss.color-guide.plist  # macOS launchd 설정 파일
+│   └── com.rexbox.docs-watcher.plist  # macOS launchd 설정 파일
 ├── assets/                      # 정적 파일들
 │   ├── favicon.ico              # Favicon (ICO)
 │   └── favicon.png              # Favicon (PNG)

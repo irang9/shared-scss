@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.irang.shared-scss.color-guide</string>
+    <string>com.rexbox.docs-watcher</string>
     <key>ProgramArguments</key>
     <array>
         <string>/usr/bin/python3</string>
@@ -16,9 +16,9 @@
     <key>KeepAlive</key>
     <true/>
     <key>StandardOutPath</key>
-    <string>/tmp/shared-scss-color-guide.log</string>
+    <string>/tmp/rexbox-docs-watcher.log</string>
     <key>StandardErrorPath</key>
-    <string>/tmp/shared-scss-color-guide-error.log</string>
+    <string>/tmp/rexbox-docs-watcher-error.log</string>
 </dict>
 </plist>
 

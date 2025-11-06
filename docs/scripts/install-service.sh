@@ -2,11 +2,11 @@
 # macOS launchd 서비스 설치 스크립트
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PLIST_FILE="$SCRIPT_DIR/com.irang.shared-scss.color-guide.plist"
+PLIST_FILE="$SCRIPT_DIR/com.rexbox.docs-watcher.plist"
 LAUNCH_AGENTS_DIR="$HOME/Library/LaunchAgents"
-PLIST_NAME="com.irang.shared-scss.color-guide.plist"
+PLIST_NAME="com.rexbox.docs-watcher.plist"
 
-echo "🚀 RexBox Color Guide 자동화 서비스 설치"
+echo "🚀 RexBox 문서 자동화 서비스 설치"
 echo ""
 
 # launchd 디렉토리 확인 및 생성
@@ -15,12 +15,21 @@ if [ ! -d "$LAUNCH_AGENTS_DIR" ]; then
     echo "✓ LaunchAgents 디렉토리 생성: $LAUNCH_AGENTS_DIR"
 fi
 
-# 기존 서비스 중지 및 제거
+# 기존 서비스 중지 및 제거 (새로운 이름)
 if [ -f "$LAUNCH_AGENTS_DIR/$PLIST_NAME" ]; then
     echo "⚠️  기존 서비스 발견. 중지 중..."
     launchctl unload "$LAUNCH_AGENTS_DIR/$PLIST_NAME" 2>/dev/null || true
     rm -f "$LAUNCH_AGENTS_DIR/$PLIST_NAME"
     echo "✓ 기존 서비스 제거 완료"
+fi
+
+# 이전 버전 서비스 제거 (com.irang.shared-scss.color-guide)
+OLD_PLIST_NAME="com.irang.shared-scss.color-guide.plist"
+if [ -f "$LAUNCH_AGENTS_DIR/$OLD_PLIST_NAME" ]; then
+    echo "⚠️  이전 버전 서비스 발견. 중지 중..."
+    launchctl unload "$LAUNCH_AGENTS_DIR/$OLD_PLIST_NAME" 2>/dev/null || true
+    rm -f "$LAUNCH_AGENTS_DIR/$OLD_PLIST_NAME"
+    echo "✓ 이전 버전 서비스 제거 완료"
 fi
 
 # Python 경로 확인
@@ -48,10 +57,10 @@ if [ $? -eq 0 ]; then
     echo "✅ 서비스 설치 완료!"
     echo ""
     echo "📋 서비스 상태 확인:"
-    echo "   launchctl list | grep com.irang.shared-scss"
+    echo "   launchctl list | grep com.rexbox.docs-watcher"
     echo ""
     echo "📋 로그 확인:"
-    echo "   tail -f /tmp/shared-scss-color-guide.log"
+    echo "   tail -f /tmp/rexbox-docs-watcher.log"
     echo ""
     echo "🛑 서비스 중지:"
     echo "   launchctl unload $LAUNCH_AGENTS_DIR/$PLIST_NAME"

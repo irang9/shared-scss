@@ -2,10 +2,10 @@
 # macOS launchd 서비스 제거 스크립트
 
 LAUNCH_AGENTS_DIR="$HOME/Library/LaunchAgents"
-PLIST_NAME="com.irang.shared-scss.color-guide.plist"
+PLIST_NAME="com.rexbox.docs-watcher.plist"
 PLIST_PATH="$LAUNCH_AGENTS_DIR/$PLIST_NAME"
 
-echo "🛑 RexBox Color Guide 자동화 서비스 제거"
+echo "🛑 RexBox 문서 자동화 서비스 제거"
 echo ""
 
 if [ ! -f "$PLIST_PATH" ]; then
