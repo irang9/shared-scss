@@ -1,6 +1,6 @@
-# Sample Project - Shared SCSS 사용 예제
+# Sample Project - RexBox 사용 예제
 
-이 프로젝트는 `shared-scss`를 사용하여 프로젝트별 커스터마이징을 하는 방법을 보여주는 예제입니다.
+이 프로젝트는 `RexBox`를 사용하여 프로젝트별 커스터마이징을 하는 방법을 보여주는 예제입니다.
 
 ## 파일 구조
 
@@ -44,10 +44,10 @@ sass scss/main.scss css/main.css
 sass --watch scss/main.scss css/main.css
 ```
 
-**참고:** sample-project는 shared-scss 디렉토리 안에 있습니다:
+**참고:** sample-project는 rexbox 디렉토리 안에 있습니다:
 ```
-shared-scss/
-├── shared-scss/    # SCSS 라이브러리
+rexbox/
+├── rexbox/         # SCSS 라이브러리
 ├── docs/           # 문서
 └── sample-project/ # 예제 프로젝트
 ```
@@ -73,12 +73,12 @@ shared-scss/
 
 ### 1. 색상 오버라이드
 
-`scss/_config.scss` 파일에서 shared-scss의 기본 색상을 오버라이드할 수 있습니다:
+`scss/_config.scss` 파일에서 RexBox의 기본 색상을 오버라이드할 수 있습니다:
 
 ```scss
-// Shared SCSS 기본값 import
-@use '../../shared-scss/variables' as *;
-@use '../../shared-scss/breakpoints' as *;
+// RexBox 기본값 import
+@use '../../rexbox/variables' as *;
+@use '../../rexbox/breakpoints' as *;
 
 // Primary 색상 오버라이드 (theme import 전에 정의)
 $primary: #ff6b6b;
@@ -89,7 +89,7 @@ $primary-dark: #ee5a6f;
 $secondary: #4ecdc4;
 
 // Theme import (위에서 정의한 변수가 !default를 덮어씁니다)
-@use '../../shared-scss/theme' as *;
+@use '../../rexbox/theme' as *;
 ```
 
 **주의사항:**
@@ -121,12 +121,12 @@ $font-gmarket: "GmarketSans", "Spoqa Han Sans Neo", ...;
 ```
 
 **주의사항:**
-- shared-scss는 기본 폰트(spoqa, icons)만 제공합니다.
+- RexBox는 기본 폰트(spoqa, icons)만 제공합니다.
 - 선택적 폰트는 프로젝트별로 다를 수 있으므로 각 프로젝트에서 관리합니다.
 
 ### 3. 프로젝트 전용 변수 추가
 
-shared-scss에 없는 프로젝트 전용 변수를 추가할 수 있습니다:
+RexBox에 없는 프로젝트 전용 변수를 추가할 수 있습니다:
 
 ```scss
 // 프로젝트 전용 색상
@@ -145,13 +145,13 @@ $card-gap: 24px;
 
 ```scss
 // scss/components/_header.scss
-// 프로젝트 설정과 shared-scss import
+// 프로젝트 설정과 RexBox import
 // 주의: config와 theme 모두 변수를 정의하므로,
 // config는 namespace로, theme은 *로 import
 @use '../config' as config;
-@use '../../../shared-scss/theme' as *;
-@use '../../../shared-scss/variables' as *;
-@use '../../../shared-scss/breakpoints' as *;
+@use '../../../rexbox/theme' as *;
+@use '../../../rexbox/variables' as *;
+@use '../../../rexbox/breakpoints' as *;
 
 .header {
     background: white;
@@ -160,10 +160,10 @@ $card-gap: 24px;
     
     &__logo {
         color: $primary;  // theme에서 오버라이드된 primary 색상 사용
-        @include rounded-lg;  // shared-scss mixin 사용
+        @include rounded-lg;  // RexBox mixin 사용
     }
     
-    @include down("md") {  // shared-scss breakpoint mixin
+    @include down("md") {  // RexBox breakpoint mixin
         // 모바일 스타일
     }
     
@@ -177,7 +177,7 @@ $card-gap: 24px;
 ## 주요 기능
 
 ### 1. 색상 시스템
-- Shared SCSS의 semantic 색상 변수 사용
+- RexBox의 semantic 색상 변수 사용
 - 프로젝트별 브랜드 색상 오버라이드
 - 프로젝트 전용 색상 추가
 
@@ -199,13 +199,13 @@ $card-gap: 24px;
 
 ## 참고사항
 
-- `_config.scss`는 프로젝트별 설정 파일로, shared-scss의 기본값을 오버라이드합니다.
+- `_config.scss`는 프로젝트별 설정 파일로, RexBox의 기본값을 오버라이드합니다.
 - `main.scss`는 모든 스타일을 통합하는 메인 파일입니다.
 - 컴포넌트 스타일은 `components/` 디렉토리에 모듈화하여 관리합니다.
 - HTML에서는 컴파일된 CSS 파일만 링크하면 됩니다.
 
 ## 더 알아보기
 
-- [Shared SCSS README](../README.md)
-- [Shared SCSS 문서](../docs/index.html)
+- [RexBox README](../README.md)
+- [RexBox 문서](../docs/index.html)
 

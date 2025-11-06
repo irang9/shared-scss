@@ -18,7 +18,7 @@
 // ============================================
 // config에서 정의한 변수들을 theme에 전달하여 오버라이드합니다.
 // 주의: 프로젝트별 폰트 변수는 theme에 전달하지 않고, config에서 직접 사용합니다.
-@use '../../shared-scss/theme' as * with ($primary: config.$primary,
+@use '../../rexbox/theme' as * with ($primary: config.$primary,
     $primary-light: config.$primary-light,
     $primary-dark: config.$primary-dark,
     $primary-100: config.$primary-100,
@@ -34,18 +34,18 @@
     $point: config.$point);
 
 // ============================================
-// 3. Shared SCSS (mixins, fonts, base, utilities)
+// 3. RexBox (mixins, fonts, base, utilities)
 // ============================================
-@use '../../shared-scss/mixins' as *;
-@use '../../shared-scss/fonts' as *; // 필수 폰트 (spoqa, icons)
-@use '../../shared-scss/base/reset' as *;
-@use '../../shared-scss/utilities' as *;
+@use '../../rexbox/mixins' as *;
+@use '../../rexbox/fonts' as *; // 필수 폰트 (spoqa, icons)
+@use '../../rexbox/base/reset' as *;
+@use '../../rexbox/utilities' as *;
 
 // ============================================
 // 4. 프로젝트별 선택적 폰트
 // ============================================
 // 선택적 폰트는 프로젝트의 fonts 디렉토리에서 관리합니다.
-// shared-scss의 fonts는 기본 폰트(spoqa, icons)만 포함하며,
+// RexBox의 fonts는 기본 폰트(spoqa, icons)만 포함하며,
 // 프로젝트별 fonts는 선택적 폰트(gmarket, google, scoredream 등)를 관리합니다.
 @use 'fonts/gmarket' as *; // Gmarket 폰트
 // @use 'fonts/google' as *; // Outfit 폰트 (필요시)

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Shared SCSS Documentation Generator
+RexBox Documentation Generator
 SCSS 파일들을 파싱하여 다중 페이지 사양서를 자동 생성합니다.
 """
 
@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 
 # 프로젝트 루트 디렉토리
-# docs 디렉토리에서 shared-scss 디렉토리로의 경로
+# docs 디렉토리에서 rexbox 디렉토리로의 경로
 ROOT_DIR = Path(__file__).parent.parent / "shared-scss"
 DOCS_DIR = Path(__file__).parent
 VARIABLES_COLORS_FILE = ROOT_DIR / "variables" / "_colors.scss"
@@ -333,8 +333,8 @@ def get_navigation(current_page: str = "") -> str:
     nav_html = """
     <aside class="sidebar">
         <div class="sidebar-header">
-            <a href="index.html" class="sidebar-title">Shared SCSS</a>
-            <a href="https://github.com/irang9/shared-scss" target="_blank" rel="noopener noreferrer" class="sidebar-github">
+            <a href="index.html" class="sidebar-title">RexBox</a>
+            <a href="https://github.com/irang9/rexbox" target="_blank" rel="noopener noreferrer" class="sidebar-github">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
                 </svg>
@@ -366,7 +366,7 @@ def generate_html_page(title: str, content: str, current_page: str = "") -> str:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} - Shared SCSS</title>
+    <title>{title} - RexBox</title>
     <link rel="icon" type="image/svg+xml" href="{favicon_svg}">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     {get_common_styles()}
@@ -544,7 +544,7 @@ def generate_colors_page() -> str:
     # HTML 생성
     content = """
         <h1>Colors</h1>
-        <p class="subtitle">shared-scss의 theme과 variables 색상 팔레트</p>
+        <p class="subtitle">RexBox의 theme과 variables 색상 팔레트</p>
         
         <!-- Semantic Colors (Theme) -->
         <div class="section">
@@ -1370,13 +1370,13 @@ def generate_fonts_page() -> str:
             
             <div style="margin-top: 24px; padding: 16px; background: #eff6ff; border-radius: 6px; border: 1px solid #bfdbfe;">
                 <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #1e40af;">사용 방법</h3>
-                <p style="margin-bottom: 12px; color: #1e40af;">SCSS 파일에서 <code class="code">@use '../../shared-scss/fonts' as *;</code> 또는 <code class="code">@use '../../shared-scss' as *;</code>를 사용하면 자동으로 Material Icons가 포함됩니다.</p>
+                <p style="margin-bottom: 12px; color: #1e40af;">SCSS 파일에서 <code class="code">@use '../../rexbox/fonts' as *;</code> 또는 <code class="code">@use '../../rexbox' as *;</code>를 사용하면 자동으로 Material Icons가 포함됩니다.</p>
                 <p style="margin-bottom: 12px; color: #1e40af;">아이콘 이름은 <a href="https://fonts.google.com/icons" target="_blank" style="color: #2563eb; text-decoration: underline;">Google Material Icons</a>에서 확인할 수 있습니다.</p>
             </div>
             
             <div style="margin-top: 24px; padding: 16px; background: #f0fdf4; border-radius: 6px; border: 1px solid #86efac;">
                 <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #166534;">프로젝트별 선택적 폰트</h3>
-                <p style="margin-bottom: 12px; color: #166534;">shared-scss는 기본 폰트($font-basic, $font-monospace)와 Material Icons만 제공합니다.</p>
+                <p style="margin-bottom: 12px; color: #166534;">RexBox는 기본 폰트($font-basic, $font-monospace)와 Material Icons만 제공합니다.</p>
                 <p style="margin-bottom: 12px; color: #166534;">프로젝트별 선택적 폰트(Gmarket, Google Fonts, SCoreDream 등)는 각 프로젝트의 <code class="code">fonts/</code> 디렉토리에서 관리하세요.</p>
                 <p style="margin-bottom: 0; color: #166534;">자세한 사용 방법은 <a href="../sample-project/README.md" target="_blank" style="color: #16a34a; text-decoration: underline;">Sample Project README</a>를 참고하세요.</p>
             </div>
@@ -1584,7 +1584,7 @@ def generate_borders_page() -> str:
         
         <div class="section">
             <h2 class="section-title">사용 방법</h2>
-            <p style="margin-bottom: 16px; color: #64748b;">SCSS 파일에서 <code class="code">@use '../../shared-scss/utilities' as *;</code> 또는 <code class="code">@use '../../shared-scss' as *;</code>를 사용하면 자동으로 border 유틸리티 클래스가 포함됩니다.</p>
+            <p style="margin-bottom: 16px; color: #64748b;">SCSS 파일에서 <code class="code">@use '../../rexbox/utilities' as *;</code> 또는 <code class="code">@use '../../rexbox' as *;</code>를 사용하면 자동으로 border 유틸리티 클래스가 포함됩니다.</p>
             <div style="margin-top: 16px; padding: 16px; background: #f8fafc; border-radius: 6px; border: 1px solid #e2e8f0;">
                 <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #1e293b;">사용 예시</h3>
                 <pre style="background: #1e293b; color: #f8fafc; padding: 16px; border-radius: 4px; overflow-x: auto; font-size: 13px; line-height: 1.6; margin: 0;"><code>&lt;!-- 기본 테두리 --&gt;
@@ -1713,7 +1713,7 @@ def generate_stacks_page() -> str:
         
         <div class="section">
             <h2 class="section-title">사용 방법</h2>
-            <p style="margin-bottom: 16px; color: #64748b;">SCSS 파일에서 <code class="code">@use '../../shared-scss/utilities' as *;</code> 또는 <code class="code">@use '../../shared-scss' as *;</code>를 사용하면 자동으로 stacks 유틸리티 클래스가 포함됩니다.</p>
+            <p style="margin-bottom: 16px; color: #64748b;">SCSS 파일에서 <code class="code">@use '../../rexbox/utilities' as *;</code> 또는 <code class="code">@use '../../rexbox' as *;</code>를 사용하면 자동으로 stacks 유틸리티 클래스가 포함됩니다.</p>
         </div>
     """
     
@@ -1796,7 +1796,7 @@ def generate_vertical_rule_page() -> str:
         
         <div class="section">
             <h2 class="section-title">사용 방법</h2>
-            <p style="margin-bottom: 16px; color: #64748b;">SCSS 파일에서 <code class="code">@use '../../shared-scss/utilities' as *;</code> 또는 <code class="code">@use '../../shared-scss' as *;</code>를 사용하면 자동으로 vertical rule 유틸리티 클래스가 포함됩니다.</p>
+            <p style="margin-bottom: 16px; color: #64748b;">SCSS 파일에서 <code class="code">@use '../../rexbox/utilities' as *;</code> 또는 <code class="code">@use '../../rexbox' as *;</code>를 사용하면 자동으로 vertical rule 유틸리티 클래스가 포함됩니다.</p>
         </div>
     """
     
@@ -2149,8 +2149,8 @@ def generate_mixins_page() -> str:
 def generate_index_page() -> str:
     """Index 페이지 (홈/목차) 생성"""
     content = """
-        <h1>Shared SCSS Documentation</h1>
-        <p class="subtitle">shared-scss의 모든 변수와 설정값을 확인할 수 있는 사양서</p>
+        <h1>RexBox Documentation</h1>
+        <p class="subtitle">RexBox의 모든 변수와 설정값을 확인할 수 있는 사양서</p>
         
         <div class="section">
             <h2 class="section-title">카테고리</h2>
@@ -2183,7 +2183,7 @@ def generate_index_page() -> str:
 
 def main():
     """메인 함수 - 모든 페이지 생성"""
-    print("Shared SCSS Documentation 생성 중...")
+    print("RexBox Documentation 생성 중...")
     
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
     

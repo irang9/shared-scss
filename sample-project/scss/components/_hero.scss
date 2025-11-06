@@ -3,15 +3,15 @@
 // ============================================
 // Hero Section Component
 // ============================================
-// 프로젝트 설정과 shared-scss import
+// 프로젝트 설정과 RexBox import
 // 주의: config와 theme 모두 $primary를 정의하므로,
 // config는 namespace로, theme은 *로 import
 @use '../config' as config;
-@use '../../../shared-scss/theme' as *;
-@use '../../../shared-scss/variables' as *;
-@use '../../../shared-scss/breakpoints' as *;
-@use '../../../shared-scss/mixins' as *;
-@use '../../../shared-scss/fonts' as *;  // 필수 폰트 (spoqa, icons)
+@use '../../../rexbox/theme' as *;
+@use '../../../rexbox/variables' as *;
+@use '../../../rexbox/breakpoints' as *;
+@use '../../../rexbox/mixins' as *;
+@use '../../../rexbox/fonts' as *;  // 필수 폰트 (spoqa, icons)
 @use '../fonts/gmarket' as *;  // Gmarket 폰트 (프로젝트별 선택적 폰트)
 
 .hero {

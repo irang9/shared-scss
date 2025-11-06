@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+// RexBox 통합 파일
+// 모든 variables, breakpoints, theme, mixins, fonts, base, utilities를 한 번에 가져옵니다.
+//
+// 사용법:
+// @use '../../rexbox' as *;
+//
+// 참고:
+// - fonts는 필수 폰트(spoqa, icons)만 포함됩니다
+// - 선택적 폰트(google, gmarket, scoredream)는 프로젝트에서 직접 import하세요
+// - fonts가 필요 없는 경우에는 개별적으로 가져오는 것을 권장합니다:
+//   @use '../../rexbox/variables' as *;
+//   @use '../../rexbox/breakpoints' as *;
+//   @use '../../rexbox/theme' as *;
+//   @use '../../rexbox/mixins' as *;
+
+@forward 'variables';
+@forward 'breakpoints'; // breakpoint 변수와 mixin (도메인 중심)
+@forward 'theme'; // 의미 색상 (사용 목적별 매핑)
+@forward 'mixins';
+@forward 'fonts'; // 필수 폰트만 포함 (spoqa, icons)
+@forward 'base/reset'; // CSS Reset 스타일
+@forward 'utilities'; // 유틸리티 클래스

@@ -1,16 +1,16 @@
 @charset "utf-8";
 
 // ============================================
-// 프로젝트별 설정 (Shared SCSS 오버라이드)
+// 프로젝트별 설정 (RexBox 오버라이드)
 // ============================================
-// 이 파일에서 shared-scss의 기본값을 오버라이드하거나
+// 이 파일에서 RexBox의 기본값을 오버라이드하거나
 // 프로젝트 전용 변수를 추가할 수 있습니다.
 
 // ============================================
-// 1. Shared SCSS 기본값 import
+// 1. RexBox 기본값 import
 // ============================================
-@use '../../shared-scss/variables' as *;
-@use '../../shared-scss/breakpoints' as *;
+@use '../../rexbox/variables' as *;
+@use '../../rexbox/breakpoints' as *;
 
 // ============================================
 // 2. Theme 색상 오버라이드 (변수 재정의)
@@ -58,7 +58,7 @@ $font-gmarket: "GmarketSans", "Spoqa Han Sans Neo", "Noto Sans KR", "Nanum Gothi
 // ============================================
 // 3. 프로젝트 전용 변수
 // ============================================
-// shared-scss에 없는 프로젝트 전용 색상
+// RexBox에 없는 프로젝트 전용 색상
 $brand-accent: #ffd93d;
 $brand-gradient-start: #ff6b6b;
 $brand-gradient-end: #4ecdc4;

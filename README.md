@@ -1,10 +1,10 @@
-# Shared SCSS 프로젝트
+# RexBox
 
 여러 프로젝트에서 공통으로 사용하는 SCSS 변수, mixins, 유틸리티 클래스 라이브러리입니다.
 
 ## 📚 온라인 문서
 
-**👉 [온라인 문서 보기](https://irang9.github.io/shared-scss/)** (GitHub Pages)
+**👉 [온라인 문서 보기](https://irang9.github.io/rexbox/)** (GitHub Pages)
 
 문서에서 모든 변수, mixins, 유틸리티 클래스를 확인할 수 있습니다.
 
@@ -13,8 +13,8 @@
 이 저장소는 다음과 같은 구조로 구성되어 있습니다:
 
 ```
-shared-scss/
-├── shared-scss/      # SCSS 라이브러리 (메인)
+rexbox/
+├── rexbox/           # SCSS 라이브러리 (메인)
 │   ├── variables/    # 변수 (colors, typo, spacing)
 │   ├── breakpoints/  # Breakpoint 변수와 mixins
 │   ├── theme/        # 의미 색상 (semantic colors)
@@ -48,7 +48,7 @@ shared-scss/
 
 ## 📂 디렉토리 설명
 
-### `shared-scss/` - SCSS 라이브러리
+### `rexbox/` - SCSS 라이브러리
 
 실제 SCSS 라이브러리 코드가 들어있는 디렉토리입니다. 다른 프로젝트에서 이 디렉토리를 참조하여 사용합니다.
 
@@ -64,16 +64,16 @@ shared-scss/
 **사용 방법:**
 ```scss
 // 프로젝트의 SCSS 파일에서
-@use '../shared-scss/shared-scss' as *;
+@use '../rexbox/rexbox' as *;
 
 // 또는 필요한 것만 선택적으로
-@use '../shared-scss/shared-scss/variables' as *;
-@use '../shared-scss/shared-scss/breakpoints' as *;
-@use '../shared-scss/shared-scss/theme' as *;
-@use '../shared-scss/shared-scss/mixins' as *;
+@use '../rexbox/rexbox/variables' as *;
+@use '../rexbox/rexbox/breakpoints' as *;
+@use '../rexbox/rexbox/theme' as *;
+@use '../rexbox/rexbox/mixins' as *;
 ```
 
-자세한 사용 방법은 [`shared-scss/README.md`](./shared-scss/README.md)를 참고하세요.
+자세한 사용 방법은 [`rexbox/README.md`](./rexbox/README.md)를 참고하세요.
 
 ### `docs/` - 문서
 
@@ -92,18 +92,18 @@ HTML 형식의 문서가 들어있는 디렉토리입니다. GitHub Pages를 통
 - **generate-docs.py**: 문서 자동 생성 스크립트
 
 **문서 업데이트:**
-`shared-scss/` 디렉토리의 SCSS 파일을 수정한 후, 다음 명령어로 문서를 자동 생성할 수 있습니다:
+`rexbox/` 디렉토리의 SCSS 파일을 수정한 후, 다음 명령어로 문서를 자동 생성할 수 있습니다:
 
 ```bash
 cd docs
 python3 generate-docs.py
 ```
 
-문서는 `shared-scss/` 디렉토리의 SCSS 파일을 파싱하여 자동으로 생성되므로, SCSS 코드를 수정하면 문서도 함께 업데이트됩니다.
+문서는 `rexbox/` 디렉토리의 SCSS 파일을 파싱하여 자동으로 생성되므로, SCSS 코드를 수정하면 문서도 함께 업데이트됩니다.
 
 ### `sample-project/` - 사용 예제
 
-Shared SCSS를 실제 프로젝트에서 어떻게 사용하는지 보여주는 예제 프로젝트입니다.
+RexBox를 실제 프로젝트에서 어떻게 사용하는지 보여주는 예제 프로젝트입니다.
 
 **주요 내용:**
 - **scss/_config.scss**: 프로젝트별 설정 파일 (변수 오버라이드 예시)
@@ -126,8 +126,8 @@ open index.html
 ### 1. 저장소 클론
 
 ```bash
-git clone https://github.com/irang9/shared-scss.git
-cd shared-scss
+git clone https://github.com/irang9/rexbox.git
+cd rexbox
 ```
 
 ### 2. 다른 프로젝트에서 사용
@@ -136,27 +136,27 @@ cd shared-scss
 
 ```bash
 # 프로젝트 디렉토리에서
-git submodule add https://github.com/irang9/shared-scss.git shared-scss
+git submodule add https://github.com/irang9/rexbox.git rexbox
 ```
 
 #### 방법 B: 직접 복사
 
 ```bash
-# shared-scss/shared-scss 디렉토리를 프로젝트에 복사
-cp -r shared-scss/shared-scss /path/to/your/project/
+# rexbox/rexbox 디렉토리를 프로젝트에 복사
+cp -r rexbox/rexbox /path/to/your/project/
 ```
 
 ### 3. SCSS 파일에서 사용
 
 ```scss
 // 프로젝트의 SCSS 파일에서
-@use '../shared-scss/shared-scss' as *;
+@use '../rexbox/rexbox' as *;
 
 // 또는 필요한 것만 선택적으로
-@use '../shared-scss/shared-scss/variables' as *;
-@use '../shared-scss/shared-scss/breakpoints' as *;
-@use '../shared-scss/shared-scss/theme' as *;
-@use '../shared-scss/shared-scss/mixins' as *;
+@use '../rexbox/rexbox/variables' as *;
+@use '../rexbox/rexbox/breakpoints' as *;
+@use '../rexbox/rexbox/theme' as *;
+@use '../rexbox/rexbox/mixins' as *;
 ```
 
 ### 4. 프로젝트별 커스터마이징
@@ -181,24 +181,24 @@ $font-gmarket: "GmarketSans", "Spoqa Han Sans Neo", ...;
 @use 'fonts/gmarket' as *;
 ```
 
-**참고:** shared-scss는 기본 폰트(`$font-basic`, `$font-monospace`)와 Material Icons만 제공합니다. 선택적 폰트는 프로젝트별로 다를 수 있으므로 각 프로젝트에서 관리합니다.
+**참고:** RexBox는 기본 폰트(`$font-basic`, `$font-monospace`)와 Material Icons만 제공합니다. 선택적 폰트는 프로젝트별로 다를 수 있으므로 각 프로젝트에서 관리합니다.
 
 ## 📖 더 알아보기
 
-- **[온라인 문서](https://irang9.github.io/shared-scss/)** - 모든 변수와 설정값 확인
-- **[Shared SCSS 상세 문서](./shared-scss/README.md)** - 라이브러리 상세 설명
+- **[온라인 문서](https://irang9.github.io/rexbox/)** - 모든 변수와 설정값 확인
+- **[RexBox 상세 문서](./rexbox/README.md)** - 라이브러리 상세 설명
 - **[Sample Project](./sample-project/)** - 사용 예제
 
 ## 🔧 문서 업데이트
 
-`shared-scss/` 디렉토리의 SCSS 파일을 수정한 후, 문서를 업데이트하려면:
+`rexbox/` 디렉토리의 SCSS 파일을 수정한 후, 문서를 업데이트하려면:
 
 ```bash
 cd docs
 python3 generate-docs.py
 ```
 
-문서는 자동으로 `shared-scss/` 디렉토리의 SCSS 파일을 파싱하여 생성되므로, SCSS 코드를 수정하면 문서도 함께 업데이트됩니다.
+문서는 자동으로 `rexbox/` 디렉토리의 SCSS 파일을 파싱하여 생성되므로, SCSS 코드를 수정하면 문서도 함께 업데이트됩니다.
 
 ## 📝 라이선스
 

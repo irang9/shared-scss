@@ -1,18 +1,18 @@
-# Shared SCSS
+# RexBox
 
 여러 프로젝트에서 공통으로 사용하는 SCSS 변수, mixins, 유틸리티 클래스 라이브러리입니다.
 
 ## 📚 문서
 
-**👉 [온라인 문서 보기](https://irang9.github.io/shared-scss/)** (GitHub Pages)
+**👉 [온라인 문서 보기](https://irang9.github.io/rexbox/)** (GitHub Pages)
 
 문서에서 모든 변수, mixins, 유틸리티 클래스를 확인할 수 있습니다.
 
 ## 📁 프로젝트 구조
 
 ```
-shared-scss/
-├── shared-scss/      # SCSS 라이브러리 (메인)
+rexbox/
+├── rexbox/           # SCSS 라이브러리 (메인)
 │   ├── variables/    # 변수 (colors, typo, spacing)
 │   ├── breakpoints/  # Breakpoint 변수와 mixins
 │   ├── theme/        # 의미 색상 (semantic colors)
@@ -39,25 +39,25 @@ shared-scss/
 
 ```bash
 # Git 서브모듈로 추가 (권장)
-git submodule add https://github.com/irang9/shared-scss.git shared-scss
+git submodule add https://github.com/irang9/rexbox.git rexbox
 
 # 또는 직접 클론
-git clone https://github.com/irang9/shared-scss.git
-cd shared-scss
+git clone https://github.com/irang9/rexbox.git
+cd rexbox
 ```
 
 ### 2. 사용
 
 ```scss
 // 프로젝트의 SCSS 파일에서
-// shared-scss 디렉토리를 프로젝트에 복사하거나 서브모듈로 추가한 경우
-@use '../shared-scss/shared-scss' as *;
+// rexbox 디렉토리를 프로젝트에 복사하거나 서브모듈로 추가한 경우
+@use '../rexbox/rexbox' as *;
 
 // 또는 필요한 것만 선택적으로
-@use '../shared-scss/shared-scss/variables' as *;
-@use '../shared-scss/shared-scss/breakpoints' as *;
-@use '../shared-scss/shared-scss/theme' as *;
-@use '../shared-scss/shared-scss/mixins' as *;
+@use '../rexbox/rexbox/variables' as *;
+@use '../rexbox/rexbox/breakpoints' as *;
+@use '../rexbox/rexbox/theme' as *;
+@use '../rexbox/rexbox/mixins' as *;
 ```
 
 ### 3. 커스터마이징
@@ -66,15 +66,15 @@ cd shared-scss
 
 ```scss
 // _config.scss
-@use '../shared-scss/shared-scss/variables' as *;
-@use '../shared-scss/shared-scss/breakpoints' as *;
+@use '../rexbox/rexbox/variables' as *;
+@use '../rexbox/rexbox/breakpoints' as *;
 
 // Primary 색상 오버라이드
 $primary: #ff6b6b;
 $secondary: #4ecdc4;
 
 // Theme import (위에서 정의한 변수가 기본값을 덮어씁니다)
-@use '../shared-scss/shared-scss/theme' as *;
+@use '../rexbox/rexbox/theme' as *;
 ```
 
 자세한 사용 방법은 [sample-project](../sample-project/)를 참고하세요.
@@ -120,7 +120,7 @@ $secondary: #4ecdc4;
 
 ## 📖 문서
 
-- [온라인 문서](https://irang9.github.io/shared-scss/) - 모든 변수와 설정값 확인
+- [온라인 문서](https://irang9.github.io/rexbox/) - 모든 변수와 설정값 확인
 - [Sample Project](../sample-project/) - 사용 예제
 
 ## 🎯 사용 예시

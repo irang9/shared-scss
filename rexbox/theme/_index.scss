@@ -9,10 +9,10 @@
 @use '../variables/colors' as *;
 
 // 사용법:
-// @use '../../shared-scss' as *;  // 모든 변수와 테마 포함
+// @use '../../rexbox' as *;  // 모든 변수와 테마 포함
 // 또는
-// @use '../../shared-scss/variables' as *;
-// @use '../../shared-scss/theme' as *;
+// @use '../../rexbox/variables' as *;
+// @use '../../rexbox/theme' as *;
 //
 // 예시:
 // background-color: $bg-light;     // $yellow-200 사용

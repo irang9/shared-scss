@@ -1,10 +1,10 @@
-# Shared SCSS 문서
+# RexBox 문서
 
-이 디렉토리에는 shared-scss 라이브러리의 모든 변수, mixins, 유틸리티 클래스를 확인할 수 있는 HTML 문서가 포함되어 있습니다.
+이 디렉토리에는 RexBox 라이브러리의 모든 변수, mixins, 유틸리티 클래스를 확인할 수 있는 HTML 문서가 포함되어 있습니다.
 
 ## 📚 온라인 문서
 
-**👉 [온라인 문서 보기](https://irang9.github.io/shared-scss/)** (GitHub Pages)
+**👉 [온라인 문서 보기](https://irang9.github.io/rexbox/)** (GitHub Pages)
 
 문서에서 모든 변수, mixins, 유틸리티 클래스를 확인할 수 있습니다.
 
@@ -47,7 +47,7 @@ python3 generate-docs.py
   3. **Branch**에서 `main` 브랜치 선택
   4. **Folder**에서 `/docs` 선택
   5. **Save** 클릭
-  6. 몇 분 후 접근: `https://irang9.github.io/shared-scss/`
+  6. 몇 분 후 접근: `https://irang9.github.io/rexbox/`
 
 **Private 리포지토리인 경우:**
 - GitHub Pages는 Public 리포지토리 또는 GitHub Enterprise(유료) 필요
@@ -64,7 +64,7 @@ cd docs
 python3 generate-docs.py
 ```
 
-문서는 자동으로 `shared-scss/` 디렉토리의 SCSS 파일을 파싱하여 생성되므로, SCSS 코드를 수정하면 문서도 함께 업데이트됩니다.
+문서는 자동으로 `rexbox/` 디렉토리의 SCSS 파일을 파싱하여 생성되므로, SCSS 코드를 수정하면 문서도 함께 업데이트됩니다.
 
 ## 🎨 색상 가이드 자동화 (선택사항)
 
@@ -165,11 +165,11 @@ docs/
 ## ⚠️ 주의사항
 
 - HTML 문서 파일들은 자동 생성되므로 직접 수정하지 마세요.
-- `shared-scss/` 디렉토리의 SCSS 파일을 수정한 후에는 `generate-docs.py` 스크립트를 실행하여 문서를 업데이트하세요.
+- `rexbox/` 디렉토리의 SCSS 파일을 수정한 후에는 `generate-docs.py` 스크립트를 실행하여 문서를 업데이트하세요.
 - Python 3.6 이상이 필요합니다.
 
 ## 📖 더 알아보기
 
-- [Shared SCSS README](../README.md) - 프로젝트 전체 개요
-- [Shared SCSS 상세 문서](../shared-scss/README.md) - 라이브러리 상세 설명
+- [RexBox README](../README.md) - 프로젝트 전체 개요
+- [RexBox 상세 문서](../shared-scss/README.md) - 라이브러리 상세 설명
 - [Sample Project](../sample-project/README.md) - 사용 예제
