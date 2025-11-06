@@ -3,6 +3,10 @@
 // ============================================
 // Transition Mixins
 // ============================================
+// uses
+// @include transition(background-color 1s 2s, color 2s);
+// @include transition(0.3s);
+
 
 // transition
 @mixin transition($transition...) {
@@ -35,7 +39,5 @@
     -webkit-transition-delay: $delay;
     transition-delay:         $delay;
 }
-// uses
-// @include transition(background-color 1s 2s, color 2s);
-// @include transition(0.3s);
+
 

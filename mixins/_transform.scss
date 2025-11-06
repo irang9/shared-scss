@@ -3,6 +3,9 @@
 // ============================================
 // Transform Mixins
 // ============================================
+// uses
+// @include transform(rotate(45deg));
+
 
 // Transforms : Browser Prefixes
 @mixin transform($transforms) {
@@ -39,7 +42,6 @@
 	-ms-transform-origin: $origin;
 	transform-origin: $origin;
 }
-// uses
-// @include transform(rotate(45deg));
+
 
 

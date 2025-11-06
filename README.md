@@ -50,27 +50,36 @@ shared-scss/
 
 ### 방법 1: 통합 파일 사용 (권장 - 간편함)
 
-변수, breakpoints, theme, mixins, fonts를 한 번에 가져오려면:
+변수, breakpoints, theme, mixins, fonts, base, utilities를 한 번에 가져오려면:
 
 ```scss
 @use '../../shared-scss' as *;
 ```
 
+**포함 내용:**
+- `variables`: 모든 변수 (colors, typo, spacing)
+- `breakpoints`: breakpoint 변수와 mixin
+- `theme`: 의미 색상
+- `mixins`: 모든 mixin
+- `fonts`: 필수 폰트만 (spoqa, google) - 폰트 변수 포함
+- `base/reset`: CSS Reset 스타일
+- `utilities`: 모든 유틸리티 클래스
+
 **참고:**
-- `utilities`와 `base`는 통합 파일에 포함되지 않습니다 (선택적 사용을 위해)
-- `utilities`와 `base`가 필요한 경우 별도로 import해야 합니다:
+- fonts는 필수 폰트(spoqa, google)만 자동으로 포함됩니다
+- 선택적 폰트(gmarket, scoredream)는 프로젝트에서 직접 import하세요:
   ```scss
   @use '../../shared-scss' as *;
-  @use '../../shared-scss/utilities' as *;
-  @use '../../shared-scss/base/reset' as *;
+  @use '../../shared-scss/fonts/gmarket' as *;  // 필요 시 추가
   ```
 
 **장점:**
-- 한 줄로 주요 모듈들을 가져올 수 있어 간편함
+- 한 줄로 모든 모듈을 가져올 수 있어 간편함
 - 실수로 일부만 가져오는 것을 방지
+- 필수 폰트만 포함되어 CSS 파일 크기 최적화
 
 **단점:**
-- fonts(폰트)가 필요 없는 경우에도 모두 포함되어 CSS 파일 크기가 커질 수 있음
+- 모든 유틸리티 클래스가 포함되어 CSS 파일 크기가 커질 수 있음
 
 ### 방법 2: 개별 파일 사용 (권장 - 최적화)
 
@@ -205,32 +214,38 @@ shared-scss/
 
 ### Fonts (폰트 파일들)
 
-- `_index.scss`: 모든 폰트와 폰트 변수를 한 번에 가져오기
+- `_index.scss`: 필수 폰트(spoqa, google)와 폰트 변수를 포함
 - `_variables.scss`: 폰트 패밀리 변수 (`$font-basic`, `$font-title` 등) - **프로젝트별 오버라이드 가능**
-- `_spoqa.scss`: Spoqa Han Sans Neo 폰트 import
-- `_google.scss`: Google Fonts (Material Icons, Outfit) import
-- `_gmarket.scss`: Gmarket Sans 폰트 (@font-face 정의)
-- `_scoredream.scss`: SCoreDream 폰트 (@font-face 정의)
+- `_spoqa.scss`: Spoqa Han Sans Neo 폰트 import (필수)
+- `_google.scss`: Google Fonts (Material Icons, Outfit) import (필수)
+- `_gmarket.scss`: Gmarket Sans 폰트 (@font-face 정의) - 선택적
+- `_scoredream.scss`: SCoreDream 폰트 (@font-face 정의) - 선택적
 
 **구조 설계 이유:**
+- 필수 폰트와 선택적 폰트를 분리하여 CSS 파일 크기 최적화
 - 각 폰트를 개별 파일로 분리하여 선택적 import 가능
-- 필요한 폰트만 import하여 CSS 파일 크기 최적화
 - 프로젝트별로 다른 폰트 조합 사용 가능
 - 폰트 패밀리 변수를 fonts에 통합하여 폰트 관련 설정을 한 곳에서 관리
 
 **사용 예시:**
-```scss
-// 모든 폰트와 폰트 변수 사용
-@use '../../shared-scss/fonts' as *;
 
-// 특정 폰트만 사용
+```scss
+// 방법 1: 통합 파일 사용 (필수 폰트만 포함)
+@use '../../shared-scss' as *;
+// 결과: spoqa, google만 자동 포함
+
+// 방법 2: fonts만 사용 (필수 폰트 포함)
+@use '../../shared-scss/fonts' as *;
+// 결과: spoqa, google만 포함
+
+// 방법 3: 선택적 폰트 추가
+@use '../../shared-scss' as *;
+@use '../../shared-scss/fonts/gmarket' as *;      // Gmarket 추가
+@use '../../shared-scss/fonts/scoredream' as *;   // SCoreDream 추가
+
+// 방법 4: 특정 폰트만 사용
 @use '../../shared-scss/fonts/spoqa' as *;
 @use '../../shared-scss/fonts/google' as *;
-
-// 프로젝트별 폰트 변수 오버라이드
-@use '../../shared-scss/fonts/variables' as * with (
-  $font-title: "CustomFont", "Spoqa Han Sans Neo", sans-serif
-);
 ```
 
 **프로젝트별 폰트 변수 커스터마이징:**
@@ -277,11 +292,60 @@ shared-scss/
 ## 사용 시나리오별 권장 방법
 
 - **대부분의 경우**: 통합 파일 사용 (`@use '../../shared-scss' as *`)
-- **CSS 파일 크기 최적화가 중요한 경우**: 개별 파일 사용 (fonts, utilities 제외)
-- **폰트가 이미 다른 방식으로 로드되는 경우**: variables + breakpoints + theme + mixins만 사용
-- **유틸리티 클래스가 필요한 경우**: utilities 추가 (`@use '../../shared-scss/utilities' as *`)
-- **CSS Reset이 필요한 경우**: base/reset 추가 (`@use '../../shared-scss/base/reset' as *`)
-- **특정 폰트만 필요한 경우**: fonts의 개별 파일만 import (예: `@use '../../shared-scss/fonts/spoqa'`)
+  - 필수 폰트(spoqa, google)만 포함되어 최적화됨
+  - base, utilities도 자동 포함
+
+- **CSS 파일 크기 최적화가 중요한 경우**: 개별 파일 사용
+  ```scss
+  @use '../../shared-scss/variables' as *;
+  @use '../../shared-scss/breakpoints' as *;
+  @use '../../shared-scss/theme' as *;
+  @use '../../shared-scss/mixins' as *;
+  // utilities, base, fonts 제외
+  ```
+
+- **폰트가 이미 다른 방식으로 로드되는 경우**: 통합 파일 사용 후 fonts 제외
+  ```scss
+  @use '../../shared-scss/variables' as *;
+  @use '../../shared-scss/breakpoints' as *;
+  @use '../../shared-scss/theme' as *;
+  @use '../../shared-scss/mixins' as *;
+  @use '../../shared-scss/base/reset' as *;
+  @use '../../shared-scss/utilities' as *;
+  ```
+
+- **선택적 폰트가 필요한 경우**: 통합 파일 + 선택적 폰트 추가
+  ```scss
+  @use '../../shared-scss' as *;
+  @use '../../shared-scss/fonts/gmarket' as *;  // 필요 시 추가
+  ```
+
+- **유틸리티 클래스가 필요 없는 경우**: utilities 제외
+  ```scss
+  @use '../../shared-scss/variables' as *;
+  @use '../../shared-scss/breakpoints' as *;
+  @use '../../shared-scss/theme' as *;
+  @use '../../shared-scss/mixins' as *;
+  @use '../../shared-scss/fonts' as *;
+  @use '../../shared-scss/base/reset' as *;
+  ```
+
+- **CSS Reset이 필요 없는 경우**: base/reset 제외
+  ```scss
+  @use '../../shared-scss/variables' as *;
+  @use '../../shared-scss/breakpoints' as *;
+  @use '../../shared-scss/theme' as *;
+  @use '../../shared-scss/mixins' as *;
+  @use '../../shared-scss/fonts' as *;
+  @use '../../shared-scss/utilities' as *;
+  ```
+
+- **특정 폰트만 필요한 경우**: fonts의 개별 파일만 import
+  ```scss
+  @use '../../shared-scss/fonts/spoqa' as *;
+  @use '../../shared-scss/fonts/google' as *;
+  ```
+
 - **테마 없이 원시 색상만 필요한 경우**: variables만 사용
 - **breakpoint 변수만 필요한 경우**: breakpoints만 사용 (mixin도 함께 포함됨)
 

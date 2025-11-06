@@ -27,11 +27,11 @@
     @include border-radius-base(0);
 }
 
-@mixin border-radius-sm {
+@mixin border-radius-xs {
     @include border-radius-base(2px);
 }
 
-@mixin border-radius-default {
+@mixin border-radius-sm {
     @include border-radius-base(4px);
 }
 

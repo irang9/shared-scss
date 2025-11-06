@@ -1,101 +1,115 @@
 @charset "utf-8";
 
-// spacing
+// ============================================
+// Spacing Utility Classes
+// ============================================
+// 클래스 생성 범위를 통제하기 위한 mixin
+// prefix를 통해 클래스명을 커스터마이징할 수 있습니다
 
-.m {
-    &-0 { margin: 0; }
-    &-1 { margin: 0.25rem;}
-    &-2 { margin: 0.5rem;}
-    &-3 { margin: 1rem;}
-    &-4 { margin: 1.5rem;}
-    &-5 { margin: 3rem; }
-    &-auto { margin:auto;}
-    &s { // start
-        &-0 { margin-left: 0; }
-        &-1 { margin-left: 0.25rem;}
-        &-2 { margin-left: 0.5rem;}
-        &-3 { margin-left: 1rem;}
-        &-4 { margin-left: 1.5rem;}
-        &-5 { margin-left: 3rem; }
-        &-auto { margin-left:auto;}
+@mixin spacing-utils($prefix: "") {
+    // prefix가 있으면 "prefix-", 없으면 "" 사용
+    $pre: if($prefix != "", "#{$prefix}-", "");
+
+    // Margin utilities
+    .#{$pre}m {
+        &-0 { margin: 0; }
+        &-1 { margin: 0.25rem; }
+        &-2 { margin: 0.5rem; }
+        &-3 { margin: 1rem; }
+        &-4 { margin: 1.5rem; }
+        &-5 { margin: 3rem; }
+        &-auto { margin: auto; }
+        &s { // start (left)
+            &-0 { margin-left: 0; }
+            &-1 { margin-left: 0.25rem; }
+            &-2 { margin-left: 0.5rem; }
+            &-3 { margin-left: 1rem; }
+            &-4 { margin-left: 1.5rem; }
+            &-5 { margin-left: 3rem; }
+            &-auto { margin-left: auto; }
+        }
+        &e { // end (right)
+            &-0 { margin-right: 0; }
+            &-1 { margin-right: 0.25rem; }
+            &-2 { margin-right: 0.5rem; }
+            &-3 { margin-right: 1rem; }
+            &-4 { margin-right: 1.5rem; }
+            &-5 { margin-right: 3rem; }
+            &-auto { margin-right: auto; }
+        }
+        &t { // top
+            &-0 { margin-top: 0; }
+            &-1 { margin-top: 0.25rem; }
+            &-2 { margin-top: 0.5rem; }
+            &-3 { margin-top: 1rem; }
+            &-4 { margin-top: 1.5rem; }
+            &-5 { margin-top: 3rem; }
+            &-auto { margin-top: auto; }
+        }
+        &b { // bottom
+            &-0 { margin-bottom: 0; }
+            &-1 { margin-bottom: 0.25rem; }
+            &-2 { margin-bottom: 0.5rem; }
+            &-3 { margin-bottom: 1rem; }
+            &-4 { margin-bottom: 1.5rem; }
+            &-5 { margin-bottom: 3rem; }
+            &-auto { margin-bottom: auto; }
+        }
     }
-    &e { //end
-        &-0 { margin-right: 0; }
-        &-1 { margin-right: 0.25rem;}
-        &-2 { margin-right: 0.5rem;}
-        &-3 { margin-right: 1rem;}
-        &-4 { margin-right: 1.5rem;}
-        &-5 { margin-right: 3rem; }
-        &-auto { margin-right:auto;}
+
+    // Padding utilities
+    .#{$pre}p {
+        &-0 { padding: 0; }
+        &-1 { padding: 0.25rem; }
+        &-2 { padding: 0.5rem; }
+        &-3 { padding: 1rem; }
+        &-4 { padding: 1.5rem; }
+        &-5 { padding: 3rem; }
+        &-auto { padding: auto; }
+        &s { // start (left)
+            &-0 { padding-left: 0; }
+            &-1 { padding-left: 0.25rem; }
+            &-2 { padding-left: 0.5rem; }
+            &-3 { padding-left: 1rem; }
+            &-4 { padding-left: 1.5rem; }
+            &-5 { padding-left: 3rem; }
+            &-auto { padding-left: auto; }
+        }
+        &e { // end (right)
+            &-0 { padding-right: 0; }
+            &-1 { padding-right: 0.25rem; }
+            &-2 { padding-right: 0.5rem; }
+            &-3 { padding-right: 1rem; }
+            &-4 { padding-right: 1.5rem; }
+            &-5 { padding-right: 3rem; }
+            &-auto { padding-right: auto; }
+        }
+        &t { // top
+            &-0 { padding-top: 0; }
+            &-1 { padding-top: 0.25rem; }
+            &-2 { padding-top: 0.5rem; }
+            &-3 { padding-top: 1rem; }
+            &-4 { padding-top: 1.5rem; }
+            &-5 { padding-top: 3rem; }
+            &-auto { padding-top: auto; }
+        }
+        &b { // bottom
+            &-0 { padding-bottom: 0; }
+            &-1 { padding-bottom: 0.25rem; }
+            &-2 { padding-bottom: 0.5rem; }
+            &-3 { padding-bottom: 1rem; }
+            &-4 { padding-bottom: 1.5rem; }
+            &-5 { padding-bottom: 3rem; }
+            &-auto { padding-bottom: auto; }
+        }
     }
-    &t { //top
-        &-0 { margin-top: 0; }
-        &-1 { margin-top: 0.25rem;}
-        &-2 { margin-top: 0.5rem;}
-        &-3 { margin-top: 1rem;}
-        &-4 { margin-top: 1.5rem;}
-        &-5 { margin-top: 3rem; }
-        &-auto { margin-top:auto;}
-    }
-    &b { //bottom
-        &-0 { margin-bottom: 0; }
-        &-1 { margin-bottom: 0.25rem;}
-        &-2 { margin-bottom: 0.5rem;}
-        &-3 { margin-bottom: 1rem;}
-        &-4 { margin-bottom: 1.5rem;}
-        &-5 { margin-bottom: 3rem; }
-        &-auto { margin-bottom:auto;}
+
+    // Gap utilities
+    .#{$pre}gap {
+        &-1 { gap: 0.25rem; }
+        &-2 { gap: 0.5rem; }
+        &-3 { gap: 1rem; }
+        &-4 { gap: 1.5rem; }
+        &-5 { gap: 3rem; }
     }
 }
-.p {
-    &-0 { padding: 0; }
-    &-1 { padding: 0.25rem;}
-    &-2 { padding: 0.5rem;}
-    &-3 { padding: 1rem;}
-    &-4 { padding: 1.5rem;}
-    &-5 { padding: 3rem; }
-    &-auto { padding:auto;}
-    &s { // start
-        &-0 { padding-left: 0; }
-        &-1 { padding-left: 0.25rem;}
-        &-2 { padding-left: 0.5rem;}
-        &-3 { padding-left: 1rem;}
-        &-4 { padding-left: 1.5rem;}
-        &-5 { padding-left: 3rem; }
-        &-auto { padding-left:auto;}
-    }
-    &e { //end
-        &-0 { padding-right: 0; }
-        &-1 { padding-right: 0.25rem;}
-        &-2 { padding-right: 0.5rem;}
-        &-3 { padding-right: 1rem;}
-        &-4 { padding-right: 1.5rem;}
-        &-5 { padding-right: 3rem; }
-        &-auto { padding-right:auto;}
-    }
-    &t { //top
-        &-0 { padding-top: 0; }
-        &-1 { padding-top: 0.25rem;}
-        &-2 { padding-top: 0.5rem;}
-        &-3 { padding-top: 1rem;}
-        &-4 { padding-top: 1.5rem;}
-        &-5 { padding-top: 3rem; }
-        &-auto { padding-top:auto;}
-    }
-    &b { //bottom
-        &-0 { padding-bottom: 0; }
-        &-1 { padding-bottom: 0.25rem;}
-        &-2 { padding-bottom: 0.5rem;}
-        &-3 { padding-bottom: 1rem;}
-        &-4 { padding-bottom: 1.5rem;}
-        &-5 { padding-bottom: 3rem; }
-        &-auto { padding-bottom:auto;}
-    }
-}
-
-.gap-1 { gap: 0.25rem; }
-.gap-2 { gap: 0.5rem; }
-.gap-3 { gap: 1rem; }
-.gap-4 { gap: 1.5rem; }
-.gap-5 { gap: 3rem; }
-

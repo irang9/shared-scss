@@ -1,20 +1,25 @@
 @charset "utf-8";
 
 // Shared SCSS 통합 파일
-// 모든 variables, breakpoints, theme, mixins, fonts를 한 번에 가져옵니다.
+// 모든 variables, breakpoints, theme, mixins, fonts, base, utilities를 한 번에 가져옵니다.
 //
 // 사용법:
 // @use '../../shared-scss' as *;
 //
-// 참고: fonts가 필요 없는 경우에는 개별적으로 가져오는 것을 권장합니다:
-// @use '../../shared-scss/variables' as *;
-// @use '../../shared-scss/breakpoints' as *;
-// @use '../../shared-scss/theme' as *;
-// @use '../../shared-scss/mixins' as *;
+// 참고:
+// - fonts는 필수 폰트(spoqa, google)만 포함됩니다
+// - 선택적 폰트(gmarket, scoredream)는 프로젝트에서 직접 import하세요
+// - fonts가 필요 없는 경우에는 개별적으로 가져오는 것을 권장합니다:
+//   @use '../../shared-scss/variables' as *;
+//   @use '../../shared-scss/breakpoints' as *;
+//   @use '../../shared-scss/theme' as *;
+//   @use '../../shared-scss/mixins' as *;
 
 @forward 'variables';
 @forward 'breakpoints';  // breakpoint 변수와 mixin (도메인 중심)
 @forward 'theme';        // 의미 색상 (사용 목적별 매핑)
 @forward 'mixins';
-@forward 'fonts';        // 폰트 파일들 (각 폰트별로 분리)
+@forward 'fonts';        // 필수 폰트만 포함 (spoqa, google)
+@forward 'base/reset';   // CSS Reset 스타일
+@forward 'utilities';    // 유틸리티 클래스
 

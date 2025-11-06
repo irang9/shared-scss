@@ -1,11 +1,28 @@
 @charset "utf-8";
 
-// Font family variables (프로젝트별 오버라이드 가능)
+// ============================================
+// Font Family Variables (필수)
+// ============================================
+// 프로젝트별 오버라이드 가능
 @forward 'variables';
 
-// Font files
+// ============================================
+// 필수 폰트 (모든 프로젝트에서 사용)
+// ============================================
 @forward 'spoqa';
 @forward 'google';
-@forward 'gmarket';
-@forward 'scoredream';
+
+// ============================================
+// 선택적 폰트 (프로젝트에서 필요 시 직접 import)
+// ============================================
+// 사용 방법:
+// @use '../../shared-scss/fonts/gmarket' as *;
+// @use '../../shared-scss/fonts/scoredream' as *;
+//
+// 또는 여러 개를 한 번에:
+// @use '../../shared-scss/fonts/gmarket' as *;
+// @use '../../shared-scss/fonts/scoredream' as *;
+//
+// 참고: 통합 파일(@use '../../shared-scss' as *)을 사용할 때는
+// 필수 폰트(spoqa, google)만 자동으로 포함됩니다.
 

@@ -4,6 +4,12 @@
 @forward 'display';
 @forward 'flex';
 @forward 'position';
-@forward 'spacing';
 @forward 'text';
+
+// Spacing utilities는 mixin으로 생성 범위를 통제
+@use 'spacing' as spacing;
+
+// prefix 없이 기존 방식 그대로 사용 (기본값: "")
+// 필요 시 prefix를 변경하여 사용 가능: @include spacing.spacing-utils("u");
+@include spacing.spacing-utils("");
 

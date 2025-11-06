@@ -1,131 +1,190 @@
 @charset "utf-8";
 
 // ============================================
-// Breakpoints
+// Breakpoints (Map 기반)
 // ============================================
 // 반응형 디자인을 위한 breakpoint 값과 mixin
-// 변수와 mixin을 함께 관리하여 응집도를 높였습니다.
+// Map 기반 구조로 간결하고 확장 가능한 설계
 
 // ============================================
-// Breakpoint Variables
+// Breakpoint Map
 // ============================================
-$mobile-xxs: 320px;
-$mobile-xs: 360px;
-$mobile-sm: 480px;
-$mobile: 576px;
-$desktop-xs: 768px;
-$desktop-sm: 992px;
-$desktop: 1024px;
-$desktop-lg: 1200px;
-$desktop-xl: 1400px;
+// 이름형 키로 도메인에 녹이는 방식
+$bp: (
+    "xxs": 320px,   // 기존 mobile-xxs
+    "xs": 360px,    // 기존 mobile-xs
+    "sm": 480px,    // 기존 mobile-sm
+    "md": 576px,    // 기존 mobile
+    "lg": 768px,    // 기존 desktop-xs
+    "xl": 992px,    // 기존 desktop-sm
+    "2xl": 1024px,  // 기존 desktop
+    "3xl": 1200px,  // 기존 desktop-lg
+    "4xl": 1400px   // 기존 desktop-xl
+);
 
 // ============================================
+// Core Mixins (Map 기반)
+// ============================================
+
+// 위로 (min-width) - Mobile First
+@mixin up($key) {
+    $value: map-get($bp, $key);
+    @if $value {
+        @media (min-width: $value) {
+            @content;
+        }
+    } @else {
+        @warn "Unknown breakpoint: #{$key}";
+    }
+}
+
+// 아래로 (max-width) - Desktop First
+@mixin down($key) {
+    $value: map-get($bp, $key);
+    @if $value {
+        @media (max-width: calc($value - 0.02px)) {
+            @content;
+        }
+    } @else {
+        @warn "Unknown breakpoint: #{$key}";
+    }
+}
+
+// 범위 (between) - 특정 범위 지정
+@mixin between($min, $max) {
+    $min-value: map-get($bp, $min);
+    $max-value: map-get($bp, $max);
+    @if $min-value and $max-value {
+        @media (min-width: $min-value) and (max-width: calc($max-value - 0.02px)) {
+            @content;
+        }
+    } @else {
+        @warn "Unknown breakpoint: min=#{$min}, max=#{$max}";
+    }
+}
+
+// ============================================
+// 하위 호환성을 위한 기존 변수 (선택적 사용)
+// ============================================
+// 기존 코드와의 호환성을 위해 유지
+// 권장: 새 코드는 Map 기반 mixin 사용
+
+$mobile-xxs: map-get($bp, "xxs");
+$mobile-xs: map-get($bp, "xs");
+$mobile-sm: map-get($bp, "sm");
+$mobile: map-get($bp, "md");
+$desktop-xs: map-get($bp, "lg");
+$desktop-sm: map-get($bp, "xl");
+$desktop: map-get($bp, "2xl");
+$desktop-lg: map-get($bp, "3xl");
+$desktop-xl: map-get($bp, "4xl");
+
+// ============================================
+// 하위 호환성을 위한 기존 Mixins (선택적 사용)
+// ============================================
+// 기존 코드와의 호환성을 위해 유지
+// 권장: 새 코드는 Map 기반 mixin 사용
+
 // Max-width Mixins (Desktop First)
-// ============================================
-
-@mixin mobile-xxs { // 진짜 제일 작은사이즈 존재하는 경우
-    @media (max-width: #{$mobile-xxs - 1px}) {
+@mixin mobile-xxs {
+    @include down("xxs") {
         @content;
     }
 }
 
-@mixin mobile-xs { // 미니사이즈 존재하는 경우
-    @media (max-width: #{$mobile-xs - 1px}) {
+@mixin mobile-xs {
+    @include down("xs") {
         @content;
     }
 }
 
-@mixin mobile-sm { // 작은 모바일 사이즈까지 적용
-    @media (max-width: #{$mobile-sm - 1px}) {
+@mixin mobile-sm {
+    @include down("sm") {
         @content;
     }
 }
 
-@mixin mobile { // 일반 모바일 사이즈까지 적용
-    @media (max-width: #{$mobile - 1px}) {
+@mixin mobile {
+    @include down("md") {
         @content;
     }
 }
 
-@mixin desktop-xs { // 좀 큰 모바일 사이즈까지 적용
-    @media (max-width: #{$desktop-xs - 1px}) {
+@mixin desktop-xs {
+    @include down("lg") {
         @content;
     }
 }
 
-@mixin desktop-sm { // 구 tablet
-    @media (max-width: #{$desktop-sm - 1px}) {
+@mixin desktop-sm {
+    @include down("xl") {
         @content;
     }
 }
 
 @mixin desktop {
-    @media (max-width: #{$desktop - 1px}) {
+    @include down("2xl") {
         @content;
     }
 }
 
 @mixin desktop-lg {
-    @media (max-width: #{$desktop-lg}) {
+    @include down("3xl") {
         @content;
     }
 }
 
 @mixin desktop-xl {
-    @media (max-width: #{$desktop-xl}) {
+    @include down("4xl") {
         @content;
     }
 }
 
-// ============================================
 // Min-width Mixins (Mobile First)
-// ============================================
-
 @mixin from-mobile-xs {
-    @media (min-width: #{$mobile-xs}) {
+    @include up("xs") {
         @content;
     }
 }
 
 @mixin from-mobile-sm {
-    @media (min-width: #{$mobile-sm}) {
+    @include up("sm") {
         @content;
     }
 }
 
 @mixin from-mobile {
-    @media (min-width: #{$mobile}) {
+    @include up("md") {
         @content;
     }
 }
 
 @mixin from-desktop-xs {
-    @media (min-width: #{$desktop-xs}) {
+    @include up("lg") {
         @content;
     }
 }
 
 @mixin from-desktop-sm {
-    @media (min-width: #{$desktop-sm}) {
+    @include up("xl") {
         @content;
     }
 }
 
 @mixin from-desktop {
-    @media (min-width: #{$desktop}) {
+    @include up("2xl") {
         @content;
     }
 }
 
 @mixin from-desktop-lg {
-    @media (min-width: #{$desktop-lg}) {
+    @include up("3xl") {
         @content;
     }
 }
 
 @mixin from-desktop-xl {
-    @media (min-width: #{$desktop-xl}) {
+    @include up("4xl") {
         @content;
     }
 }
-
