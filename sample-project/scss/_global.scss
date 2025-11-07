@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+// ============================================
+// Global Styles for Sample Project
+// ============================================
+
+@use 'config' as config;
+@use 'rexbox-base' as *;
+@use 'project-fonts' as *;
+
+body {
+    font-family: $font-basic;
+    color: $text-primary;
+    background-color: $bg-default;
+    line-height: 1.6;
+}
+
+// 예제: 프로젝트 전용 유틸리티 클래스
+.brand-gradient {
+    background: linear-gradient(135deg, config.$brand-gradient-start 0%, config.$brand-gradient-end 100%);
+}
+
+.section {
+    padding: config.$section-padding 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+// Gmarket 폰트 사용 예시
+.title-gmarket {
+    font-family: config.$font-gmarket; // GmarketSans 사용 (config에서 직접 참조)
+    font-weight: 700; // Bold
+}
+
+// 또는 직접 GmarketSans 사용
+.heading-gmarket {
+    font-family: "GmarketSans", sans-serif;
+    font-weight: 500; // Medium
+}

@@ -21,7 +21,7 @@ FONTS_VARIABLES_FILE = ROOT_DIR / "fonts" / "_variables.scss"
 
 # 네비게이션 메뉴
 NAV_ITEMS = [
-    {"title": "홈", "url": "index.html"},
+    {"title": "Home", "url": "index.html"},
     {"title": "Colors", "url": "colors.html"},
     {"title": "Typography", "url": "typography.html"},
     {"title": "Fonts", "url": "fonts.html"},
@@ -2143,11 +2143,11 @@ def generate_mixins_page() -> str:
 
 
 # ============================================
-# Index 페이지 (홈)
+# Index 페이지 (Home)
 # ============================================
 
 def generate_index_page() -> str:
-    """Index 페이지 (홈/목차) 생성"""
+    """Index 페이지 (Home/목차) 생성"""
     content = """
         <h1>RexBox Documentation</h1>
         <p class="subtitle">RexBox의 모든 변수와 설정값을 확인할 수 있는 사양서</p>
@@ -2157,7 +2157,7 @@ def generate_index_page() -> str:
             <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;">
     """
     
-    for item in NAV_ITEMS[1:]:  # 홈 제외
+    for item in NAV_ITEMS[1:]:  # Home 제외
         content += f"""
                 <a href="{item["url"]}" style="text-decoration: none; color: inherit;">
                     <div class="card" style="cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
@@ -2191,7 +2191,7 @@ def main():
     print("  - index.html 생성 중...")
     index_content = generate_index_page()
     with open(DOCS_DIR / "index.html", 'w', encoding='utf-8') as f:
-        f.write(generate_html_page("홈", index_content, "index.html"))
+        f.write(generate_html_page("Home", index_content, "index.html"))
     
     # Breakpoints 페이지
     print("  - breakpoints.html 생성 중...")

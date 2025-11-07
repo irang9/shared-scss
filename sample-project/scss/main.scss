@@ -47,12 +47,12 @@
 // 선택적 폰트는 프로젝트의 fonts 디렉토리에서 관리합니다.
 // RexBox의 fonts는 기본 폰트(spoqa, icons)만 포함하며,
 // 프로젝트별 fonts는 선택적 폰트(gmarket, google, scoredream 등)를 관리합니다.
-@use 'fonts/gmarket' as *; // Gmarket 폰트
+// @use 'fonts/gmarket' as *; // Gmarket 폰트 (ui-base에서 forward)
 // @use 'fonts/google' as *; // Outfit 폰트 (필요시)
 // @use 'fonts/scoredream' as *; // SCoreDream 폰트 (필요시)
 
 // ============================================
-// 3. 프로젝트 컴포넌트 스타일
+// 5. 프로젝트 컴포넌트 스타일
 // ============================================
 @use 'components/header' as *;
 @use 'components/hero' as *;
@@ -60,38 +60,6 @@
 @use 'components/footer' as *;
 
 // ============================================
-// 4. 프로젝트 전역 스타일
+// 6. 프로젝트 전역 스타일
 // ============================================
-body {
-    font-family: $font-basic;
-    color: $text-primary;
-    background-color: $bg-default;
-    line-height: 1.6;
-}
-
-// 예제: 프로젝트 전용 유틸리티 클래스
-.brand-gradient {
-    background: linear-gradient(135deg, config.$brand-gradient-start 0%, config.$brand-gradient-end 100%);
-}
-
-.section {
-    padding: config.$section-padding 0;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-// Gmarket 폰트 사용 예시
-.title-gmarket {
-    font-family: config.$font-gmarket; // GmarketSans 사용 (config에서 직접 참조)
-    font-weight: 700; // Bold
-}
-
-// 또는 직접 GmarketSans 사용
-.heading-gmarket {
-    font-family: "GmarketSans", sans-serif;
-    font-weight: 500; // Medium
-}
+@use 'global';

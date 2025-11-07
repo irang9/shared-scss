@@ -7,10 +7,8 @@
 // 주의: config와 theme 모두 $primary를 정의하므로,
 // config는 namespace로, theme은 *로 import
 @use '../config' as config;
-@use '../../../rexbox/theme' as *;
-@use '../../../rexbox/variables' as *;
-@use '../../../rexbox/breakpoints' as *;
-@use '../../../rexbox/mixins' as *;
+@use '../rexbox-base' as *;
+@use '../project-fonts' as *;
 
 .cards {
     &__grid {
@@ -64,4 +62,3 @@
         }
     }
 }
-
