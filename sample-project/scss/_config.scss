@@ -58,6 +58,7 @@ $font-gmarket: "GmarketSans", "Spoqa Han Sans Neo", "Noto Sans KR", "Nanum Gothi
 // ============================================
 // 3. 프로젝트 전용 변수
 // ============================================
+
 // RexBox에 없는 프로젝트 전용 색상
 $brand-accent: #ffd93d;
 $brand-gradient-start: #ff6b6b;
@@ -70,3 +71,21 @@ $header-height: 80px;
 
 // 프로젝트 전용 breakpoint (필요시)
 // $custom-breakpoint: 1600px;
+
+// ============================================
+// (예시) 컨테이너 너비 및 gutter 커스터마이징
+// ============================================
+// 프로젝트에서 RexBox 기본 컨테이너 값을 덮어쓰고 싶다면 아래 주석을 해제하세요.
+// _rexbox-base.scss 또는 main.scss에서 RexBox 유틸리티를 import하기 전에 선언해야 합니다.
+//
+// $container-max-widths: (
+//   "xxs": 320px,
+//   "xs": 360px,
+//   "sm": 520px,
+//   "md": 680px,
+//   "lg": 960px,
+//   "xl": 1140px,
+//   "xxl": 1320px
+// );
+//
+// $container-gutter-x: 32px;
