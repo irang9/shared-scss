@@ -1,6 +1,7 @@
 @charset "utf-8";
 @use 'sass:map';
 @use 'sass:color';
+@use 'sass:math';
 @use '../variables' as *;
 @use '../theme' as *;
 
@@ -10,10 +11,45 @@
 // Bootstrap 스타일을 참고하여 자주 사용하는 텍스트/배경 유틸리티를 제공합니다.
 // theme/_index.scss에서 정의된 semantic 색상과 variables/_colors.scss의 기본 팔레트를 활용합니다.
 
+@function rexbox-relative-luminance($c) {
+    $r: math.div(color.channel($c, "red", $space: rgb), 255);
+    $g: math.div(color.channel($c, "green", $space: rgb), 255);
+    $b: math.div(color.channel($c, "blue", $space: rgb), 255);
+
+    @each $channel in (r, g, b) {
+        $value: if($channel ==r, $r, if($channel ==g, $g, $b));
+
+        @if $value <=0.03928 {
+            $value: math.div($value, 12.92);
+        }
+
+        @else {
+            $value: math.pow(math.div($value + 0.055, 1.055), 2.4);
+        }
+
+        @if $channel ==r {
+            $r: $value;
+        }
+
+        @else if $channel ==g {
+            $g: $value;
+        }
+
+        @else {
+            $b: $value;
+        }
+    }
+
+    @return 0.2126 * $r +0.7152 * $g +0.0722 * $b;
+}
+
 @function rexbox-contrast-color($background, $light: $white-real, $dark: $text-primary) {
-    @if color.lightness($background) < 55% {
+    $luma: rexbox-relative-luminance($background);
+
+    @if $luma < 0.5 {
         @return $light;
     }
+
     @return $dark;
 }
 
@@ -87,7 +123,8 @@ $rexbox-bg-colors: map.merge($rexbox-bg-neutrals, $rexbox-semantic-colors);
 @each $name, $value in $rexbox-bg-colors {
     .bg-#{$name} {
         background-color: $value !important;
-        @if $name != "transparent" {
+
+        @if $name !="transparent" {
             color: rexbox-contrast-color($value) !important;
         }
     }
@@ -95,6 +132,7 @@ $rexbox-bg-colors: map.merge($rexbox-bg-neutrals, $rexbox-semantic-colors);
 
 @each $name, $value in $rexbox-semantic-colors {
     $subtle: rexbox-subtle-color($value, 88%);
+
     .bg-#{$name}-subtle {
         background-color: $subtle !important;
         color: rexbox-emphasis-color($value) !important;
@@ -114,7 +152,7 @@ $rexbox-bg-colors: map.merge($rexbox-bg-neutrals, $rexbox-semantic-colors);
 
 // 중립 배경용 text-bg
 @each $name, $value in $rexbox-bg-neutrals {
-    @if $name != "transparent" {
+    @if $name !="transparent" {
         .text-bg-#{$name} {
             display: inline-flex;
             align-items: center;
