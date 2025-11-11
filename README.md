@@ -59,7 +59,7 @@ rexbox/
 - **theme/**: 의미 색상 (primary, secondary, success 등)
 - **mixins/**: 재사용 가능한 SCSS mixins
 - **fonts/**: 기본 폰트 파일 (Spoqa, Material Icons) - 선택적 폰트는 프로젝트별로 관리
-- **base/**: 기본 스타일 (reset 등)
+- **base/**: 기본 스타일 (reset, forms 등)
 - **utilities/**: 유틸리티 클래스 (Bootstrap 스타일)
 
 **사용 방법:**

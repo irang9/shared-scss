@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+// ============================================
+// Form Elements Base Styles
+// ============================================
+// input, select, textarea 등의 기본 스타일을 정의합니다.
+// 모든 form 요소에 자동으로 적용되는 기본 스타일입니다.
+// 유틸리티 클래스(.form-control, .form-select 등)는 utilities/_forms.scss에 있습니다.
+
+@use '../variables' as *;
+@use '../theme' as *;
+
+// ============================================
+// Input Base Styles
+// ============================================
+// 기본 input 요소 스타일
+// 모든 input 요소에 자동 적용됩니다.
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"] {
+    // 기본 스타일은 reset에서 처리됨
+    // 여기서는 추가적인 기본 스타일을 정의할 수 있음
+}
+
+// ============================================
+// Select Base Styles
+// ============================================
+// 기본 select 요소 스타일
+// 모든 select 요소에 자동 적용됩니다.
+
+select {
+    // 기본 스타일은 reset에서 처리됨
+    // 여기서는 추가적인 기본 스타일을 정의할 수 있음
+}
+
+// ============================================
+// Textarea Base Styles
+// ============================================
+// 기본 textarea 요소 스타일
+// 모든 textarea 요소에 자동 적용됩니다.
+
+textarea {
+    // 기본 스타일은 reset에서 처리됨
+    // 여기서는 추가적인 기본 스타일을 정의할 수 있음
+}
+
+// ============================================
+// Checkbox & Radio Base Styles
+// ============================================
+// 기본 checkbox, radio 요소 스타일
+// 모든 checkbox, radio 요소에 자동 적용됩니다.
+
+input[type="checkbox"],
+input[type="radio"] {
+    // 기본 스타일은 reset에서 처리됨
+    // 여기서는 추가적인 기본 스타일을 정의할 수 있음
+}
+
+// ============================================
+// Form Label Base Styles
+// ============================================
+// 기본 label 요소 스타일
+// 모든 label 요소에 자동 적용됩니다.
+
+label {
+    // 기본 스타일은 reset에서 처리됨
+    // 여기서는 추가적인 기본 스타일을 정의할 수 있음
+}

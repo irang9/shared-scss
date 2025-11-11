@@ -44,8 +44,8 @@ NAV_ITEMS = [
 
 def get_navigation(current_page: str = "", page_title: str = "") -> str:
     """네비게이션 HTML 생성 (왼쪽 사이드바)"""
-    # 현재 페이지 제목 가져오기
-    current_title = page_title if page_title else "RexBox"
+    # 항상 "RexBox"로 통일
+    current_title = "RexBox"
     
     nav_html = f"""
     <aside class="docs-sidebar">

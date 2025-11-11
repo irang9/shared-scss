@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+// ============================================
+// List Utilities
+// ============================================
+// Bootstrap 스타일을 참고하여 list 유틸리티 클래스를 제공합니다.
+
+// ============================================
+// List Unstyled
+// ============================================
+// 기본 list 스타일(bullet/번호)과 padding을 제거합니다.
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+// ============================================
+// List Inline
+// ============================================
+// 목록을 인라인으로 표시합니다.
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.list-inline-item {
+    display: inline-block;
+    
+    &:not(:last-child) {
+        margin-right: 0.5rem;
+    }
+}
+

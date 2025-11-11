@@ -20,7 +20,7 @@ rexbox/                    # 프로젝트 루트
 │   ├── theme/             # 의미 색상 (semantic colors)
 │   ├── mixins/            # Mixins
 │   ├── fonts/             # 기본 폰트 파일 (Spoqa, Material Icons)
-│   ├── base/              # 기본 스타일 (reset)
+│   ├── base/              # 기본 스타일 (reset, forms)
 │   ├── utilities/         # 유틸리티 클래스
 │   ├── _index.scss        # 메인 진입점
 │   └── README.md          # 이 파일

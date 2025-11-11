@@ -40,10 +40,11 @@ a, button {
 	-ms-transition:.3s;
 	-o-transition:.3s;
 }
-/* Remove list styles (bullets/numbers) */
-ol, ul, menu {
+/* Remove list styles (bullets/numbers) - 제거됨 */
+/* Bootstrap 방식: 기본적으로 bullet을 표시하고, .list-unstyled로 숨길 수 있음 */
+/* ol, ul, menu {
     list-style: none;
-}
+} */
 
 /* For images to not be able to exceed their container */
 img {

@@ -21,4 +21,5 @@
 @forward 'mixins';
 @forward 'fonts'; // 필수 폰트만 포함 (spoqa, icons)
 @forward 'base/reset'; // CSS Reset 스타일
+@forward 'base/forms'; // Form 요소 기본 스타일
 @forward 'utilities'; // 유틸리티 클래스

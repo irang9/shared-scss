@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+@use 'lists';
+@use 'forms';
 @use 'colors';
 @use 'borders';
 @use 'buttons';
@@ -13,6 +15,8 @@
 @use 'text';
 @use 'vertical-rule';
 
+@forward 'lists';
+@forward 'forms';
 @forward 'borders';
 @forward 'colors';
 @forward 'buttons';
