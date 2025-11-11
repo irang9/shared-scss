@@ -360,6 +360,56 @@ def get_navigation(current_page: str = "") -> str:
     return nav_html
 
 
+def get_button_styles() -> str:
+    """버튼 CSS 스타일 추출"""
+    css_file = Path(__file__).parent.parent.parent / "sample-project" / "css" / "main.css"
+    if not css_file.exists():
+        return ""
+    
+    with open(css_file, 'r', encoding='utf-8') as f:
+        css_content = f.read()
+    
+    # 버튼 관련 스타일 추출 (더 정확한 파싱)
+    # .btn으로 시작하는 모든 규칙을 추출 (여러 줄 포함, 중첩 중괄호 처리)
+    button_rules = []
+    lines = css_content.split('\n')
+    in_button_rule = False
+    current_rule = []
+    brace_count = 0
+    
+    for line in lines:
+        # .btn으로 시작하는 규칙 찾기
+        if re.match(r'^\s*\.btn', line):
+            if current_rule and brace_count == 0:
+                button_rules.append('\n'.join(current_rule))
+            current_rule = [line]
+            in_button_rule = True
+            brace_count = line.count('{') - line.count('}')
+        elif in_button_rule:
+            current_rule.append(line)
+            brace_count += line.count('{') - line.count('}')
+            if brace_count == 0:
+                button_rules.append('\n'.join(current_rule))
+                current_rule = []
+                in_button_rule = False
+    
+    if current_rule and brace_count == 0:
+        button_rules.append('\n'.join(current_rule))
+    
+    if not button_rules:
+        return ""
+    
+    # 모든 버튼 스타일을 합치기
+    button_css = '\n'.join(button_rules)
+    
+    return f"""
+    <style>
+        /* Button Styles from RexBox */
+        {button_css}
+    </style>
+    """
+
+
 def generate_html_page(title: str, content: str, current_page: str = "") -> str:
     """HTML 페이지 생성 (공통 헤더/푸터 포함)"""
     # SVG favicon (data URI)
@@ -374,6 +424,7 @@ def generate_html_page(title: str, content: str, current_page: str = "") -> str:
     <link rel="icon" type="image/svg+xml" href="{favicon_svg}">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     {get_common_styles()}
+    {get_button_styles() if current_page == "buttons.html" else ""}
 </head>
 <body>
     {get_navigation(current_page)}
