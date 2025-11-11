@@ -16,11 +16,11 @@
 }
 
 // ============================================
-// Rounded Mixins (권장)
+// Rounded Mixins (권장) - Bootstrap 스타일
 // ============================================
 // Generic rounded mixin (4개 코너 각각 지정 가능)
 // 사용법: @include rounded(4px); 또는 @include rounded(8px, 4px, 8px, 4px);
-@mixin rounded($top-left: 10px, $top-right: null, $bottom-right: null, $bottom-left: null) {
+@mixin rounded($top-left: 4px, $top-right: null, $bottom-right: null, $bottom-left: null) {
     -webkit-border-radius: $top-left $top-right $bottom-right $bottom-left;
     -moz-border-radius: $top-left $top-right $bottom-right $bottom-left;
     -ms-border-radius: $top-left $top-right $bottom-right $bottom-left;
@@ -28,41 +28,70 @@
     -o-border-radius: $top-left $top-right $bottom-right $bottom-left;
 }
 
-// Predefined rounded mixins
-@mixin rounded-none {
+// Predefined rounded mixins (Bootstrap 스타일)
+@mixin rounded-0 {
     @include border-radius-base(0);
 }
 
-@mixin rounded-xs {
+@mixin rounded-1 {
     @include border-radius-base(2px);
 }
 
-@mixin rounded-sm {
+@mixin rounded-2 {
     @include border-radius-base(4px);
 }
 
-@mixin rounded-md {
+@mixin rounded-3 {
     @include border-radius-base(6px);
 }
 
-@mixin rounded-lg {
+@mixin rounded-4 {
     @include border-radius-base(8px);
 }
 
-@mixin rounded-xl {
+@mixin rounded-5 {
     @include border-radius-base(12px);
 }
 
-@mixin rounded-2xl {
+@mixin rounded-6 {
     @include border-radius-base(16px);
 }
 
-@mixin rounded-3xl {
+@mixin rounded-7 {
+    @include border-radius-base(20px);
+}
+
+@mixin rounded-8 {
     @include border-radius-base(24px);
 }
 
-@mixin rounded-full {
+@mixin rounded-circle {
+    @include border-radius-base(50%);
+}
+
+@mixin rounded-pill {
     @include border-radius-base(999px);
+}
+
+// Directional rounded mixins (Bootstrap 스타일)
+@mixin rounded-top {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+@mixin rounded-end {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+@mixin rounded-bottom {
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+@mixin rounded-start {
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
 }
 
 // ============================================
@@ -70,44 +99,43 @@
 // ============================================
 // ⚠️ Deprecated: `rounded` mixin 사용을 권장합니다.
 // @include border-radius(4px) → @include rounded(4px)
-@mixin border-radius($top-left: 10px, $top-right: null, $bottom-right: null, $bottom-left: null) {
+@mixin border-radius($top-left: 4px, $top-right: null, $bottom-right: null, $bottom-left: null) {
     @include rounded($top-left, $top-right, $bottom-right, $bottom-left);
 }
 
 // ⚠️ Deprecated: `rounded-*` mixin 사용을 권장합니다.
 @mixin border-radius-none {
-    @include rounded-none;
+    @include rounded-0;
 }
 
 @mixin border-radius-xs {
-    @include rounded-xs;
+    @include rounded-1;
 }
 
 @mixin border-radius-sm {
-    @include rounded-sm;
+    @include rounded-2;
 }
 
 @mixin border-radius-md {
-    @include rounded-md;
+    @include rounded-3;
 }
 
 @mixin border-radius-lg {
-    @include rounded-lg;
+    @include rounded-4;
 }
 
 @mixin border-radius-xl {
-    @include rounded-xl;
+    @include rounded-5;
 }
 
 @mixin border-radius-2xl {
-    @include rounded-2xl;
+    @include rounded-6;
 }
 
 @mixin border-radius-3xl {
-    @include rounded-3xl;
+    @include rounded-8;
 }
 
 @mixin border-radius-full {
-    @include rounded-full;
+    @include rounded-pill;
 }
-

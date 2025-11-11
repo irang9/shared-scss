@@ -78,74 +78,73 @@
         
         <div class="section">
             <h2 class="section-title">Breakpoint Map</h2>
-            <p>기술적 키와 semantic 키 모두 사용 가능합니다:</p>
             <table>
                 <thead>
                     <tr>
-                        <th>기술적 키</th>
-                        <th>Semantic 키</th>
+                        <th>이름</th>
                         <th>값</th>
                         <th>용도</th>
                         <th>사용 예시</th>
                     </tr>
                 </thead>
                 <tbody>
+    
                     <tr>
                         <td><code class="code">xxs</code></td>
-                        <td><code class="code">mobile-xs</code></td>
                         <td><code class="code">320px</code></td>
                         <td>최소 모바일</td>
-                        <td><code class="code">@include up("xxs")</code> 또는 <code class="code">@include up("mobile-xs")</code></td>
+                        <td><code class="code">@include up("xxs")</code></td>
                     </tr>
+        
                     <tr>
                         <td><code class="code">xs</code></td>
-                        <td><code class="code">mobile-sm</code></td>
                         <td><code class="code">360px</code></td>
                         <td>소형 모바일</td>
-                        <td><code class="code">@include up("xs")</code> 또는 <code class="code">@include up("mobile-sm")</code></td>
+                        <td><code class="code">@include up("xs")</code></td>
                     </tr>
+        
                     <tr>
                         <td><code class="code">sm</code></td>
-                        <td><code class="code">mobile</code></td>
                         <td><code class="code">576px</code></td>
                         <td>중형 모바일 (Bootstrap 표준)</td>
-                        <td><code class="code">@include up("sm")</code> 또는 <code class="code">@include up("mobile")</code></td>
+                        <td><code class="code">@include up("sm")</code></td>
                     </tr>
+        
                     <tr>
                         <td><code class="code">md</code></td>
-                        <td><code class="code">mobile-lg</code></td>
                         <td><code class="code">768px</code></td>
                         <td>대형 모바일/태블릿 (Bootstrap 표준)</td>
-                        <td><code class="code">@include up("md")</code> 또는 <code class="code">@include up("mobile-lg")</code></td>
+                        <td><code class="code">@include up("md")</code></td>
                     </tr>
+        
                     <tr>
                         <td><code class="code">lg</code></td>
-                        <td><code class="code">desktop</code></td>
                         <td><code class="code">992px</code></td>
                         <td>태블릿/소형 데스크톱 (Bootstrap 표준)</td>
-                        <td><code class="code">@include up("lg")</code> 또는 <code class="code">@include up("desktop")</code></td>
+                        <td><code class="code">@include up("lg")</code></td>
                     </tr>
+        
                     <tr>
                         <td><code class="code">xl</code></td>
-                        <td><code class="code">desktop-lg</code></td>
                         <td><code class="code">1200px</code></td>
                         <td>데스크톱 (Bootstrap 표준)</td>
-                        <td><code class="code">@include up("xl")</code> 또는 <code class="code">@include up("desktop-lg")</code></td>
+                        <td><code class="code">@include up("xl")</code></td>
                     </tr>
+        
                     <tr>
                         <td><code class="code">xxl</code></td>
-                        <td><code class="code">desktop-xl</code></td>
                         <td><code class="code">1400px</code></td>
                         <td>대형 데스크톱 (Bootstrap 표준)</td>
-                        <td><code class="code">@include up("xxl")</code> 또는 <code class="code">@include up("desktop-xl")</code></td>
+                        <td><code class="code">@include up("xxl")</code></td>
                     </tr>
+        
                 </tbody>
             </table>
         </div>
         
         <div class="section">
             <h2 class="section-title">Core Mixins</h2>
-            <p>Map 기반 breakpoint mixin 사용법 (기술적 키 또는 semantic 키 모두 사용 가능):</p>
+            <p>Map 기반 breakpoint mixin 사용법:</p>
             <table style="margin-top: 16px;">
                 <thead>
                     <tr>
@@ -157,21 +156,21 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><code class="code">@include up("mobile")</code></td>
+                        <td><code class="code">@include up("xs")</code></td>
                         <td>위로 (min-width) - Mobile First</td>
-                        <td><code class="code">@include up("mobile") { ... }</code></td>
-                        <td>576px 이상 (모바일 이상)</td>
+                        <td><code class="code">@include up("xs") { ... }</code></td>
+                        <td>360px 이상 (소형 모바일 이상)</td>
                     </tr>
                     <tr>
-                        <td><code class="code">@include down("mobile-lg")</code></td>
+                        <td><code class="code">@include down("md")</code></td>
                         <td>아래로 (max-width) - Desktop First</td>
-                        <td><code class="code">@include down("mobile-lg") { ... }</code></td>
+                        <td><code class="code">@include down("md") { ... }</code></td>
                         <td>767.98px 이하 (태블릿 이하)</td>
                     </tr>
                     <tr>
-                        <td><code class="code">@include between("mobile-sm", "desktop")</code></td>
+                        <td><code class="code">@include between("xs", "lg")</code></td>
                         <td>범위 (between) - 특정 범위 지정</td>
-                        <td><code class="code">@include between("mobile-sm", "desktop") { ... }</code></td>
+                        <td><code class="code">@include between("xs", "lg") { ... }</code></td>
                         <td>360px ~ 991.98px (소형 모바일 ~ 소형 데스크톱)</td>
                     </tr>
                 </tbody>
@@ -182,130 +181,35 @@
                 <pre style="background: #1e293b; color: #f8fafc; padding: 16px; border-radius: 4px; overflow-x: auto; font-size: 13px; line-height: 1.6;"><code>.container {
     padding: 16px;
     
-    // Semantic 키 사용 (권장)
-    @include up("mobile-lg") {
+    @include up("md") {
         padding: 24px;  // 768px 이상에서 적용
     }
     
-    @include down("mobile") {
+    @include down("sm") {
         padding: 12px;  // 575.98px 이하에서 적용
     }
     
-    @include between("mobile-lg", "desktop-lg") {
+    @include between("md", "xl") {
         max-width: 1200px;  // 768px ~ 1199.98px 범위에서 적용
-    }
-    
-    // 기술적 키도 사용 가능
-    @include up("md") {
-        padding: 24px;  // 동일한 결과
     }
 }</code></pre>
             </div>
         </div>
         
-        <hr style="margin: 48px 0; border: none; border-top: 1px solid #e2e8f0;">
-        
         <div class="section">
             <h2 class="section-title">기존 변수 (하위 호환성)</h2>
             <p>다음 변수들은 Map 기반 breakpoint에서 자동으로 생성됩니다:</p>
             <ul style="margin-top: 16px; padding-left: 24px;">
-                <li><code class="code">$mobile-xs</code> = <code class="code">$bp["xxs"]</code> (320px)</li>
-                <li><code class="code">$mobile-sm</code> = <code class="code">$bp["xs"]</code> (360px)</li>
-                <li><code class="code">$mobile</code> = <code class="code">$bp["sm"]</code> (576px)</li>
-                <li><code class="code">$mobile-lg</code> = <code class="code">$bp["md"]</code> (768px)</li>
-                <li><code class="code">$desktop</code> = <code class="code">$bp["lg"]</code> (992px)</li>
-                <li><code class="code">$desktop-lg</code> = <code class="code">$bp["xl"]</code> (1200px)</li>
+                <li><code class="code">$mobile-xxs</code> = <code class="code">$bp["xxs"]</code> (320px)</li>
+                <li><code class="code">$mobile-xs</code> = <code class="code">$bp["xs"]</code> (360px)</li>
+                <li><code class="code">$mobile-sm</code> = <code class="code">$bp["sm"]</code> (576px)</li>
+                <li><code class="code">$mobile</code> = <code class="code">$bp["md"]</code> (768px)</li>
+                <li><code class="code">$desktop-xs</code> = <code class="code">$bp["lg"]</code> (992px)</li>
+                <li><code class="code">$desktop-sm</code> = <code class="code">$bp["xl"]</code> (1200px)</li>
+                <li><code class="code">$desktop</code> = <code class="code">$bp["xxl"]</code> (1400px)</li>
+                <li><code class="code">$desktop-lg</code> = <code class="code">$bp["xxl"]</code> (1400px)</li>
                 <li><code class="code">$desktop-xl</code> = <code class="code">$bp["xxl"]</code> (1400px)</li>
             </ul>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-title">기존 Mixins (하위 호환성)</h2>
-            <p>다음 mixin들은 Map 기반 breakpoint에서 자동으로 생성됩니다:</p>
-            <table style="margin-top: 16px;">
-                <thead>
-                    <tr>
-                        <th>Mixin</th>
-                        <th>설명</th>
-                        <th>기술적 키</th>
-                        <th>사용 예시</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code class="code">@include mobile-xs</code></td>
-                        <td>320px 이하</td>
-                        <td><code class="code">down("xxs")</code></td>
-                        <td><code class="code">@include mobile-xs { ... }</code></td>
-                    </tr>
-                    <tr>
-                        <td><code class="code">@include mobile-sm</code></td>
-                        <td>360px 이하</td>
-                        <td><code class="code">down("xs")</code></td>
-                        <td><code class="code">@include mobile-sm { ... }</code></td>
-                    </tr>
-                    <tr>
-                        <td><code class="code">@include mobile</code></td>
-                        <td>576px 이하</td>
-                        <td><code class="code">down("sm")</code></td>
-                        <td><code class="code">@include mobile { ... }</code></td>
-                    </tr>
-                    <tr>
-                        <td><code class="code">@include desktop</code></td>
-                        <td>992px 이하</td>
-                        <td><code class="code">down("lg")</code></td>
-                        <td><code class="code">@include desktop { ... }</code></td>
-                    </tr>
-                    <tr>
-                        <td><code class="code">@include desktop-lg</code></td>
-                        <td>1200px 이하</td>
-                        <td><code class="code">down("xl")</code></td>
-                        <td><code class="code">@include desktop-lg { ... }</code></td>
-                    </tr>
-                    <tr>
-                        <td><code class="code">@include desktop-xl</code></td>
-                        <td>1400px 이하</td>
-                        <td><code class="code">down("xxl")</code></td>
-                        <td><code class="code">@include desktop-xl { ... }</code></td>
-                    </tr>
-                    <tr>
-                        <td><code class="code">@include from-mobile-xs</code></td>
-                        <td>320px 이상</td>
-                        <td><code class="code">up("xxs")</code></td>
-                        <td><code class="code">@include from-mobile-xs { ... }</code></td>
-                    </tr>
-                    <tr>
-                        <td><code class="code">@include from-mobile-sm</code></td>
-                        <td>360px 이상</td>
-                        <td><code class="code">up("xs")</code></td>
-                        <td><code class="code">@include from-mobile-sm { ... }</code></td>
-                    </tr>
-                    <tr>
-                        <td><code class="code">@include from-mobile</code></td>
-                        <td>576px 이상</td>
-                        <td><code class="code">up("sm")</code></td>
-                        <td><code class="code">@include from-mobile { ... }</code></td>
-                    </tr>
-                    <tr>
-                        <td><code class="code">@include from-desktop</code></td>
-                        <td>992px 이상</td>
-                        <td><code class="code">up("lg")</code></td>
-                        <td><code class="code">@include from-desktop { ... }</code></td>
-                    </tr>
-                    <tr>
-                        <td><code class="code">@include from-desktop-lg</code></td>
-                        <td>1200px 이상</td>
-                        <td><code class="code">up("xl")</code></td>
-                        <td><code class="code">@include from-desktop-lg { ... }</code></td>
-                    </tr>
-                    <tr>
-                        <td><code class="code">@include from-desktop-xl</code></td>
-                        <td>1400px 이상</td>
-                        <td><code class="code">up("xxl")</code></td>
-                        <td><code class="code">@include from-desktop-xl { ... }</code></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     
         </div>
