@@ -36,14 +36,6 @@ rexbox/
 │   ├── mixins.html
 │   ├── scripts/          # 문서 생성 스크립트
 │   └── assets/           # 정적 파일 (favicon 등)
-├── sample-project/   # 사용 예제
-│   ├── scss/
-│   │   ├── _config.scss  # 프로젝트별 설정 (변수 오버라이드)
-│   │   ├── main.scss     # 메인 스타일 파일
-│   │   └── components/   # 컴포넌트 스타일
-│   ├── css/
-│   ├── index.html
-│   └── README.md
 └── README.md         # 이 파일
 ```
 
@@ -102,26 +94,6 @@ python3 scripts/generate-docs.py
 
 문서는 `rexbox/` 디렉토리의 SCSS 파일을 파싱하여 자동으로 생성되므로, SCSS 코드를 수정하면 문서도 함께 업데이트됩니다.
 
-### `sample-project/` - 사용 예제
-
-RexBox를 실제 프로젝트에서 어떻게 사용하는지 보여주는 예제 프로젝트입니다.
-
-**주요 내용:**
-- **scss/_config.scss**: 프로젝트별 설정 파일 (변수 오버라이드 예시)
-- **scss/main.scss**: 메인 스타일 파일 (import 구조 예시)
-- **scss/components/**: 컴포넌트별 스타일 파일
-- **css/**: 컴파일된 CSS 파일
-- **index.html**: 예제 HTML 파일
-
-**예제 확인:**
-```bash
-cd sample-project
-sass scss/main.scss css/main.css
-open index.html
-```
-
-자세한 사용 방법은 [`sample-project/README.md`](./sample-project/README.md)를 참고하세요.
-
 ## 🚀 빠른 시작
 
 ### 1. 저장소 클론
@@ -162,7 +134,7 @@ cp -r rexbox/rexbox /path/to/your/project/
 
 ### 4. 프로젝트별 커스터마이징
 
-프로젝트별 설정 파일(`_config.scss`)을 만들어 색상 등을 오버라이드할 수 있습니다. 자세한 방법은 [`sample-project/README.md`](./sample-project/README.md)를 참고하세요.
+프로젝트별 설정 파일(`_config.scss`)을 만들어 색상 등을 오버라이드할 수 있습니다.
 
 #### 폰트 커스터마이징
 
@@ -188,7 +160,6 @@ $font-gmarket: "GmarketSans", "Spoqa Han Sans Neo", ...;
 
 - **[온라인 문서](https://irang9.github.io/rexbox/)** - 모든 변수와 설정값 확인
 - **[RexBox 상세 문서](./rexbox/README.md)** - 라이브러리 상세 설명
-- **[Sample Project](./sample-project/)** - 사용 예제
 
 ## 🔧 문서 업데이트
 

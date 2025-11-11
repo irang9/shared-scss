@@ -30,10 +30,6 @@ rexbox/                    # 프로젝트 루트
 │   ├── index.html
 │   ├── colors.html
 │   └── ...
-├── sample-project/        # 사용 예제
-│   ├── scss/
-│   ├── css/
-│   └── index.html
 └── README.md              # 프로젝트 루트 README
 ```
 
@@ -81,7 +77,7 @@ $secondary: #4ecdc4;
 @use '../rexbox/rexbox/theme' as *;
 ```
 
-자세한 사용 방법은 [sample-project](../sample-project/)를 참고하세요.
+자세한 사용 방법은 [온라인 문서](https://irang9.github.io/rexbox/)를 참고하세요.
 
 ## ✨ 주요 기능
 
@@ -131,13 +127,12 @@ $secondary: #4ecdc4;
 ## 📖 문서
 
 - [온라인 문서](https://irang9.github.io/rexbox/) - 모든 변수와 설정값 확인
-- [Sample Project](../sample-project/) - 사용 예제
 
 자세한 사용 예시는 [온라인 문서](https://irang9.github.io/rexbox/)를 참고하세요.
 
 ## 🔧 커스터마이징
 
-프로젝트별로 색상, spacing 등을 커스터마이징할 수 있습니다. 자세한 방법은 [sample-project](../sample-project/README.md)를 참고하세요.
+프로젝트별로 색상, spacing 등을 커스터마이징할 수 있습니다. 자세한 방법은 [온라인 문서](https://irang9.github.io/rexbox/)를 참고하세요.
 
 ## 📝 라이선스
 
