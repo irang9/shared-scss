@@ -19,24 +19,54 @@ TYPOGRAPHY_FILE = ROOT_DIR / "variables" / "_typo.scss"
 SPACING_FILE = ROOT_DIR / "variables" / "_spacing.scss"
 FONTS_VARIABLES_FILE = ROOT_DIR / "fonts" / "_variables.scss"
 
-# 네비게이션 메뉴
-NAV_ITEMS = [
-    {"title": "Home", "url": "index.html"},
-    {"title": "Sample", "url": "sample.html"},
-    {"title": "Theme", "url": "theme.html"},
-    {"title": "Color Palettes", "url": "color-palettes.html"},
-    {"title": "Typography", "url": "typography.html"},
-    {"title": "Fonts", "url": "fonts.html"},
-    {"title": "Breakpoints", "url": "breakpoints.html"},
-    {"title": "Spacing", "url": "spacing.html"},
-    {"title": "Width", "url": "width.html"},
-    {"title": "Container", "url": "container.html"},
-    {"title": "Borders", "url": "borders.html"},
-    {"title": "Buttons", "url": "buttons.html"},
-    {"title": "Stacks", "url": "stacks.html"},
-    {"title": "Responsive", "url": "responsive.html"},
-    {"title": "Vertical Rule", "url": "vertical-rule.html"},
-    {"title": "Mixins", "url": "mixins.html"},
+# 네비게이션 메뉴 (카테고리별 구조화)
+NAV_CATEGORIES = [
+    {
+        "title": "시작하기",
+        "items": [
+            {"title": "Home", "url": "index.html"},
+            {"title": "Sample", "url": "sample.html"},
+            {"title": "Theme", "url": "theme.html"},
+        ]
+    },
+    {
+        "title": "기본 설정",
+        "items": [
+            {"title": "Color Palettes", "url": "color-palettes.html"},
+            {"title": "Typography", "url": "typography.html"},
+            {"title": "Fonts", "url": "fonts.html"},
+            {"title": "Spacing", "url": "spacing.html"},
+        ]
+    },
+    {
+        "title": "레이아웃",
+        "items": [
+            {"title": "Breakpoints", "url": "breakpoints.html"},
+            {"title": "Container", "url": "container.html"},
+            {"title": "Width", "url": "width.html"},
+            {"title": "Stacks", "url": "stacks.html"},
+        ]
+    },
+    {
+        "title": "컴포넌트",
+        "items": [
+            {"title": "Buttons", "url": "buttons.html"},
+            {"title": "Borders", "url": "borders.html"},
+            {"title": "Vertical Rule", "url": "vertical-rule.html"},
+        ]
+    },
+    {
+        "title": "반응형",
+        "items": [
+            {"title": "Responsive", "url": "responsive.html"},
+        ]
+    },
+    {
+        "title": "개발자 도구",
+        "items": [
+            {"title": "Mixins", "url": "mixins.html"},
+        ]
+    },
 ]
 
 
@@ -58,14 +88,21 @@ def get_navigation(current_page: str = "", page_title: str = "") -> str:
             </a>
         </div>
         <nav class="docs-nav">
-            <ul class="docs-nav-list">
     """
-    for item in NAV_ITEMS:
-        active = ' active' if item["url"] == current_page else ""
-        nav_html += f'                <li><a href="{item["url"]}" class="docs-nav-link{active}">{item["title"]}</a></li>\n'
+    
+    for category in NAV_CATEGORIES:
+        nav_html += f'            <div class="docs-nav-category">\n'
+        nav_html += f'                <div class="docs-nav-category-title">{category["title"]}</div>\n'
+        nav_html += f'                <ul class="docs-nav-list">\n'
+        
+        for item in category["items"]:
+            active = ' active' if item["url"] == current_page else ""
+            nav_html += f'                    <li><a href="{item["url"]}" class="docs-nav-link{active}">{item["title"]}</a></li>\n'
+        
+        nav_html += f'                </ul>\n'
+        nav_html += f'            </div>\n'
     
     nav_html += """
-            </ul>
         </nav>
     </aside>
     """
@@ -2848,8 +2885,11 @@ def generate_index_page() -> str:
             <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;">
     """
     
-    for item in NAV_ITEMS[1:]:  # Home 제외
-        content += f"""
+    # 모든 카테고리의 모든 아이템을 가져오기 (Home 제외)
+    for category in NAV_CATEGORIES:
+        for item in category["items"]:
+            if item["url"] != "index.html":  # Home 제외
+                content += f"""
                 <a href="{item["url"]}" style="text-decoration: none; color: inherit;">
                     <div class="card" style="cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
                         <div class="card-title" style="font-size: 18px; margin-bottom: 8px;">{item["title"]}</div>

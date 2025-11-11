@@ -44,11 +44,11 @@ a, button {
   -o-transition: 0.3s;
 }
 
-/* Remove list styles (bullets/numbers) */
-ol, ul, menu {
-  list-style: none;
-}
-
+/* Remove list styles (bullets/numbers) - 제거됨 */
+/* Bootstrap 방식: 기본적으로 bullet을 표시하고, .list-unstyled로 숨길 수 있음 */
+/* ol, ul, menu {
+    list-style: none;
+} */
 /* For images to not be able to exceed their container */
 img {
   max-inline-size: 100%;
@@ -125,6 +125,30 @@ meter {
   all: revert;
 }
 
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.list-inline-item {
+  display: inline-block;
+}
+.list-inline-item:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
 .text-primary {
   color: #2563eb !important;
 }
@@ -177,6 +201,10 @@ meter {
   color: #22c55e !important;
 }
 
+.text-slate {
+  color: #64748b !important;
+}
+
 .text-success {
   color: #22c55e !important;
 }
@@ -202,7 +230,7 @@ meter {
 }
 
 .text-neutral {
-  color: #6b7280 !important;
+  color: #64748b !important;
 }
 
 .text-body {
@@ -225,7 +253,7 @@ meter {
 }
 
 .bg-dark {
-  background-color: #111827 !important;
+  background-color: #0f172a !important;
   color: #ffffff !important;
 }
 
@@ -268,6 +296,11 @@ meter {
   color: #ffffff !important;
 }
 
+.bg-slate {
+  background-color: #64748b !important;
+  color: #ffffff !important;
+}
+
 .bg-success {
   background-color: #22c55e !important;
   color: #ffffff !important;
@@ -299,7 +332,7 @@ meter {
 }
 
 .bg-neutral {
-  background-color: #6b7280 !important;
+  background-color: #64748b !important;
   color: #ffffff !important;
 }
 
@@ -380,6 +413,22 @@ meter {
   padding: 0.25rem 0.5rem;
   border-radius: 0.375rem;
   background-color: #22c55e !important;
+  color: #ffffff !important;
+}
+
+.bg-slate-subtle {
+  background-color: rgb(236.4, 238.32, 241.08) !important;
+  color: rgb(53.1, 57.9, 64.8) !important;
+}
+
+.text-bg-slate {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  background-color: #64748b !important;
   color: #ffffff !important;
 }
 
@@ -480,8 +529,8 @@ meter {
 }
 
 .bg-neutral-subtle {
-  background-color: rgb(237.24, 238.08, 239.76) !important;
-  color: rgb(55.2, 57.3, 61.5) !important;
+  background-color: rgb(236.4, 238.32, 241.08) !important;
+  color: rgb(53.1, 57.9, 64.8) !important;
 }
 
 .text-bg-neutral {
@@ -491,7 +540,7 @@ meter {
   font-weight: 500;
   padding: 0.25rem 0.5rem;
   border-radius: 0.375rem;
-  background-color: #6b7280 !important;
+  background-color: #64748b !important;
   color: #ffffff !important;
 }
 
@@ -535,7 +584,7 @@ meter {
   font-weight: 500;
   padding: 0.25rem 0.5rem;
   border-radius: 0.375rem;
-  background-color: #111827 !important;
+  background-color: #0f172a !important;
   color: #ffffff !important;
 }
 
@@ -1161,6 +1210,10 @@ meter {
   border-color: #3b82f6 !important;
 }
 
+.border-slate {
+  border-color: #64748b !important;
+}
+
 .border-light {
   border-color: #e2e8f0 !important;
 }
@@ -1186,7 +1239,7 @@ meter {
 }
 
 .border-neutral {
-  border-color: #6b7280 !important;
+  border-color: #64748b !important;
 }
 
 .border-slate-50 {
@@ -1580,6 +1633,23 @@ meter {
   border-color: rgb(26.4935064935, 153.5064935065, 73.2467532468);
 }
 
+.btn-slate {
+  color: #ffffff !important;
+  background-color: #64748b !important;
+  border-color: #64748b !important;
+}
+.btn-slate:hover {
+  background-color: rgb(89.3305439331, 103.6234309623, 124.1694560669);
+  border-color: rgb(89.3305439331, 103.6234309623, 124.1694560669);
+}
+.btn-slate:focus {
+  box-shadow: 0 0 0 0.25rem rgba(100, 116, 139, 0.25);
+}
+.btn-slate:active {
+  background-color: rgb(78.6610878661, 91.2468619247, 109.3389121339);
+  border-color: rgb(78.6610878661, 91.2468619247, 109.3389121339);
+}
+
 .btn-outline {
   color: #212121;
   background-color: transparent;
@@ -1727,6 +1797,25 @@ meter {
 .btn-outline-point:active {
   background-color: rgb(26.4935064935, 153.5064935065, 73.2467532468);
   border-color: rgb(26.4935064935, 153.5064935065, 73.2467532468);
+  color: #ffffff !important;
+}
+
+.btn-outline-slate {
+  color: #64748b !important;
+  background-color: transparent !important;
+  border-color: #64748b !important;
+}
+.btn-outline-slate:hover {
+  color: #ffffff !important;
+  background-color: #64748b !important;
+  border-color: #64748b !important;
+}
+.btn-outline-slate:focus {
+  box-shadow: 0 0 0 0.25rem rgba(100, 116, 139, 0.25);
+}
+.btn-outline-slate:active {
+  background-color: rgb(78.6610878661, 91.2468619247, 109.3389121339);
+  border-color: rgb(78.6610878661, 91.2468619247, 109.3389121339);
   color: #ffffff !important;
 }
 
@@ -1891,6 +1980,21 @@ meter {
 }
 .btn-ghost-point:active {
   background-color: rgba(34, 197, 94, 0.2);
+}
+
+.btn-ghost-slate {
+  color: #64748b !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+.btn-ghost-slate:hover {
+  background-color: rgba(100, 116, 139, 0.1);
+}
+.btn-ghost-slate:focus {
+  box-shadow: 0 0 0 0.25rem rgba(100, 116, 139, 0.15);
+}
+.btn-ghost-slate:active {
+  background-color: rgba(100, 116, 139, 0.2);
 }
 
 .btn-slate-50 {
@@ -4852,6 +4956,23 @@ meter {
   padding: 16px 0;
 }
 
+.docs-nav-category {
+  margin-bottom: 24px;
+}
+.docs-nav-category:last-child {
+  margin-bottom: 0;
+}
+
+.docs-nav-category-title {
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
 .docs-nav-list {
   list-style: none;
   margin: 0;
@@ -5110,3 +5231,5 @@ h1 {
   margin-bottom: 10px;
   font-size: 32px;
 }
+
+/*# sourceMappingURL=main.css.map */
